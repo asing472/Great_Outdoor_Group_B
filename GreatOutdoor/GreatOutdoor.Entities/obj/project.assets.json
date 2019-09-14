@@ -201,11 +201,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
+      "projectUniqueName": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
       "projectName": "GreatOutdoor.Entities",
-      "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
+      "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
       "packagesPath": "C:\\Users\\prafshar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Entities\\obj\\",
+      "outputPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -224,8 +224,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
-              "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
+            "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
+              "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
             }
           }
         }

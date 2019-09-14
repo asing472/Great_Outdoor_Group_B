@@ -256,11 +256,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj",
       "projectName": "GreatOutdoor.BusinessLayer",
-      "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj",
+      "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj",
       "packagesPath": "C:\\Users\\prafshar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\obj\\",
+      "outputPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -279,17 +279,17 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj"
+            "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj"
             },
-            "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj": {
-              "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj"
+            "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj": {
+              "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj"
             },
-            "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
-              "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
+            "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
+              "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
             },
-            "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj": {
-              "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj"
+            "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj": {
+              "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj"
             }
           }
         }
