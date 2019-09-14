@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GreatOutdoor.DataAccessLayer\GreatOutdoor.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\GreatOutdoor.Entities\GreatOutdoor.Entities.csproj" />
+    <ProjectReference Include="..\GreatOutdoor.Exceptions\GreatOutdoor.Exceptions.csproj" />
+  </ItemGroup>
+
+</Project>
