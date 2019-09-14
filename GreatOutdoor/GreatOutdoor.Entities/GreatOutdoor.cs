@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,31 +39,36 @@ namespace GreatOutdoor.Entities
         }
     }
 
-    class SalesPerson
+   public class SalesPerson
     {
-        //fields
-        private string _salesPersonName;
-        private int _salesPersonId;
-        private string _salesPersonMobileno;
-        private string _salesPersonEmail;
-        static int x = 1;
+        
+     }
+    public class Admin
+    {
+        private int adminID;
 
-        public string SalesPersonName { get => _salesPersonName; set => _salesPersonName = value; }
-        public int SalesPersonId { get => _salesPersonId; set => _salesPersonId = value; }
-        public string SalesPersonMobileno { get => _salesPersonMobileno; set => _salesPersonMobileno = value; }
-        public string SalesPersonEmail { get => SalesPersonEmail1; set => SalesPersonEmail1 = value; }
-        public string SalesPersonEmail1 { get => _salesPersonEmail; set => _salesPersonEmail = value; }
-        
-        public SalesPerson()
+        public int AdminID
         {
-         _salesPersonName = ;
-        
-        _salesPersonMobileno;
-       _salesPersonEmail;
+            get { return adminID; }
+            set { adminID = value; }
+        }
+        private string adminName;
+
+        public string AdminName
+        {
+            get { return adminName; }
+            set { adminName = value; }
+        }
+        private string adminContactNumber;
+
+        public string AdminContactNumber
+        {
+            get { return adminContactNumber; }
+            set { adminContactNumber = value; }
+        }
 
 
     }
-}
 
     
  }
