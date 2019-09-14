@@ -1,0 +1,4 @@
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.csprojAssemblyReference.cache
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.csproj.CoreCompileInputs.cache
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.AssemblyInfoInputs.cache
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.AssemblyInfo.cs
