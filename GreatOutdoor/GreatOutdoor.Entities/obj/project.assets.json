@@ -201,11 +201,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\cchowdar\\Desktop\\c#labs\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
       "projectName": "GreatOutdoor.Entities",
       "projectPath": "C:\\Users\\cchowdar\\Desktop\\c#labs\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
       "packagesPath": "C:\\Users\\cchowdar\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\cchowdar\\Desktop\\c#labs\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
+      "projectName": "GreatOutdoor.Entities",
+      "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
+      "packagesPath": "C:\\Users\\prafshar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\obj\\",
+>>>>>>> f6c7f923b75fead98f9003f1af1ed9a8c271ba4d
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -224,8 +232,13 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\cchowdar\\Desktop\\c#labs\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
               "projectPath": "C:\\Users\\cchowdar\\Desktop\\c#labs\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
+=======
+            "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
+              "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
+>>>>>>> f6c7f923b75fead98f9003f1af1ed9a8c271ba4d
             }
           }
         }
