@@ -761,23 +761,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\prafu\\.nuget\\packages\\": {},
+    "C:\\Users\\Abhishek\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj",
+      "projectUniqueName": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj",
       "projectName": "GreatOutdoor.Presentation",
-      "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj",
-      "packagesPath": "C:\\Users\\prafu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\obj\\",
+      "projectPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj",
+      "packagesPath": "C:\\Users\\Abhishek\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\prafu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Abhishek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -790,8 +790,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj": {
-              "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj"
+            "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj"
             }
           }
         }
@@ -806,6 +806,7 @@
       "netcoreapp2.1": {
         "dependencies": {
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

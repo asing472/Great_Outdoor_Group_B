@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj": {}
+    "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj": {
+    "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj",
         "projectName": "GreatOutdoor.DataAccessLayer",
-        "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\prafu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\obj\\",
+        "projectPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\Abhishek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\prafu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Abhishek\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,11 +30,11 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj": {
-                "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj"
+              "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj": {
+                "projectPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj"
               },
-              "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
-                "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
+              "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
+                "projectPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
               }
             }
           }
@@ -63,20 +63,20 @@
         }
       }
     },
-    "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj": {
+    "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
         "projectName": "GreatOutdoor.Entities",
-        "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
-        "packagesPath": "C:\\Users\\prafu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\obj\\",
+        "projectPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj",
+        "packagesPath": "C:\\Users\\Abhishek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\prafu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Abhishek\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,8 +89,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
-                "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
+              "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
+                "projectPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
               }
             }
           }
@@ -119,20 +119,20 @@
         }
       }
     },
-    "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
+    "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
+        "projectUniqueName": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
         "projectName": "GreatOutdoor.Exceptions",
-        "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
-        "packagesPath": "C:\\Users\\prafu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\",
+        "projectPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
+        "packagesPath": "C:\\Users\\Abhishek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Abhishek\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\prafu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Abhishek\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
