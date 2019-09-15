@@ -30,7 +30,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
+      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -179,31 +179,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cchowdar\\.nuget\\packages\\": {},
+    "C:\\Users\\prafu\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\cchowdar\\Desktop\\c#labs\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
+      "projectUniqueName": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
       "projectName": "GreatOutdoor.Exceptions",
-      "projectPath": "C:\\Users\\cchowdar\\Desktop\\c#labs\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
-      "packagesPath": "C:\\Users\\cchowdar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cchowdar\\Desktop\\c#labs\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
-      "projectName": "GreatOutdoor.Exceptions",
-      "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
-      "packagesPath": "C:\\Users\\prafshar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\",
->>>>>>> f6c7f923b75fead98f9003f1af1ed9a8c271ba4d
+      "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
+      "packagesPath": "C:\\Users\\prafu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\cchowdar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\prafu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -241,5 +233,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\GreatOutdoor.Exceptions.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
