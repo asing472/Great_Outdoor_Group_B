@@ -12,8 +12,8 @@ namespace GreatOutdoor.Entities
     public class Retailers
     {
         private string _retailerName;
-        private string _retaileremail;
-        private string _retailermobile;
+        private string _retailerEmail;
+        private string _retailerMobile;
         private static int _retailerID =0;
 
 
@@ -23,16 +23,16 @@ namespace GreatOutdoor.Entities
 
        
         public string RetailerName { get => _retailerName; set => _retailerName = value; }
-        public string Retaileremail { get => _retaileremail; set => _retaileremail = value; }
-        public string Retailermobile { get => _retailermobile; set => _retailermobile = value; }
-        public static int RetailerID { get => _retailerID; set => _retailerID = value; }
+        public string RetailerEmail { get => _retailerEmail; set => _retailerEmail = value; }
+        public string RetailerMobile { get => _retailerMobile; set => _retailerMobile = value; }
+        public  int RetailerID { get => _retailerID; set => _retailerID = value; }
 
         public Retailers()
         {
-            
+            _retailerID = 0;
             _retailerName = string.Empty;
-            _retailermobile = string.Empty;
-            _retaileremail = string.Empty;
+            _retailerMobile = string.Empty;
+            _retailerEmail = string.Empty;
 
 
         }

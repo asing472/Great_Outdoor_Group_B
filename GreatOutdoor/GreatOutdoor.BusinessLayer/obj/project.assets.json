@@ -62,16 +62,6 @@
         "runtime": {
           "bin/placeholder/GreatOutdoor.Exceptions.dll": {}
         }
-      },
-      "GreatOutdoor.Presentation/1.0.0": {
-        "type": "project",
-        "framework": "Unsupported,Version=v0.0",
-        "compile": {
-          "bin/placeholder/GreatOutdoor.Presentation.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GreatOutdoor.Presentation.dll": {}
-        }
       }
     }
   },
@@ -233,11 +223,6 @@
       "type": "project",
       "path": "../GreatOutdoor.Exceptions/GreatOutdoor.Exceptions.csproj",
       "msbuildProject": "../GreatOutdoor.Exceptions/GreatOutdoor.Exceptions.csproj"
-    },
-    "GreatOutdoor.Presentation/1.0.0": {
-      "type": "project",
-      "path": "../GreatOutdoor.Presentation/GreatOutdoor.Presentation.csproj",
-      "msbuildProject": "../GreatOutdoor.Presentation/GreatOutdoor.Presentation.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -245,7 +230,6 @@
       "GreatOutdoor.DataAccessLayer >= 1.0.0",
       "GreatOutdoor.Entities >= 1.0.0",
       "GreatOutdoor.Exceptions >= 1.0.0",
-      "GreatOutdoor.Presentation >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -287,9 +271,6 @@
             },
             "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
               "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
-            },
-            "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj": {
-              "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj"
             }
           }
         }
@@ -317,22 +298,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\obj\\GreatOutdoor.BusinessLayer.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project GreatOutdoor.Presentation is not compatible with netstandard2.0 (.NETStandard,Version=v2.0). Project GreatOutdoor.Presentation supports: netcoreapp2.1 (.NETCoreApp,Version=v2.1)",
-      "libraryId": "GreatOutdoor.Presentation",
-      "targetGraphs": [
-        ".NETStandard,Version=v2.0"
-      ]
-    }
-  ]
+  }
 }

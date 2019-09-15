@@ -3,24 +3,43 @@ using GreatOutdoor;
 using GreatOutdoor.Entities;
 using GreatOutdoor.Exceptions;
 using GreatOutdoor.DataAccessLayer;
+using GreatOutdoor.BusinessLayer;
 namespace GreatOutdoor.Presentation
 
 {
     class Program
     {
-        static int number = 1;
-        static void Main(string[] args)
+        static void Main()
         {
-            int choice;
-            Console.WriteLine("Enter Your Choice");
-            choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
+            try
             {
-                case 1: Retailer();break;
+                int choice;
+                do
+                {
+                    Console.WriteLine("Enter Your Choice");
+                    choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1: Retailer(); break;
+
+                    }
+
+                } while (choice != -1);
+
+
 
             }
+            catch (Exception )
+            {
 
-                
+                Console.WriteLine("Error Occured Sorry"); ;
+            }
+            finally
+            {
+                Console.WriteLine("Retry");
+                Program.Main();
+
+            }
         }
 
         public static void Retailer()
@@ -34,7 +53,7 @@ namespace GreatOutdoor.Presentation
                     AddRetailer();
                     break;
                 case 2:
-                    SearchRetailerByID();
+                    GetRetailerByID();
                     break;
                 case 3:
                     UpdateRetailer();
@@ -60,10 +79,22 @@ namespace GreatOutdoor.Presentation
                 int deleteRetailerID;
                 Console.WriteLine("Enter RetailerID to Delete:");
                 deleteRetailerID = Convert.ToInt32(Console.ReadLine());
-                RetailersDAL guestDAL = new RetailersDAL();
-               bool  guestDeleted = guestDAL.DeleteRetailerDAL(deleteRetailerID);
-  
-                
+               
+                Retailers deleteRetailer = RetailersBL.GetRetailerByIDBL(deleteRetailerID);
+                if (deleteRetailer != null)
+                {
+                    bool guestdeleted = RetailersBL.DeleteRetailerBL(deleteRetailerID);
+                    if (guestdeleted)
+                        Console.WriteLine("Retailer Deleted");
+                    else
+                        Console.WriteLine("Retailer not Deleted ");
+                }
+                else
+                {
+                    Console.WriteLine("No Retailer Details Available");
+                }
+
+
 
 
             }
@@ -81,14 +112,16 @@ namespace GreatOutdoor.Presentation
                 Console.WriteLine("Enter RetailerID to Update Details:");
                 updateRetailerID = Convert.ToInt32(Console.ReadLine());
                 RetailersDAL retailerDAL = new RetailersDAL();
-                Retailers updatedGuest = retailerDAL.SearchRetailerDAL(updateRetailerID);
-                if (updatedGuest != null)
+                Retailers updatedRetailer = retailerDAL.GetRetailerByIDDAL(updateRetailerID-1);
+                if (updatedRetailer != null)
                 {
-                    Console.WriteLine("Update Retailer Name :");
-                    updatedGuest.RetailerName = Console.ReadLine();
-                    Console.WriteLine("Update PhoneNumber :");
-                    updatedGuest.RetailerMobile = Console.ReadLine();
-                    bool guestUpdated = retailerDAL.UpdateRetailerDAL(updatedGuest);
+                    Console.WriteLine("New Retailer Name :");
+                    updatedRetailer.RetailerName = Console.ReadLine();
+                    Console.WriteLine("New PhoneNumber :");
+                    updatedRetailer.RetailerMobile = Console.ReadLine();
+                    Console.WriteLine("New Retailer Email");
+                    updatedRetailer.RetailerEmail = Console.ReadLine();
+                    bool guestUpdated = retailerDAL.UpdateRetailerDetailDAL(updatedRetailer);
                     if (guestUpdated)
                         Console.WriteLine("Retailer Details Updated");
                     else
@@ -107,7 +140,7 @@ namespace GreatOutdoor.Presentation
             }
         }
 
-        private static void SearchRetailerByID()
+        private static void GetRetailerByID()
         {
             try
             {
@@ -115,7 +148,7 @@ namespace GreatOutdoor.Presentation
                 Console.WriteLine("Enter RetailerID to Search:");
                 searchRetailerID = Convert.ToInt32(Console.ReadLine());
                 RetailersDAL retailersDAL = new RetailersDAL();
-                Retailers searchRetailers = retailersDAL.SearchRetailerDAL(searchRetailerID);
+                Retailers searchRetailers = retailersDAL.GetRetailerByIDDAL(searchRetailerID);
                 if (searchRetailers != null)
                 {
                     Console.WriteLine("******************************************************************************");
@@ -141,14 +174,17 @@ namespace GreatOutdoor.Presentation
             try
             {
                 Retailers newRetailer = new Retailers();
-                newRetailer.RetailerID = number;number++;
                 Console.WriteLine("Enter Retailer Name :");
                 newRetailer.RetailerName = Console.ReadLine();
                 Console.WriteLine("Enter PhoneNumber :");
                 newRetailer.RetailerMobile = Console.ReadLine();
                 Console.WriteLine("Enter Retailers Email");
                 newRetailer.RetailerEmail= Console.ReadLine();
-                Console.WriteLine("Your RetailerId:" + newRetailer.RetailerID);
+                bool retailerAdded = RetailersBL.AddRetailerBL(newRetailer);
+                if (retailerAdded)
+                    Console.WriteLine("Retailer Added");
+                else
+                    Console.WriteLine("Retailer Not Added");
 
             }
             catch (GreatOutdoorException ex)

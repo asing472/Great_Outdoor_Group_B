@@ -1,0 +1,78 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "GreatOutdoor.Presentation/1.0.0": {
+        "dependencies": {
+          "GreatOutdoor.BusinessLayer": "1.0.0"
+        },
+        "runtime": {
+          "GreatOutdoor.Presentation.dll": {}
+        }
+      },
+      "GreatOutdoor.BusinessLayer/1.0.0": {
+        "dependencies": {
+          "GreatOutdoor.DataAccessLayer": "1.0.0",
+          "GreatOutdoor.Entities": "1.0.0",
+          "GreatOutdoor.Exceptions": "1.0.0"
+        },
+        "runtime": {
+          "GreatOutdoor.BusinessLayer.dll": {}
+        }
+      },
+      "GreatOutdoor.DataAccessLayer/1.0.0": {
+        "dependencies": {
+          "GreatOutdoor.Entities": "1.0.0",
+          "GreatOutdoor.Exceptions": "1.0.0"
+        },
+        "runtime": {
+          "GreatOutdoor.DataAccessLayer.dll": {}
+        }
+      },
+      "GreatOutdoor.Entities/1.0.0": {
+        "dependencies": {
+          "GreatOutdoor.Exceptions": "1.0.0"
+        },
+        "runtime": {
+          "GreatOutdoor.Entities.dll": {}
+        }
+      },
+      "GreatOutdoor.Exceptions/1.0.0": {
+        "runtime": {
+          "GreatOutdoor.Exceptions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GreatOutdoor.Presentation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GreatOutdoor.BusinessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GreatOutdoor.DataAccessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GreatOutdoor.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GreatOutdoor.Exceptions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

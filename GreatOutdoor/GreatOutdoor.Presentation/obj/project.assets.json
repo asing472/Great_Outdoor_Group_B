@@ -208,6 +208,21 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "GreatOutdoor.BusinessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "GreatOutdoor.DataAccessLayer": "1.0.0",
+          "GreatOutdoor.Entities": "1.0.0",
+          "GreatOutdoor.Exceptions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GreatOutdoor.BusinessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GreatOutdoor.BusinessLayer.dll": {}
+        }
+      },
       "GreatOutdoor.DataAccessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -718,6 +733,11 @@
         "netstandard.library.nuspec"
       ]
     },
+    "GreatOutdoor.BusinessLayer/1.0.0": {
+      "type": "project",
+      "path": "../GreatOutdoor.BusinessLayer/GreatOutdoor.BusinessLayer.csproj",
+      "msbuildProject": "../GreatOutdoor.BusinessLayer/GreatOutdoor.BusinessLayer.csproj"
+    },
     "GreatOutdoor.DataAccessLayer/1.0.0": {
       "type": "project",
       "path": "../GreatOutdoor.DataAccessLayer/GreatOutdoor.DataAccessLayer.csproj",
@@ -736,9 +756,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "GreatOutdoor.DataAccessLayer >= 1.0.0",
-      "GreatOutdoor.Entities >= 1.0.0",
-      "GreatOutdoor.Exceptions >= 1.0.0",
+      "GreatOutdoor.BusinessLayer >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -772,14 +790,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj"
-            },
-            "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj": {
-              "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj"
-            },
-            "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
-              "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
+            "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj"
             }
           }
         }
@@ -806,13 +818,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\prafu\\OneDrive - morph B2B partnerships\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\obj\\GreatOutdoor.Presentation.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
