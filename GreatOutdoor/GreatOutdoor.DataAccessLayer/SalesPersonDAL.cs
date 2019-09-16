@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 
 namespace GreatOutdoor.DataAccessLayer
 {
+    //Sales Person Data Layer Abstract Class
     public abstract class SalesPersonDALAbstract
     {
         public abstract bool AddSalesPersonDAL(SalesPerson newSalesPerson);
@@ -26,7 +27,7 @@ namespace GreatOutdoor.DataAccessLayer
         public abstract void Deserialize();
     }
 
-    [Serializable]
+    [Serializable]//Making Class Serializable
     public class SalesPersonDAL : SalesPersonDALAbstract
     {
         public static List<SalesPerson> SalesPersonList = new List<SalesPerson>();
@@ -37,12 +38,12 @@ namespace GreatOutdoor.DataAccessLayer
         {
             bool SalesPersonAdded = false;
             try
-            {
+            {   // Json file storage
                 newSalesPerson.SalesPersonID = SalesPersonList.Count + 1;
                 SalesPersonList.Add(newSalesPerson);
                 string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(SalesPersonList, Newtonsoft.Json.Formatting.Indented);
                 string path = AppDomain.CurrentDomain.BaseDirectory;
-                string Path = "path" + "\retiler.json";
+                string Path = "path" + "\Retiler.json";
                 File.WriteAllText(Path, outputJson);
 
                 SalesPersonAdded = true;

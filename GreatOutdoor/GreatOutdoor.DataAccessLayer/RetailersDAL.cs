@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 
 namespace GreatOutdoor.DataAccessLayer
 {
+    //Abstract Class of Data Acess Layer of Retailer
     public abstract class RetailersDALAbstract
     {
         public abstract bool AddRetailerDAL(Retailer newRetailer);
@@ -26,7 +27,7 @@ namespace GreatOutdoor.DataAccessLayer
         public abstract void Deserialize();
     }
 
-    [Serializable]
+    [Serializable]//Making class serializable
     public class RetailersDAL : RetailersDALAbstract
     {
         public static List<Retailer> retailerList = new List<Retailer>();
@@ -37,7 +38,7 @@ namespace GreatOutdoor.DataAccessLayer
         {
             bool RetailerAdded = false;
             try
-            {
+            {   // Saving File as JSON file
                 newRetailer.RetailerID = retailerList.Count+1;
                 retailerList.Add(newRetailer);
                 string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(retailerList, Newtonsoft.Json.Formatting.Indented);
@@ -54,18 +55,20 @@ namespace GreatOutdoor.DataAccessLayer
             return RetailerAdded;
         }
 
+        //Having a List of All retailer
         public override List<Retailer> GetAllRetailersDAL()
         {
             return retailerList;
         }
 
+        //Searching Reatiler By ReatilerID
         public override Retailer GetRetailerByIDDAL(int GetRetailerID)
         {
             Retailer searchRetailer = null;
             try
             {
                 if (File.Exists("Path"))
-                {
+                { //Reading the JSON File
                     StreamReader r = new StreamReader("Path");
                         string json = r.ReadToEnd();
                     List<Retailer> retailerLists = new List<Retailer>();
@@ -88,6 +91,7 @@ namespace GreatOutdoor.DataAccessLayer
             return searchRetailer;
         }
 
+        // Searching Retailers By Name
         public override List<Retailer> GetRetailersByNameDAL(string RetailerName)
         {
             List<Retailer> searchRetailer = new List<Retailer>();
@@ -108,6 +112,7 @@ namespace GreatOutdoor.DataAccessLayer
             return searchRetailer;
         }
 
+        // Updating Reatilers
         public override bool UpdateRetailerDetailDAL(Retailer updateRetailer)
         {
             bool RetailerUpdated = false;
@@ -131,7 +136,7 @@ namespace GreatOutdoor.DataAccessLayer
             return RetailerUpdated;
 
         }
-
+        // Deleting Retailer
         public override bool DeleteRetailerDAL(int deleteRetailerID)
         {
             bool RetailerDeleted = false;
@@ -159,6 +164,7 @@ namespace GreatOutdoor.DataAccessLayer
             return RetailerDeleted;
         }
 
+        // Searializing Data of list in File
         public override void Serialize()
         {
             this.retailerListToSerialize = retailerList;
@@ -167,7 +173,7 @@ namespace GreatOutdoor.DataAccessLayer
             binaryFormatter.Serialize(fs1, this);
             fs1.Close();
         }
-
+        // Deserialzing Data of Field in File
         public override void Deserialize()
         {
             FileStream fs2 = new FileStream(filePath, FileMode.Open, FileAccess.Read);
