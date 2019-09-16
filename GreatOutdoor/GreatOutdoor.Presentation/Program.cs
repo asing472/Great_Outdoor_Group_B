@@ -10,24 +10,61 @@ namespace GreatOutdoor.Presentation
 {
     class Program
     {
-        static void Main()
+        public static void Main()
         {
             try
             {
-                int choice;
+                int choice=1;
                 do
                 {
-                    WriteLine("1.Admin \n2.Saleperson \n3.Retailer");
-                    WriteLine("Enter the user category number");
+                    string username, password, pass;
+                    
                     Console.WriteLine("Enter Your Choice");
-                    choice = Convert.ToInt32(Console.ReadLine());
-                    switch (choice)
+                    Console.WriteLine("1.Admin \n2.Saleperson \n3.Retailer\n4.Exit");
+                    int option = int.Parse(ReadLine());
+
+                    if (option == 1)//if user is admin
                     {
-                        case 1: Retailer(); break;
+                        Admin ad = new Admin();
+                        WriteLine("welcome admin");
+                        WriteLine("enter username");
+                        username = ReadLine();
 
                     }
+                    else if (option == 2)
+                    {
+                        SalesPerson sp = new SalesPerson();
+                        WriteLine("welcome salesperson");
+                        WriteLine("enter username");
+                        username = ReadLine();
+                    }
 
-                } while (choice != -1);
+                    else if (option == 3)//if user is retailer
+                    {
+                        Retailers ret = new Retailers();
+
+
+                        int option1;
+                        WriteLine("enter option\n1.existing user\n2.new user");
+                        option1 = int.Parse(ReadLine());
+                        if (option1 == 1)
+                        {
+                            WriteLine("welcome retailer");
+                            WriteLine("enter username");
+                            username = ReadLine();
+                        }
+                    }
+                    else if (option == 4)//if user is retailer
+                    { WriteLine("closing the application");
+                        choice = 0;
+                    }
+                    else//if user enters incorrect category
+                    {
+                        WriteLine("Invalid option \nPlease enter valid category number");
+                        Main();
+                    }
+
+                } while (choice <1);
 
 
 
