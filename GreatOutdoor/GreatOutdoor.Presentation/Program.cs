@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 using GreatOutdoor;
 using GreatOutdoor.Entities;
 using GreatOutdoor.Exceptions;
@@ -16,6 +17,8 @@ namespace GreatOutdoor.Presentation
                 int choice;
                 do
                 {
+                    WriteLine("1.Admin \n2.Saleperson \n3.Retailer");
+                    WriteLine("Enter the user category number");
                     Console.WriteLine("Enter Your Choice");
                     choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
