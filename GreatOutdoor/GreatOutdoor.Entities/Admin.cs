@@ -45,5 +45,16 @@ namespace GreatOutdoor.Entities
             get { return adminpassword; }
             set { adminpassword = value; }
         }
+        //intializing the default values of admin fields to null
+        public Admin()
+        {
+            adminID = 0;
+            adminName = string.Empty;
+            adminmobileno = 0;
+            adminEmail = string.Empty;
+            adminusername = string.Empty;
+            adminpassword = string.Empty;
+
+        }
     }
 }
