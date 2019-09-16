@@ -1,0 +1,6 @@
+C:\Project\Product\Product.Entities\bin\Debug\Product.Entities.dll
+C:\Project\Product\Product.Entities\bin\Debug\Product.Entities.pdb
+C:\Project\Product\Product.Entities\obj\Debug\Product.Entities.csprojAssemblyReference.cache
+C:\Project\Product\Product.Entities\obj\Debug\Product.Entities.csproj.CoreCompileInputs.cache
+C:\Project\Product\Product.Entities\obj\Debug\Product.Entities.dll
+C:\Project\Product\Product.Entities\obj\Debug\Product.Entities.pdb
