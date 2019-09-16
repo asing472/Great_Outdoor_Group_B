@@ -10,7 +10,7 @@ namespace GreatOutdoor.BusinessLayer
 
     public class OfflineReturn_BL
     {
-        private static bool ValidateOfflineReturn(OfflineReturn OfflineReturnobj)
+        private static bool ValidateOfflineReturn(OfflineReturns OfflineReturnobj)
         {
             StringBuilder sb = new StringBuilder();
             bool validOfflineReturn = true;
@@ -57,7 +57,7 @@ namespace GreatOutdoor.BusinessLayer
             return validOfflineReturn;
         }
 
-        public static bool AddOfflineReturnBL(OfflineReturn newOfflineReturn)
+        public static bool AddOfflineReturnBL(OfflineReturns newOfflineReturn)
         {
             bool OfflineReturnAdded = false;
             try
@@ -80,9 +80,9 @@ namespace GreatOutdoor.BusinessLayer
             return OfflineReturnAdded;
         }
 
-        public static List<OfflineReturn> GetAllOfflineReturnsBL()
+        public static List<OfflineReturns> GetAllOfflineReturnsBL()
         {
-            List<OfflineReturn> OfflineReturnList = null;
+            List<OfflineReturns> OfflineReturnList = null;
             try
             {
                 OfflineReturnDAL OfflineReturnDAL = new OfflineReturnDAL();
@@ -99,9 +99,9 @@ namespace GreatOutdoor.BusinessLayer
             return OfflineReturnList;
         }
 
-        public static OfflineReturn SearchOfflineReturnBL(int searchOfflineReturnID)
+        public static OfflineReturns SearchOfflineReturnBL(int searchOfflineReturnID)
         {
-            OfflineReturn searchOfflineReturn = null;
+            OfflineReturns searchOfflineReturn = null;
             try
             {
                 OfflineReturnDAL OfflineReturnDAL = new OfflineReturnDAL();
@@ -119,7 +119,7 @@ namespace GreatOutdoor.BusinessLayer
 
         }
 
-        public static bool UpdateOfflineReturnBL(OfflineReturn updateOfflineReturn)
+        public static bool UpdateOfflineReturnBL(OfflineReturns updateOfflineReturn)
         {
             bool OfflineReturnUpdated = false;
             try

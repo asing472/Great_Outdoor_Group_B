@@ -43,7 +43,7 @@ namespace GreatOutdoor.DataAccessLayer
                 SalesPersonList.Add(newSalesPerson);
                 string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(SalesPersonList, Newtonsoft.Json.Formatting.Indented);
                 string path = AppDomain.CurrentDomain.BaseDirectory;
-                string Path = "path" + "\Retiler.json";
+                string Path = "path" + "Retiler.json";
                 File.WriteAllText(Path, outputJson);
 
                 SalesPersonAdded = true;

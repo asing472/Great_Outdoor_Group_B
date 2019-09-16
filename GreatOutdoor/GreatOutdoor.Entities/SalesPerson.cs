@@ -4,6 +4,7 @@ using System.Text;
 
 namespace GreatOutdoor.Entities
 {
+    // Sales Person Interface
     public interface ISalesPerson
     {
         string SalesPersonName { get; set; }
