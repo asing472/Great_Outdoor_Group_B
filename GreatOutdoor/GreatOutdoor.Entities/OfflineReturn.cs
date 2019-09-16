@@ -15,7 +15,7 @@ namespace GreatOutdoor.Entities
             public int ProductID { get; set; }
             public double ReturnValue { get; set; }
             public int ReturnQuantity { get; set; }
-            public string ReasonForReturn { get; set; } }
+            public string ReasonForReturn { get; set; }
      }
 }
 
