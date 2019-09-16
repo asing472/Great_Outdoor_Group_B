@@ -27,8 +27,12 @@ namespace GreatOutdoor.Presentation
                     {
                         Admin ad = new Admin();
                         WriteLine("welcome admin");
-                        WriteLine("enter username");
-                        username = ReadLine();
+                        WriteLine("enter your admin id");
+                        int id = int.Parse(ReadLine());
+                        if(AdminBL.SearchAdminBL(id) == null)
+                        {
+                            WriteLine("adminid is not existed");
+                        }
 
                     }
                     else if (option == 2)
@@ -41,7 +45,7 @@ namespace GreatOutdoor.Presentation
 
                     else if (option == 3)//if user is retailer
                     {
-                        Retailers ret = new Retailers();
+                        Retailer ret = new Retailer();
 
 
                         int option1;
@@ -80,6 +84,9 @@ namespace GreatOutdoor.Presentation
                 Program.Main();
 
             }
+        
+
+
         }
 
         public static void Retailer()
