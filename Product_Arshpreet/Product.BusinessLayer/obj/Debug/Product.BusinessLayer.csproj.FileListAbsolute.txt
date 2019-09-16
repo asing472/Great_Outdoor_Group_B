@@ -1,0 +1,6 @@
+C:\Project\Product\Product.BusinessLayer\bin\Debug\Product.BusinessLayer.dll
+C:\Project\Product\Product.BusinessLayer\bin\Debug\Product.BusinessLayer.pdb
+C:\Project\Product\Product.BusinessLayer\obj\Debug\Product.BusinessLayer.csprojAssemblyReference.cache
+C:\Project\Product\Product.BusinessLayer\obj\Debug\Product.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Project\Product\Product.BusinessLayer\obj\Debug\Product.BusinessLayer.dll
+C:\Project\Product\Product.BusinessLayer\obj\Debug\Product.BusinessLayer.pdb

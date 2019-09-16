@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 using GreatOutdoor;
 using GreatOutdoor.Entities;
 using GreatOutdoor.Exceptions;
@@ -16,6 +17,8 @@ namespace GreatOutdoor.Presentation
                 int choice;
                 do
                 {
+                    WriteLine("1.Admin \n2.Saleperson \n3.Retailer");
+                    WriteLine("Enter the user category number");
                     Console.WriteLine("Enter Your Choice");
                     choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
@@ -203,6 +206,39 @@ namespace GreatOutdoor.Presentation
             Console.WriteLine("5. Exit");
             Console.WriteLine("******************************************\n");
 
+        }
+
+        private static void UpdateAdmin()
+        {
+            try
+            {
+                int updateAdminID;
+                Console.WriteLine("Enter AdminID to Update Details:");
+                updateAdminID = Convert.ToInt32(Console.ReadLine());
+                Admin updatedAdmin = AdminBL.SearchAdminBL(updateAdminID);
+                if (updatedAdmin != null)
+                {
+                    Console.WriteLine("Update Admin Name :");
+                    updatedAdmin.AdminName = Console.ReadLine();
+                    Console.WriteLine("Update PhoneNumber :");
+                    updatedAdmin.AdminContactNumber = int.Parse(Console.ReadLine());
+                    bool AdminUpdated = AdminBL.UpdateAdminBL(updatedAdmin);
+                    if (AdminUpdated)
+                        Console.WriteLine("Admin Details Updated");
+                    else
+                        Console.WriteLine("Admin Details not Updated ");
+                }
+                else
+                {
+                    Console.WriteLine("No Admin Details Available");
+                }
+
+
+            }
+            catch (GreatOutdoorException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
