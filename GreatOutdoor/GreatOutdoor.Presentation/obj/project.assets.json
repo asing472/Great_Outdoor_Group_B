@@ -208,6 +208,21 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "GreatOutdoor.BusinessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "GreatOutdoor.DataAccessLayer": "1.0.0",
+          "GreatOutdoor.Entities": "1.0.0",
+          "GreatOutdoor.Exceptions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GreatOutdoor.BusinessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GreatOutdoor.BusinessLayer.dll": {}
+        }
+      },
       "GreatOutdoor.DataAccessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -718,6 +733,11 @@
         "netstandard.library.nuspec"
       ]
     },
+    "GreatOutdoor.BusinessLayer/1.0.0": {
+      "type": "project",
+      "path": "../GreatOutdoor.BusinessLayer/GreatOutdoor.BusinessLayer.csproj",
+      "msbuildProject": "../GreatOutdoor.BusinessLayer/GreatOutdoor.BusinessLayer.csproj"
+    },
     "GreatOutdoor.DataAccessLayer/1.0.0": {
       "type": "project",
       "path": "../GreatOutdoor.DataAccessLayer/GreatOutdoor.DataAccessLayer.csproj",
@@ -736,9 +756,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "GreatOutdoor.DataAccessLayer >= 1.0.0",
-      "GreatOutdoor.Entities >= 1.0.0",
-      "GreatOutdoor.Exceptions >= 1.0.0",
+      "GreatOutdoor.BusinessLayer >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -749,11 +767,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj",
+      "projectUniqueName": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj",
       "projectName": "GreatOutdoor.Presentation",
-      "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj",
+      "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\GreatOutdoor.Presentation.csproj",
       "packagesPath": "C:\\Users\\prafshar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Presentation\\obj\\",
+      "outputPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -772,14 +790,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.DataAccessLayer\\GreatOutdoor.DataAccessLayer.csproj"
-            },
-            "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj": {
-              "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Entities\\GreatOutdoor.Entities.csproj"
-            },
-            "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj": {
-              "projectPath": "C:\\Users\\prafshar\\Documents\\Lab\\Great_Outdoor\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj"
+            "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.BusinessLayer\\GreatOutdoor.BusinessLayer.csproj"
             }
           }
         }
@@ -806,5 +818,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Presentation\\obj\\GreatOutdoor.Presentation.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

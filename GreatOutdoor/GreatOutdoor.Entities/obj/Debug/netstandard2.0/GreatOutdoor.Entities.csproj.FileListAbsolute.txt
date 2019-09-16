@@ -1,0 +1,30 @@
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Entities.deps.json
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Entities.dll
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Entities.pdb
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.csprojAssemblyReference.cache
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.csproj.CoreCompileInputs.cache
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.AssemblyInfoInputs.cache
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.AssemblyInfo.cs
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.csproj.CopyComplete
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.dll
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.pdb
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Entities.deps.json
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Entities.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Entities.pdb
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.csprojAssemblyReference.cache
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.csproj.CoreCompileInputs.cache
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.AssemblyInfoInputs.cache
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.AssemblyInfo.cs
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.csproj.CopyComplete
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.pdb
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.csprojAssemblyReference.cache
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.csproj.CoreCompileInputs.cache
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.AssemblyInfoInputs.cache
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.AssemblyInfo.cs
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.dll
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Entities\obj\Debug\netstandard2.0\GreatOutdoor.Entities.pdb

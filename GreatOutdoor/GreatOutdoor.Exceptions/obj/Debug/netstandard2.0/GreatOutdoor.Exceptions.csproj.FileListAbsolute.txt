@@ -1,0 +1,26 @@
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.deps.json
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.csprojAssemblyReference.cache
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.AssemblyInfoInputs.cache
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.AssemblyInfo.cs
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.deps.json
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.AssemblyInfoInputs.cache
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.AssemblyInfo.cs
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.deps.json
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.csprojAssemblyReference.cache
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.AssemblyInfoInputs.cache
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.AssemblyInfo.cs
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb

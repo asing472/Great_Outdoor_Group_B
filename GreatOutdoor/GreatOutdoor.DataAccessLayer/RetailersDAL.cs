@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace GreatOutdoor.DataAccessLayer
 {
     public class RetailersDAL
     {
+        public static int No = 0;
         public static List<Retailers> retailerList = new List<Retailers>();
 
         public bool AddRetailerDAL(Retailers newRetailer)
@@ -19,7 +21,10 @@ namespace GreatOutdoor.DataAccessLayer
             bool RetailerAdded = false;
             try
             {
+                newRetailer.RetailerID = No;
+                No++;
                 retailerList.Add(newRetailer);
+                Console.WriteLine($"Your Retailer ID: {No}");
                 RetailerAdded = true;
             }
             catch (SystemException ex)
@@ -35,14 +40,14 @@ namespace GreatOutdoor.DataAccessLayer
             return retailerList;
         }
 
-        public Retailers SearchRetailerDAL(int searchRetailerID)
+        public Retailers GetRetailerByIDDAL(int GetRetailerID)
         {
             Retailers searchRetailer = null;
             try
             {
                 foreach (Retailers item in retailerList)
                 {
-                    if (item.RetailerID == searchRetailerID)
+                    if (item.RetailerID == GetRetailerID)
                     {
                         searchRetailer = item;
                     }
@@ -75,7 +80,7 @@ namespace GreatOutdoor.DataAccessLayer
             return searchRetailer;
         }
 
-        public bool UpdateRetailerDAL(Retailers updateRetailer)
+        public bool UpdateRetailerDetailDAL(Retailers updateRetailer)
         {
             bool RetailerUpdated = false;
             try

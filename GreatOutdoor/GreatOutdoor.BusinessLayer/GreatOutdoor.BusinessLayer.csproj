@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,7 +8,6 @@
     <ProjectReference Include="..\GreatOutdoor.DataAccessLayer\GreatOutdoor.DataAccessLayer.csproj" />
     <ProjectReference Include="..\GreatOutdoor.Entities\GreatOutdoor.Entities.csproj" />
     <ProjectReference Include="..\GreatOutdoor.Exceptions\GreatOutdoor.Exceptions.csproj" />
-    <ProjectReference Include="..\GreatOutdoor.Presentation\GreatOutdoor.Presentation.csproj" />
   </ItemGroup>
 
 </Project>
