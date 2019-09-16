@@ -7,8 +7,8 @@ namespace GreatOutdoor.Entities
     public interface ISalesPerson
     {
         string SalesPersonName { get; set; }
-        string SalesPersonemail { get; set; }
-        string SalesPersonMobileNumber { get; set; }
+        string SalesPersonEmail { get; set; }
+        string SalesPersonMobile { get; set; }
         int SalesPersonID { get; set; }
 
     }
@@ -18,8 +18,8 @@ namespace GreatOutdoor.Entities
     {
 
         public string SalesPersonName { get ; set ; }
-        public string SalesPersonemail { get; set; }
-        public string SalesPersonMobileNumber { get; set; }
+        public string SalesPersonEmail { get; set; }
+        public string SalesPersonMobile { get; set; }
         public  int SalesPersonID { get; set; }
 
     }

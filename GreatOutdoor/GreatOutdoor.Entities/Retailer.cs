@@ -17,7 +17,7 @@ namespace GreatOutdoor.Entities
         string RetailerEmail { get; set; }
         string RetailerMobile { get; set; }
         int RetailerID { get; set; }
-        string RetailerPassword { get; set; }
+        string Retailerpassword { get; set; }
 
     }
     //Class of Retailer
@@ -30,7 +30,7 @@ namespace GreatOutdoor.Entities
         public string RetailerEmail { get; set; }
         public string RetailerMobile { get ; set; }
         public int RetailerID { get; set ; }
-        public string RetailerPassword { get; set; }
+        public string Retailerpassword { get; set; }
 
     }
 

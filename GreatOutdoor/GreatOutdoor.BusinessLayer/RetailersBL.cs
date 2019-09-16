@@ -29,7 +29,7 @@ namespace GreatOutdoor.BusinessLayer
             }
 
 
-            //Rule: 
+            //Rule: Email should be in Proper Format
             Regex regex2 = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             bool c = regex2.IsMatch(retailers.RetailerEmail);
             if (c==false)
@@ -38,7 +38,7 @@ namespace GreatOutdoor.BusinessLayer
                 sb.Append(Environment.NewLine + "Please Check Email");
             }
 
-
+            //Mobile no should be in fromer format
             Regex regex3 = new Regex(@"^((\+)?(\d{2}[-]))?(\d{10}){1}?$");
             bool d = regex3.IsMatch(retailers.RetailerMobile);
             if (d == false)
@@ -52,16 +52,16 @@ namespace GreatOutdoor.BusinessLayer
             return validRetailer;
         }
 
-
+        //Adding Reatilor to list
         public bool AddRetailerBL( Retailer newRetailer)
         {
             bool retailerAdded = false;
             try
             {
-                if (ValidateRetailerBL(newRetailer))
+                if (ValidateRetailerBL(newRetailer))// Validating Retailer
                 {
                     RetailersDALAbstract retailerDAL = new RetailersDAL();
-                    retailerAdded = retailerDAL.AddRetailerDAL(newRetailer);
+                    retailerAdded = retailerDAL.AddRetailerDAL(newRetailer);//Adding data to list
                 }
             }
             catch (Exception ex)
@@ -72,7 +72,7 @@ namespace GreatOutdoor.BusinessLayer
             return retailerAdded;
         }
 
-        
+        //Searching Retailer By Reatiler ID
         public Retailer  GetRetailerByIDBL(int searchretailerID)
         {
             Retailer searchRetailer = null;
@@ -93,6 +93,7 @@ namespace GreatOutdoor.BusinessLayer
 
         }
 
+        //Updating Retailer
         public bool UpdateRetailerBL(Retailer updateRetailer)
         {
             bool retailerUpdated = false;
@@ -116,6 +117,7 @@ namespace GreatOutdoor.BusinessLayer
             return retailerUpdated;
         }
 
+        //Deleting Retailer By ID
         public bool DeleteRetailerBL(int deleteRetailerID)
         {
             bool retailerDeleted = false;
@@ -142,6 +144,7 @@ namespace GreatOutdoor.BusinessLayer
             return retailerDeleted;
         }
 
+        //Serilize Data
         public void Serialize()
         {
             try
@@ -155,6 +158,7 @@ namespace GreatOutdoor.BusinessLayer
             }
         }
 
+        //Deserialize Data
         public void Deserialize()
         {
             try
