@@ -207,5 +207,38 @@ namespace GreatOutdoor.Presentation
             Console.WriteLine("******************************************\n");
 
         }
+
+        private static void UpdateAdmin()
+        {
+            try
+            {
+                int updateAdminID;
+                Console.WriteLine("Enter AdminID to Update Details:");
+                updateAdminID = Convert.ToInt32(Console.ReadLine());
+                Admin updatedAdmin = AdminBL.SearchAdminBL(updateAdminID);
+                if (updatedAdmin != null)
+                {
+                    Console.WriteLine("Update Admin Name :");
+                    updatedAdmin.AdminName = Console.ReadLine();
+                    Console.WriteLine("Update PhoneNumber :");
+                    updatedAdmin.AdminContactNumber = int.Parse(Console.ReadLine());
+                    bool AdminUpdated = AdminBL.UpdateAdminBL(updatedAdmin);
+                    if (AdminUpdated)
+                        Console.WriteLine("Admin Details Updated");
+                    else
+                        Console.WriteLine("Admin Details not Updated ");
+                }
+                else
+                {
+                    Console.WriteLine("No Admin Details Available");
+                }
+
+
+            }
+            catch (GreatOutdoorException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
