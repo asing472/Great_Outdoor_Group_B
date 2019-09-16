@@ -16,3 +16,17 @@ C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_
 C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.csproj.CopyComplete
 C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.dll
 C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\bin\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.deps.json
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\bin\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\bin\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\bin\Debug\netstandard2.0\GreatOutdoor.Entities.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\bin\Debug\netstandard2.0\GreatOutdoor.Entities.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.AssemblyInfo.cs
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.csproj.CopyComplete
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.pdb

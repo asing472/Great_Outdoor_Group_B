@@ -22,3 +22,23 @@ C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_
 C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.pdb
 C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.BusinessLayer.dll
 C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.BusinessLayer.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.Presentation.deps.json
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.Presentation.runtimeconfig.json
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.Presentation.runtimeconfig.dev.json
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.Presentation.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.Presentation.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.BusinessLayer.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.DataAccessLayer.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.Entities.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.Exceptions.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.BusinessLayer.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.DataAccessLayer.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.Entities.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\bin\Debug\netcoreapp2.1\GreatOutdoor.Exceptions.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.csprojAssemblyReference.cache
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.csproj.CoreCompileInputs.cache
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.AssemblyInfoInputs.cache
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.AssemblyInfo.cs
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.csproj.CopyComplete
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Presentation\obj\Debug\netcoreapp2.1\GreatOutdoor.Presentation.pdb

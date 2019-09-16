@@ -15,3 +15,12 @@ C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_
 C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.AssemblyInfo.cs
 C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
 C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.deps.json
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.csprojAssemblyReference.cache
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.AssemblyInfoInputs.cache
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.AssemblyInfo.cs
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\abkushwa\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.Exceptions\obj\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
