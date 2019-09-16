@@ -1,0 +1,16 @@
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\bin\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.deps.json
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\bin\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\bin\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.pdb
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\bin\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\bin\Debug\netstandard2.0\GreatOutdoor.Entities.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\bin\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.pdb
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\bin\Debug\netstandard2.0\GreatOutdoor.Entities.pdb
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\bin\Debug\netstandard2.0\GreatOutdoor.Exceptions.pdb
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.csprojAssemblyReference.cache
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.AssemblyInfo.cs
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.csproj.CopyComplete
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.dll
+C:\Users\prafu\OneDrive - morph B2B partnerships\Documents\GitHub\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.pdb

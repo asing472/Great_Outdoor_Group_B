@@ -179,31 +179,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\chesrava\\.nuget\\packages\\": {},
+    "C:\\Users\\prafshar\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
       "projectName": "GreatOutdoor.Exceptions",
       "projectPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
       "packagesPath": "C:\\Users\\prafshar\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\chesrava\\Desktop\\Project\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
-      "projectName": "GreatOutdoor.Exceptions",
-      "projectPath": "C:\\Users\\chesrava\\Desktop\\Project\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
-      "packagesPath": "C:\\Users\\chesrava\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chesrava\\Desktop\\Project\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\",
->>>>>>> 9c562bb1a9fa9c1b488cd41601890e5b723439e3
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\chesrava\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\prafshar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -241,5 +233,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\prafshar\\Documents\\GreatOutdoorOfficial\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\GreatOutdoor.Exceptions.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
