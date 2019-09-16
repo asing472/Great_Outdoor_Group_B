@@ -83,7 +83,7 @@ namespace GreatOutdoor.Presentation
                 Console.WriteLine("Enter RetailerID to Delete:");
                 deleteRetailerID = Convert.ToInt32(Console.ReadLine());
                
-                Retailers deleteRetailer = RetailersBL.GetRetailerByIDBL(deleteRetailerID);
+                Retailer deleteRetailer = RetailersBL.GetRetailerByIDBL(deleteRetailerID);
                 if (deleteRetailer != null)
                 {
                     bool guestdeleted = RetailersBL.DeleteRetailerBL(deleteRetailerID);
@@ -115,7 +115,7 @@ namespace GreatOutdoor.Presentation
                 Console.WriteLine("Enter RetailerID to Update Details:");
                 updateRetailerID = Convert.ToInt32(Console.ReadLine());
                 RetailersDAL retailerDAL = new RetailersDAL();
-                Retailers updatedRetailer = retailerDAL.GetRetailerByIDDAL(updateRetailerID-1);
+                Retailer updatedRetailer = retailerDAL.GetRetailerByIDDAL(updateRetailerID-1);
                 if (updatedRetailer != null)
                 {
                     Console.WriteLine("New Retailer Name :");
@@ -151,7 +151,7 @@ namespace GreatOutdoor.Presentation
                 Console.WriteLine("Enter RetailerID to Search:");
                 searchRetailerID = Convert.ToInt32(Console.ReadLine());
                 RetailersDAL retailersDAL = new RetailersDAL();
-                Retailers searchRetailers = retailersDAL.GetRetailerByIDDAL(searchRetailerID);
+                Retailer searchRetailers = retailersDAL.GetRetailerByIDDAL(searchRetailerID);
                 if (searchRetailers != null)
                 {
                     Console.WriteLine("******************************************************************************");
@@ -176,7 +176,7 @@ namespace GreatOutdoor.Presentation
         {
             try
             {
-                Retailers newRetailer = new Retailers();
+                Retailer newRetailer = new Retailer();
                 Console.WriteLine("Enter Retailer Name :");
                 newRetailer.RetailerName = Console.ReadLine();
                 Console.WriteLine("Enter PhoneNumber :");

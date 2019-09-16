@@ -11,19 +11,25 @@ using System.Text.RegularExpressions;
 namespace GreatOutdoor.BusinessLayer
 {
    public class RetailersBL
-    {    
-        private static bool ValidateRetailerBL(Retailers retailers)
+    {
+        //Validate the retailer before adding and updating
+        private bool ValidateRetailerBL(Retailer retailers)
         {
+            //Create string builder
             StringBuilder sb = new StringBuilder();
             bool validRetailer = true;
+
+            //Rule: Retaler Name should have alphabets only
             Regex regex1 = new Regex("^[a-zA-z. ]*$");
             bool b = regex1.IsMatch(retailers.RetailerName); 
             if (b == false)
             {
                 validRetailer = false;
                 sb.Append(Environment.NewLine + "Guest Name in Invalid Format");
-
             }
+
+
+            //Rule: 
             Regex regex2 = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             bool c = regex2.IsMatch(retailers.RetailerEmail);
             if (c==false)
@@ -31,13 +37,14 @@ namespace GreatOutdoor.BusinessLayer
                 validRetailer = false;
                 sb.Append(Environment.NewLine + "Please Check Email");
             }
+
+
             Regex regex3 = new Regex(@"^((\+)?(\d{2}[-]))?(\d{10}){1}?$");
             bool d = regex3.IsMatch(retailers.RetailerMobile);
             if (d == false)
             {
                 validRetailer = false;
                 sb.Append(Environment.NewLine + "Invalid Mobile No.");
-
             }
 
             if (validRetailer == false)
@@ -45,33 +52,30 @@ namespace GreatOutdoor.BusinessLayer
             return validRetailer;
         }
 
-        public static bool AddRetailerBL( Retailers newRetailer)
+
+        public bool AddRetailerBL( Retailer newRetailer)
         {
             bool retailerAdded = false;
             try
             {
                 if (ValidateRetailerBL(newRetailer))
                 {
-                    RetailersDAL retailerDAL = new RetailersDAL();
+                    RetailersDALAbstract retailerDAL = new RetailersDAL();
                     retailerAdded = retailerDAL.AddRetailerDAL(newRetailer);
                 }
             }
-            catch (GreatOutdoorException)
-            {
-                throw;
-            }
             catch (Exception ex)
             {
-                throw ex;
+                throw new GreatOutdoorException(ex.Message);
             }
 
             return retailerAdded;
         }
 
         
-        public static Retailers  GetRetailerByIDBL(int searchretailerID)
+        public Retailer  GetRetailerByIDBL(int searchretailerID)
         {
-            Retailers searchRetailer = null;
+            Retailer searchRetailer = null;
             try
             {
                 RetailersDAL guestDAL = new RetailersDAL();
@@ -89,7 +93,7 @@ namespace GreatOutdoor.BusinessLayer
 
         }
 
-        public static bool UpdateRetailerBL(Retailers updateRetailer)
+        public bool UpdateRetailerBL(Retailer updateRetailer)
         {
             bool retailerUpdated = false;
             try
@@ -112,7 +116,7 @@ namespace GreatOutdoor.BusinessLayer
             return retailerUpdated;
         }
 
-        public static bool DeleteRetailerBL(int deleteRetailerID)
+        public bool DeleteRetailerBL(int deleteRetailerID)
         {
             bool retailerDeleted = false;
             try
@@ -135,14 +139,34 @@ namespace GreatOutdoor.BusinessLayer
             {
                 throw ex;
             }
-
             return retailerDeleted;
         }
 
+        public void Serialize()
+        {
+            try
+            {
+                RetailersDAL retailersDAL = new RetailersDAL();
+                retailersDAL.Serialize();
+            }
+            catch (Exception ex)
+            {
+                throw new GreatOutdoorException(ex.Message);
+            }
+        }
+
+        public void Deserialize()
+        {
+            try
+            {
+                RetailersDAL retailersDAL = new RetailersDAL();
+                retailersDAL.Deserialize();
+            }
+            catch (Exception ex)
+            {
+                throw new GreatOutdoorException(ex.Message);
+            }
+        }
     }
-
-
-
-
 }
 
