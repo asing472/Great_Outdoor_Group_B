@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace GreatOutdoor.BusinessLayer
 {
-   public class RetailersBL
+   public class RetailerBL
     {
         //Validate the retailer before adding and updating
         private bool ValidateRetailerBL(Retailer retailers)
