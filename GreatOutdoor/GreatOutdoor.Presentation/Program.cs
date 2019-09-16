@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-﻿
-=======
+
 ﻿using System;
 using static System.Console;
 using GreatOutdoor;
@@ -44,7 +42,7 @@ namespace GreatOutdoor.Presentation
 
                     else if (option == 3)//if user is retailer
                     {
-                        Retailers ret = new Retailers();
+                        Retailer ret = new Retailer();
 
 
                         int option1;
@@ -122,11 +120,11 @@ namespace GreatOutdoor.Presentation
                 int deleteRetailerID;
                 Console.WriteLine("Enter RetailerID to Delete:");
                 deleteRetailerID = Convert.ToInt32(Console.ReadLine());
-               
-                Retailer deleteRetailer = RetailersBL.GetRetailerByIDBL(deleteRetailerID);
+                RetailerBL retailerBL = new RetailerBL();
+                Retailer deleteRetailer = retailerBL.GetRetailerByIDBL(deleteRetailerID);
                 if (deleteRetailer != null)
                 {
-                    bool guestdeleted = RetailersBL.DeleteRetailerBL(deleteRetailerID);
+                    bool guestdeleted = retailerBL.DeleteRetailerBL(deleteRetailerID);
                     if (guestdeleted)
                         Console.WriteLine("Retailer Deleted");
                     else
@@ -223,7 +221,8 @@ namespace GreatOutdoor.Presentation
                 newRetailer.RetailerMobile = Console.ReadLine();
                 Console.WriteLine("Enter Retailers Email");
                 newRetailer.RetailerEmail= Console.ReadLine();
-                bool retailerAdded = RetailersBL.AddRetailerBL(newRetailer);
+                RetailerBL retailer = new RetailerBL();
+                bool retailerAdded = retailer.AddRetailerBL(newRetailer);
                 if (retailerAdded)
                     Console.WriteLine("Retailer Added");
                 else
@@ -282,4 +281,4 @@ namespace GreatOutdoor.Presentation
         }
     }
 }
->>>>>>> 6fc476ed3105400dea70422768d1805daf26e355
+
