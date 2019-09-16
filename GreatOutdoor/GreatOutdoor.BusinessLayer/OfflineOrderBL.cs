@@ -15,31 +15,33 @@ namespace GreatOutdoor.BusinessLayer
             StringBuilder sb = new StringBuilder();
             bool validOfflineOrder = true;
             Regex regex1 = new Regex("^[a-zA-z. ]*$");
-            bool b = regex1.IsMatch(OfflineOrder.);
-            if (b == false)
+            ;
+            if (offlineOrder.OfflineOrderID <= 0)
             {
                 validOfflineOrder = false;
-                sb.Append(Environment.NewLine + "Guest Name in Invalid Format");
+                sb.Append(Environment.NewLine + "Invalid Order ID");
 
             }
-            Regex regex2 = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            bool c = regex2.IsMatch(OfflineOrder.OfflineOrderEmail);
-            if (c == false)
+            if (offlineOrder.RetailerID <= 0)
             {
                 validOfflineOrder = false;
-                sb.Append(Environment.NewLine + "Please Check Email");
+                sb.Append(Environment.NewLine + "Invalid Retailer ID");
+
             }
-            Regex regex3 = new Regex(@"^((\+)?(\d{2}[-]))?(\d{10}){1}?$");
-            bool d = regex3.IsMatch(OfflineOrder.OfflineOrderMobile);
-            if (d == false)
+            if (offlineOrder.ProductID <= 0)
             {
                 validOfflineOrder = false;
-                sb.Append(Environment.NewLine + "Invalid Mobile No.");
+                sb.Append(Environment.NewLine + "Invalid Prdouct ID");
 
             }
+            if (offlineOrder.PriceAtOrder <= 0)
+            {
+                validOfflineOrder = false;
+                sb.Append(Environment.NewLine + "Price can't be negative");
 
+            }
             if (validOfflineOrder == false)
-                throw new GreatOutdoorException(sb.ToString());
+                throw new OfflineOrderException(sb.ToString());
             return validOfflineOrder;
         }
 
@@ -67,13 +69,13 @@ namespace GreatOutdoor.BusinessLayer
         }
 
 
-        public static OfflineOrder GetOfflineOrderByIDBL(int searchOfflineOrderID)
+        public static OfflineOrder GetOfflineorderByOrderIDBL(int searchOfflineOrderID)
         {
             OfflineOrder searchOfflineOrder = null;
             try
             {
-                OfflineOrderDAL guestDAL = new OfflineOrderDAL();
-                searchOfflineOrder = OfflineOrderDAL.GetAllOfflineOrdersDAL(searchOfflineOrderID);
+                List<OfflineOrderDAL> offlineorderidDAL = new List<OfflineOrderDAL>();
+
             }
             catch (GreatOutdoorException ex)
             {
@@ -94,8 +96,8 @@ namespace GreatOutdoor.BusinessLayer
             {
                 if (ValidateOfflineOrderBL(updateOfflineOrder))
                 {
-                    OfflineOrderDAL OfflineOrderDAL = new OfflineOrderDAL();
-                    OfflineOrderUpdated = OfflineOrderDAL.UpdateOfflineOrderDetailDAL(updateOfflineOrder);
+                    OfflineOrderDAL offlineorderDAL = new OfflineOrderDAL();
+                    OfflineOrderUpdated = offlineorderDAL.UpdateOfflineorderDAL(updateOfflineOrder);
                 }
             }
             catch (GreatOutdoorException)
@@ -110,33 +112,10 @@ namespace GreatOutdoor.BusinessLayer
             return OfflineOrderUpdated;
         }
 
-        public static bool DeleteOfflineOrderBL(int deleteOfflineOrderID)
-        {
-            bool OfflineOrderDeleted = false;
-            try
-            {
-                if (deleteOfflineOrderID > 0)
-                {
-                    OfflineOrderDAL OfflineOrderDAL = new OfflineOrderDAL();
-                    OfflineOrderDeleted = OfflineOrderDAL.DeleteOfflineOrderDAL(deleteOfflineOrderID);
-                }
-                else
-                {
-                    throw new GreatOutdoorException("Invalid Guest ID");
-                }
-            }
-            catch (GreatOutdoorException)
-            {
-                throw;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return OfflineOrderDeleted;
-        }
-
+        
     }
 }
-}
+
+    
+
+

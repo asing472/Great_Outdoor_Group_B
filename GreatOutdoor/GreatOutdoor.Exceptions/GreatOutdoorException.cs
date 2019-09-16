@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GreatOutdoor.Exceptions
 {
-    public class GreatOutdoorException : ApplicationException
+    public sealed class GreatOutdoorException : ApplicationException
     {
         public GreatOutdoorException()
             : base()
