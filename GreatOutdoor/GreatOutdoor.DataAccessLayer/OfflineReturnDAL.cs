@@ -8,9 +8,9 @@ namespace GreatOutdoor.DataAccessLayer
 {
     public class OfflineReturnDAL
     {
-        public static List<OfflineReturn> OfflineReturnList = new List<OfflineReturn>();
+        public static List<OfflineReturns> OfflineReturnList = new List<OfflineReturns>();
 
-        public bool AddOfflineReturnDAL(OfflineReturn newOfflineReturn)
+        public bool AddOfflineReturnDAL(OfflineReturns newOfflineReturn)
         {
             bool OfflineReturnAdded = false;
             try
@@ -26,17 +26,17 @@ namespace GreatOutdoor.DataAccessLayer
 
         }
 
-        public List<OfflineReturn> GetAllOfflineReturnsDAL()
+        public List<OfflineReturns> GetAllOfflineReturnsDAL()
         {
-            OfflineReturn OfflineReturnList;
+            OfflineReturns OfflineReturnList;
         }
 
-        public OfflineReturn SearchOfflineReturnDAL(int searchOfflineReturnID)
+        public OfflineReturns SearchOfflineReturnDAL(int searchOfflineReturnID)
         {
-            OfflineReturn searchOfflineReturn = null;
+            OfflineReturns searchOfflineReturn = null;
             try
             {
-                foreach (OfflineReturn item in OfflineReturnList)
+                foreach (OfflineReturns item in OfflineReturnList)
                 {
                     if (item.OfflineReturnID == searchOfflineReturnID)
                     {
@@ -52,7 +52,7 @@ namespace GreatOutdoor.DataAccessLayer
         }
 
 
-        public bool UpdateOfflineReturnDAL(OfflineReturn updateOfflineReturn)
+        public bool UpdateOfflineReturnDAL(OfflineReturns updateOfflineReturn)
         {
             bool OfflineReturnUpdated = false;
             try
@@ -61,7 +61,7 @@ namespace GreatOutdoor.DataAccessLayer
                 {
                     if (OfflineReturnList[i].OfflineReturnID == updateOfflineReturn.OfflineReturnID)
                     {
-                        updateOfflineReturn.OrderID = OfflineReturnList[i].OrderID;
+                        updateOfflineReturn.Order = OfflineReturnList[i].OrderID;
                         updateOfflineReturn.ProductID = OfflineReturnList[i].ProductID;
                         updateOfflineReturn.ReasonIncomplete = OfflineReturnList[i].ReasonIncomplete;
                         updateOfflineReturn.ReasonWrong = OfflineReturnList[i].ReasonWrong;
