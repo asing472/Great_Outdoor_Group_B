@@ -12,28 +12,22 @@ namespace GreatOutdoor.Entities
 {
     public interface IRetailer
     {
+        string RetailerName { get; set; }
+        string RetailerEmail { get; set; }
+        string RetailerMobile { get; set; }
+        int RetailerID { get; set; }
 
     }
 
-    public class Retailer
+    public class Retailer : IRetailer
     {
-        private string _retailerName;
-        private string _retailerEmail;
-        private string _retailerMobile;
-        private static int _retailerID =0;
 
+        public string RetailerName { get ; set; }
+        public string RetailerEmail { get; set; }
+        public string RetailerMobile { get ; set; }
+        public int RetailerID { get; set ; }
 
-       
-
-       
-
-       
-        public string RetailerName { get => _retailerName; set => _retailerName = value; }
-        public string RetailerEmail { get => _retailerEmail; set => _retailerEmail = value; }
-        public string RetailerMobile { get => _retailerMobile; set => _retailerMobile = value; }
-        public  int RetailerID { get => _retailerID; set => _retailerID = value; }
-        
     }
-    
+
 }
-    
+
