@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GreatOutdoor.Entities
 {
-    class SalesPerson
+   public class SalesPerson
     {
         private string _salesPersonName;
         private string _salesPersonemail;
