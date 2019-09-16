@@ -1,0 +1,2 @@
+C:\Project\Product\Product.DataAccessLayer\obj\Debug\Product.DataAccessLayer.csprojAssemblyReference.cache
+C:\Project\Product\Product.DataAccessLayer\obj\Debug\Product.DataAccessLayer.csproj.CoreCompileInputs.cache

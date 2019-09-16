@@ -1,0 +1,6 @@
+C:\Project\Product\Product\bin\Debug\Product.dll
+C:\Project\Product\Product\bin\Debug\Product.pdb
+C:\Project\Product\Product\obj\Debug\Product.PresentationLayer.csprojAssemblyReference.cache
+C:\Project\Product\Product\obj\Debug\Product.PresentationLayer.csproj.CoreCompileInputs.cache
+C:\Project\Product\Product\obj\Debug\Product.dll
+C:\Project\Product\Product\obj\Debug\Product.pdb

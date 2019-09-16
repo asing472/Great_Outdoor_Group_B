@@ -179,23 +179,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\abkushwa\\.nuget\\packages\\": {},
+    "C:\\Users\\chesrava\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\abkushwa\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
+      "projectUniqueName": "C:\\Users\\chesrava\\Desktop\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
       "projectName": "GreatOutdoor.Exceptions",
-      "projectPath": "C:\\Users\\abkushwa\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
-      "packagesPath": "C:\\Users\\abkushwa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\abkushwa\\Documents\\GitHub\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\",
+      "projectPath": "C:\\Users\\chesrava\\Desktop\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\GreatOutdoor.Exceptions.csproj",
+      "packagesPath": "C:\\Users\\chesrava\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chesrava\\Desktop\\Great_Outdoor_Group_B\\GreatOutdoor\\GreatOutdoor.Exceptions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\abkushwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chesrava\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
