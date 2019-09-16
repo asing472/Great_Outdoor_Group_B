@@ -22,3 +22,9 @@ C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutd
 C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.AssemblyInfo.cs
 C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.dll
 C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.pdb
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.AssemblyInfo.cs
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.dll
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.pdb

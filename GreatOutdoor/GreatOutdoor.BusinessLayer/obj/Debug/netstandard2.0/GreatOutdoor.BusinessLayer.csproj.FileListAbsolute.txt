@@ -20,3 +20,9 @@ C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutd
 C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.AssemblyInfo.cs
 C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.dll
 C:\Users\prafshar\Documents\GreatOutdoorOfficial\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.pdb
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.csprojAssemblyReference.cache
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.AssemblyInfo.cs
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.dll
+C:\Users\chesrava\Desktop\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.BusinessLayer\obj\Debug\netstandard2.0\GreatOutdoor.BusinessLayer.pdb

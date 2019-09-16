@@ -20,19 +20,14 @@ namespace GreatOutdoor.Entities
             get { return adminName; }
             set { adminName = value; }
         }
-        private int adminmobileno;
+        private int adminContactNumber;
 
-        public int Adminmobileno
+        public int AdminContactNumber
         {
-            get { return adminmobileno; }
-            set { adminmobileno = value; }
+            get { return adminContactNumber; }
+            set { adminContactNumber = value; }
         }
-        private string adminusername;
-        public string Adminusername
-        {
-            get { return adminusername; }
-            set { adminusername = value; }
-        }
+     
         private string adminEmail;
         public string AdminEmail
         {
@@ -44,6 +39,16 @@ namespace GreatOutdoor.Entities
         {
             get { return adminpassword; }
             set { adminpassword = value; }
+        }
+        //intializing the default values of admin fields to null
+        public Admin()
+        {
+            adminID = 0;
+            adminName = string.Empty;
+            adminContactNumber = 0;
+            adminEmail = string.Empty;
+            adminpassword = string.Empty;
+
         }
     }
 }
