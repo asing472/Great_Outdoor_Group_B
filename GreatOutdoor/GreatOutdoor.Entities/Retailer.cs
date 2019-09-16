@@ -10,7 +10,12 @@ using GreatOutdoor.Exceptions;
 
 namespace GreatOutdoor.Entities
 {
-    public class Retailers
+    public interface IRetailer
+    {
+
+    }
+
+    public class Retailer
     {
         private string _retailerName;
         private string _retailerEmail;
@@ -27,22 +32,8 @@ namespace GreatOutdoor.Entities
         public string RetailerEmail { get => _retailerEmail; set => _retailerEmail = value; }
         public string RetailerMobile { get => _retailerMobile; set => _retailerMobile = value; }
         public  int RetailerID { get => _retailerID; set => _retailerID = value; }
-
-        public Retailers()
-        {
-            _retailerID = 0;
-            _retailerName = string.Empty;
-            _retailerMobile = string.Empty;
-            _retailerEmail = string.Empty;
-
-
-        }
+        
     }
-
-<<<<<<< HEAD:GreatOutdoor/GreatOutdoor.Entities/Retailers.cs
+    
 }
-=======
-  
->>>>>>> 9c562bb1a9fa9c1b488cd41601890e5b723439e3:GreatOutdoor/GreatOutdoor.Entities/GreatOutdoor.cs
-
     

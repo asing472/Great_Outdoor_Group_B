@@ -8,44 +8,58 @@ using System.Data;
 using System.Data.Common;
 using GreatOutdoor.Entities;
 using GreatOutdoor.Exceptions;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GreatOutdoor.DataAccessLayer
 {
-    public class RetailersDAL
+    public abstract class RetailersDALAbstract
     {
-        public static int No = 0;
-        public static List<Retailers> retailerList = new List<Retailers>();
+        public abstract bool AddRetailerDAL(Retailer newRetailer);
+        public abstract List<Retailer> GetAllRetailersDAL();
+        public abstract Retailer GetRetailerByIDDAL(int GetRetailerID);
+        public abstract List<Retailer> GetRetailersByNameDAL(string RetailerName);
+        public abstract bool UpdateRetailerDetailDAL(Retailer updateRetailer);
+        public abstract bool DeleteRetailerDAL(int deleteRetailerID);
+        public abstract void Serialize();
+        public abstract void Deserialize();
+    }
 
-        public bool AddRetailerDAL(Retailers newRetailer)
+    [Serializable]
+    public class RetailersDAL : RetailersDALAbstract
+    {
+        public static List<Retailer> retailerList = new List<Retailer>();
+        public List<Retailer> retailerListToSerialize = new List<Retailer>();
+        private string filePath = "retailers.dat";
+
+        public override bool AddRetailerDAL(Retailer newRetailer)
         {
             bool RetailerAdded = false;
             try
             {
-                newRetailer.RetailerID = No;
-                No++;
+                newRetailer.RetailerID = 1;
                 retailerList.Add(newRetailer);
-                Console.WriteLine($"Your Retailer ID: {No}");
+                Console.WriteLine($"Your Retailer ID: {newRetailer.RetailerID}");
                 RetailerAdded = true;
             }
-            catch (SystemException ex)
+            catch (Exception ex)
             {
                 throw new GreatOutdoorException(ex.Message);
             }
             return RetailerAdded;
-
         }
 
-        public List<Retailers> GetAllRetailersDAL()
+        public override List<Retailer> GetAllRetailersDAL()
         {
             return retailerList;
         }
 
-        public Retailers GetRetailerByIDDAL(int GetRetailerID)
+        public override Retailer GetRetailerByIDDAL(int GetRetailerID)
         {
-            Retailers searchRetailer = null;
+            Retailer searchRetailer = null;
             try
             {
-                foreach (Retailers item in retailerList)
+                foreach (Retailer item in retailerList)
                 {
                     if (item.RetailerID == GetRetailerID)
                     {
@@ -60,12 +74,12 @@ namespace GreatOutdoor.DataAccessLayer
             return searchRetailer;
         }
 
-        public List<Retailers> GetRetailersByNameDAL(string RetailerName)
+        public override List<Retailer> GetRetailersByNameDAL(string RetailerName)
         {
-            List<Retailers> searchRetailer = new List<Retailers>();
+            List<Retailer> searchRetailer = new List<Retailer>();
             try
             {
-                foreach (Retailers item in retailerList)
+                foreach (Retailer item in retailerList)
                 {
                     if (item.RetailerName == RetailerName)
                     {
@@ -80,7 +94,7 @@ namespace GreatOutdoor.DataAccessLayer
             return searchRetailer;
         }
 
-        public bool UpdateRetailerDetailDAL(Retailers updateRetailer)
+        public override bool UpdateRetailerDetailDAL(Retailer updateRetailer)
         {
             bool RetailerUpdated = false;
             try
@@ -104,13 +118,13 @@ namespace GreatOutdoor.DataAccessLayer
 
         }
 
-        public bool DeleteRetailerDAL(int deleteRetailerID)
+        public override bool DeleteRetailerDAL(int deleteRetailerID)
         {
             bool RetailerDeleted = false;
             try
             {
-                Retailers deleteRetailer = null;
-                foreach (Retailers item in retailerList)
+                Retailer deleteRetailer = null;
+                foreach (Retailer item in retailerList)
                 {
                     if (item.RetailerID == deleteRetailerID)
                     {
@@ -129,8 +143,22 @@ namespace GreatOutdoor.DataAccessLayer
                 throw new GreatOutdoorException(ex.Message);
             }
             return RetailerDeleted;
-
         }
 
+        public override void Serialize()
+        {
+            this.retailerListToSerialize = retailerList;
+            FileStream fs1 = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            binaryFormatter.Serialize(fs1, this);
+            fs1.Close();
+        }
+
+        public override void Deserialize()
+        {
+            FileStream fs2 = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            RetailersDAL retailersDAL = (RetailersDAL)binaryFormatter.Deserialize(fs2);
+        }
     }
 }
