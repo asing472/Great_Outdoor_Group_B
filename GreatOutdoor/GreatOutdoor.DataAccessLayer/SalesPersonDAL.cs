@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GreatOutdoor.DataAccessLayer
 {
-    class SalesPerson
+    public class SalesPersonDAL
     {
     }
 }

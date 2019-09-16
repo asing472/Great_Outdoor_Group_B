@@ -21,6 +21,7 @@ namespace GreatOutdoor.Entities
         private string _retailerEmail;
         private string _retailerMobile;
         private static int _retailerID =0;
+        private string _retailerpassword;
 
 
        
@@ -32,7 +33,7 @@ namespace GreatOutdoor.Entities
         public string RetailerEmail { get => _retailerEmail; set => _retailerEmail = value; }
         public string RetailerMobile { get => _retailerMobile; set => _retailerMobile = value; }
         public  int RetailerID { get => _retailerID; set => _retailerID = value; }
-        
+        public string Retailerpassword { get => _retailerpassword; set => _retailerpassword = value; }
     }
     
 }

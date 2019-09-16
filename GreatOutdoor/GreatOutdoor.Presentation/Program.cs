@@ -18,7 +18,7 @@ namespace GreatOutdoor.Presentation
                 int choice=1;
                 do
                 {
-                    string username, password, pass;
+                    
                     
                     Console.WriteLine("Enter Your Choice");
                     Console.WriteLine("1.Admin \n2.Saleperson \n3.Retailer\n4.Exit");
@@ -32,38 +32,94 @@ namespace GreatOutdoor.Presentation
                         int id = int.Parse(ReadLine());
                         if(AdminBL.SearchAdminBL(id) == null)
                         {
-                            WriteLine("adminid is not existed");
+                            WriteLine("incorrect adminid");
+                            Main();
+                            choice = 0;
+                        }
+                        else
+                        {
+                            bool login = Validatepassword(id);
+                            if (login == false)
+                            {
+                                WriteLine("incorrect password ");
+                                Main();
+                                choice = 0;
+                            }
+                            else
+                            {
+
+                                Admin();
+                            }
+
+
                         }
 
-                    }
+                        }
                     else if (option == 2)
                     {
-                        SalesPerson sp = new SalesPerson();
+                        
                         WriteLine("welcome salesperson");
-                        WriteLine("enter username");
-                        username = ReadLine();
+                        WriteLine("enter sales id");
+                        int salespersonid = int.Parse(ReadLine());
+                        //SalesPersonDAL spid = new SalesPersonDAL();
+                        //SalesPerson item = spid.GetSalespersonByIDDAL(spid);
+                        //if (item == null) { WriteLine("Invalid Salesperson id"); }
+                        //else
+                        //{
+                        //    if (ValidateSalespersonpassword(item) == true) { Retailer(); }
+                        //    else
+                        //    {
+                        //        WriteLine("Incorrect password");
+                        //        choice = 0;
+                        //    }
+
+
+                        //}
+
+
                     }
 
                     else if (option == 3)//if user is retailer
                     {
-                        Retailer ret = new Retailer();
-
-
+                      
                         int option1;
                         WriteLine("enter option\n1.existing user\n2.new user");
                         option1 = int.Parse(ReadLine());
                         if (option1 == 1)
                         {
                             WriteLine("welcome retailer");
-                            WriteLine("enter username");
-                            username = ReadLine();
+                            WriteLine("enter Retailer id");
+                           int retailerid = int.Parse(ReadLine());
+                            RetailersDAL rd = new RetailersDAL();
+                            Retailer item = rd.GetRetailerByIDDAL(retailerid);
+                            if (item == null) { WriteLine("Invalid retailer id"); }
+                            else
+                            {
+                                if (ValidateRetailerpassword(item) == true) { Retailer(); }
+                                else { WriteLine("Incorrect password");
+                                    choice = 0;
+                                }
+
+
+                            }
+
+                        }//new user registrartion
+                        else if (option1 == 2)
+                        {
+                            WriteLine("please fill the following details to complete registrartion:");
+                            AddRetailer();
+                        }
+                        else
+                        {
+                            WriteLine("Invalid option");
+                            choice = 0;
                         }
                     }
                     else if (option == 4)//if user is retailer
                     { WriteLine("closing the application");
                         choice = 0;
                     }
-                    else//if user enters incorrect category
+                    else//if user enters incorrect category=
                     {
                         WriteLine("Invalid option \nPlease enter valid category number");
                         Main();
@@ -89,10 +145,38 @@ namespace GreatOutdoor.Presentation
 
 
         }
+        //validates admin password
+        public static bool Validatepassword(int id)
+        {
+            WriteLine("enter admin password");
+           string pass = ReadLine();
+            bool existed = false;
+            for (int i = 0; i < AdminDAL.AdminList.Count; i++)
+            {
+                if (AdminDAL.AdminList[i].AdminID == id)
+                {
+                    if (AdminDAL.AdminList[i].Adminpassword == pass)
+                    {
+                        existed = true;
+                    }
+                }
+            }
+
+            return existed;
+        }
+
+        public static bool ValidateRetailerpassword(Retailer item)
+        {
+            WriteLine("enter retailer password");
+            string pass = ReadLine();
+            bool existed = false;
+            if (pass == item.Retailerpassword) { existed = true; }
+            return existed;
+        }
 
         public static void Retailer()
         {
-            PrintMenu();
+            RetailerPrintMenu();
             Console.WriteLine("Enter Your Choice");
             int c = Convert.ToInt32(Console.ReadLine());
             switch(c)
@@ -242,7 +326,7 @@ namespace GreatOutdoor.Presentation
             }
         }
 
-        private static void PrintMenu()
+        private static void RetailerPrintMenu()
         {
             Console.WriteLine("\n***********Retailer PhoneBook Menu***********");
             Console.WriteLine("1. Add Retailer");
@@ -253,7 +337,47 @@ namespace GreatOutdoor.Presentation
             Console.WriteLine("******************************************\n");
 
         }
+        private static void AdminPrintMenu()
+        {
+            Console.WriteLine("\n***********Admin menu ***********");
+            Console.WriteLine("1. update admin details");
+            Console.WriteLine("2. view sales reports");
+            Console.WriteLine("3. view retailer reports");
+            Console.WriteLine("4. view overall reports");
+            Console.WriteLine("5. Exit");
+            Console.WriteLine("******************************************\n");
 
+        }
+        public static void Admin()
+        {
+            AdminPrintMenu();
+            Console.WriteLine("Enter Your Choice");
+            int c = int.Parse(Console.ReadLine());
+            switch (c)
+            {
+                case 1:
+                    UpdateAdmin();
+                    break;
+                case 2:
+                    ViewSalesreports();
+                    break;
+                case 3:
+                    ViewRetailerreports();
+                    break;
+                case 4:
+                    ViewOverallreports();
+                    break;
+                case 5:
+                    return;
+                default:
+                    Console.WriteLine("Invalid Choice");
+                    break;
+            }
+
+
+
+        }
+        
         private static void UpdateAdmin()
         {
             try
@@ -286,6 +410,9 @@ namespace GreatOutdoor.Presentation
                 Console.WriteLine(ex.Message);
             }
         }
+        private static void ViewSalesreports() { }
+        private static void ViewRetailerreports() { }
+        private static void ViewOverallreports() { }
     }
 }
 
