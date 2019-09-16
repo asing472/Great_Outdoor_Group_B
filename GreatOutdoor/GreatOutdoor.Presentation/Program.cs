@@ -58,6 +58,8 @@ namespace GreatOutdoor.Presentation
                             WriteLine("enter username");
                             username = ReadLine();
                         }
+                        else if (option1 == 2)
+                            Retailer();
                     }
                     else if (option == 4)//if user is retailer
                     { WriteLine("closing the application");
@@ -221,17 +223,21 @@ namespace GreatOutdoor.Presentation
         {
             try
             {
+                
                 Retailer newRetailer = new Retailer();
                 Console.WriteLine("Enter Retailer Name :");
                 newRetailer.RetailerName = Console.ReadLine();
                 Console.WriteLine("Enter PhoneNumber :");
                 newRetailer.RetailerMobile = Console.ReadLine();
                 Console.WriteLine("Enter Retailers Email");
-                newRetailer.RetailerEmail= Console.ReadLine();
+                newRetailer.RetailerEmail= Console.ReadLine(); 
                 RetailerBL retailer = new RetailerBL();
                 bool retailerAdded = retailer.AddRetailerBL(newRetailer);
                 if (retailerAdded)
+                {
                     Console.WriteLine("Retailer Added");
+                    Console.WriteLine("Your Retailer ID= ", newRetailer.RetailerID);
+                }
                 else
                     Console.WriteLine("Retailer Not Added");
 
@@ -249,6 +255,174 @@ namespace GreatOutdoor.Presentation
             Console.WriteLine("2. Search Retailer by ID");
             Console.WriteLine("3. Update Retailer");
             Console.WriteLine("4. Delete Retailer");
+            Console.WriteLine("5. Exit");
+            Console.WriteLine("******************************************\n");
+
+        }
+
+        public static void SalesPerson()
+        {
+            PrintMenu1();
+            Console.WriteLine("Enter Your Choice");
+            int c = Convert.ToInt32(Console.ReadLine());
+            switch (c)
+            {
+                case 1:
+                    AddSalesPerson();
+                    break;
+                case 2:
+                    GetSalesPersonByID();
+                    break;
+                case 3:
+                    UpdateSalesPerson();
+                    break;
+                case 4:
+                    DeleteSalesPerson();
+                    break;
+                case 5:
+                    return;
+                default:
+                    Console.WriteLine("Invalid Choice");
+                    break;
+            }
+
+
+
+        }
+
+        private static void DeleteSalesPerson()
+        {
+            try
+            {
+                int deleteSalesPersonID;
+                Console.WriteLine("Enter SalesPersonID to Delete:");
+                deleteSalesPersonID = Convert.ToInt32(Console.ReadLine());
+                SalesPersonBL SalesPersonBL = new SalesPersonBL();
+                SalesPerson deleteSalesPerson = SalesPersonBL.GetSalesPersonByIDBL(deleteSalesPersonID);
+                if (deleteSalesPerson != null)
+                {
+                    bool guestdeleted = SalesPersonBL.DeleteSalesPersonBL(deleteSalesPersonID);
+                    if (guestdeleted)
+                        Console.WriteLine("SalesPerson Deleted");
+                    else
+                        Console.WriteLine("SalesPerson not Deleted ");
+                }
+                else
+                {
+                    Console.WriteLine("No SalesPerson Details Available");
+                }
+
+
+
+
+            }
+            catch (GreatOutdoorException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void UpdateSalesPerson()
+        {
+            try
+            {
+                int updateSalesPersonID;
+                Console.WriteLine("Enter SalesPersonID to Update Details:");
+                updateSalesPersonID = Convert.ToInt32(Console.ReadLine());
+                SalesPersonDAL SalesPersonDAL = new SalesPersonDAL();
+                SalesPerson updatedSalesPerson = SalesPersonDAL.GetSalesPersonByIDDAL(updateSalesPersonID - 1);
+                if (updatedSalesPerson != null)
+                {
+                    Console.WriteLine("New SalesPerson Name :");
+                    updatedSalesPerson.SalesPersonName = Console.ReadLine();
+                    Console.WriteLine("New PhoneNumber :");
+                    updatedSalesPerson.SalesPersonMobile = Console.ReadLine();
+                    Console.WriteLine("New SalesPerson Email");
+                    updatedSalesPerson.SalesPersonEmail = Console.ReadLine();
+                    bool guestUpdated = SalesPersonDAL.UpdateSalesPersonDetailDAL(updatedSalesPerson);
+                    if (guestUpdated)
+                        Console.WriteLine("SalesPerson Details Updated");
+                    else
+                        Console.WriteLine("SalesPerson Details not Updated ");
+                }
+                else
+                {
+                    Console.WriteLine("No SalesPerson Details Available");
+                }
+
+
+            }
+            catch (GreatOutdoorException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void GetSalesPersonByID()
+        {
+            try
+            {
+                int searchSalesPersonID;
+                Console.WriteLine("Enter SalesPersonID to Search:");
+                searchSalesPersonID = Convert.ToInt32(Console.ReadLine());
+                SalesPersonDAL SalesPersonsDAL = new SalesPersonDAL();
+                SalesPerson searchSalesPersons = SalesPersonsDAL.GetSalesPersonByIDDAL(searchSalesPersonID);
+                if (searchSalesPersons != null)
+                {
+                    Console.WriteLine("******************************************************************************");
+                    Console.WriteLine("SalesPersonID\t\tName\t\tPhoneNumber");
+                    Console.WriteLine("******************************************************************************");
+                    Console.WriteLine("{0}\t\t{1}\t\t{2}", searchSalesPersons.SalesPersonID, searchSalesPersons.SalesPersonName, searchSalesPersons.SalesPersonMobile);
+                    Console.WriteLine("******************************************************************************");
+                }
+                else
+                {
+                    Console.WriteLine("No SalesPerson Details Available");
+                }
+
+            }
+            catch (GreatOutdoorException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void AddSalesPerson()
+        {
+            try
+            {
+
+                SalesPerson newSalesPerson = new SalesPerson();
+                Console.WriteLine("Enter SalesPerson Name :");
+                newSalesPerson.SalesPersonName = Console.ReadLine();
+                Console.WriteLine("Enter PhoneNumber :");
+                newSalesPerson.SalesPersonMobile = Console.ReadLine();
+                Console.WriteLine("Enter SalesPersons Email");
+                newSalesPerson.SalesPersonEmail = Console.ReadLine();
+                SalesPersonBL SalesPerson = new SalesPersonBL();
+                bool SalesPersonAdded = SalesPerson.AddSalesPersonBL(newSalesPerson);
+                if (SalesPersonAdded)
+                {
+                    Console.WriteLine("SalesPerson Added");
+                    Console.WriteLine("Your SalesPerson ID= ", newSalesPerson.SalesPersonID);
+                }
+                else
+                    Console.WriteLine("SalesPerson Not Added");
+
+            }
+            catch (GreatOutdoorException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void PrintMenu1()
+        {
+            Console.WriteLine("\n***********SalesPerson PhoneBook Menu***********");
+            Console.WriteLine("1. Add SalesPerson");
+            Console.WriteLine("2. Search SalesPerson by ID");
+            Console.WriteLine("3. Update SalesPerson");
+            Console.WriteLine("4. Delete SalesPerson");
             Console.WriteLine("5. Exit");
             Console.WriteLine("******************************************\n");
 

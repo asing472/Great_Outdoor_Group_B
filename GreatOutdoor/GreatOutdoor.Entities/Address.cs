@@ -4,24 +4,31 @@ using System.Text;
 
 namespace GreatOutdoor.Entities
 {
-    public class Address
+    //Address  Interface
+    public abstract class IAddress
     {
-        private int _addressID;
-        private string _address_line1;
-        private string _address_line2;
-        private string _landmark;
-        private string _city;
-        private string _state;
-        private int _pincode;
-        private int _retailerId;
+         int AddressID { get; set; }
+         string Address_line1 { get; set; }
+         string Address_line2 { get; set; }
+         string Landmark { get; set; }
+         string City { get; set; }
+         string State { get; set; }
+         int Pincode { get; set; }
+         int RetailerId { get; set; }
 
-        public int AddressID { get => _addressID; set => _addressID = value; }
-        public string Address_line1 { get => _address_line1; set => _address_line1 = value; }
-        public string Address_line2 { get => _address_line2; set => _address_line2 = value; }
-        public string Landmark { get => _landmark; set => _landmark = value; }
-        public string City { get => _city; set => _city = value; }
-        public string State { get => _state; set => _state = value; }
-        public int Pincode { get => _pincode; set => _pincode = value; }
-        public int RetailerId { get => _retailerId; set => _retailerId = value; }
+    }
+    //Address Class
+    public class Address: IAddress
+    {
+        
+
+        public int AddressID { get; set; }
+        public string Address_line1 { get ; set ; }
+        public string Address_line2 { get; set ; }
+        public string Landmark { get ; set; }
+        public string City { get; set ; }
+        public string State { get; set; }
+        public int Pincode { get; set ; }
+        public int RetailerId { get; set; }
     }
 }

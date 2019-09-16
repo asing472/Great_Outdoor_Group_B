@@ -10,6 +10,7 @@ using GreatOutdoor.Entities;
 using GreatOutdoor.Exceptions;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Newtonsoft.Json;
 
 namespace GreatOutdoor.DataAccessLayer
 {
@@ -37,9 +38,13 @@ namespace GreatOutdoor.DataAccessLayer
             bool RetailerAdded = false;
             try
             {
-                newRetailer.RetailerID = 1;
+                newRetailer.RetailerID = retailerList.Count+1;
                 retailerList.Add(newRetailer);
-                Console.WriteLine($"Your Retailer ID: {newRetailer.RetailerID}");
+                string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(retailerList, Newtonsoft.Json.Formatting.Indented);
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                string Path = "path" + "\retiler.json";
+                File.WriteAllText(Path, outputJson);
+                
                 RetailerAdded = true;
             }
             catch (Exception ex)
@@ -59,6 +64,14 @@ namespace GreatOutdoor.DataAccessLayer
             Retailer searchRetailer = null;
             try
             {
+                if (File.Exists("Path"))
+                {
+                    StreamReader r = new StreamReader("Path");
+                        string json = r.ReadToEnd();
+                    List<Retailer> retailerLists = new List<Retailer>();
+                        retailerLists = JsonConvert.DeserializeObject<List<Retailer>>(json);
+                    
+                }
                 foreach (Retailer item in retailerList)
                 {
                     if (item.RetailerID == GetRetailerID)
@@ -67,8 +80,9 @@ namespace GreatOutdoor.DataAccessLayer
                     }
                 }
             }
-            catch (SystemException ex)
+            catch (Exception ex)
             {
+                Console.WriteLine("Json Read F");
                 throw new GreatOutdoorException(ex.Message);
             }
             return searchRetailer;

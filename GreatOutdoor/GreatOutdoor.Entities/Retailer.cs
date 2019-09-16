@@ -10,6 +10,7 @@ using GreatOutdoor.Exceptions;
 
 namespace GreatOutdoor.Entities
 {
+    //Interface for Retailer
     public interface IRetailer
     {
         string RetailerName { get; set; }
@@ -18,7 +19,7 @@ namespace GreatOutdoor.Entities
         int RetailerID { get; set; }
 
     }
-
+    //Class of Retailer
     public class Retailer : IRetailer
     {
 

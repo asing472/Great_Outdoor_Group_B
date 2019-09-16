@@ -17,6 +17,7 @@ namespace GreatOutdoor.Exceptions
         public GreatOutdoorException(string message)
             : base(message)
         {
+
         }
         public GreatOutdoorException(string message, Exception innerException)
             : base(message, innerException)

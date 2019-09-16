@@ -4,30 +4,23 @@ using System.Text;
 
 namespace GreatOutdoor.Entities
 {
-   public class SalesPerson
+    public interface ISalesPerson
     {
-        private string _salesPersonName;
-        private string _salesPersonemail;
-        private string _salesPersonMobileNumber;
-        private static int _salesPersonID;
+        string SalesPersonName { get; set; }
+        string SalesPersonemail { get; set; }
+        string SalesPersonMobileNumber { get; set; }
+        int SalesPersonID { get; set; }
 
-        public string SalesPersonName { get => _salesPersonName; set => _salesPersonName = value; }
-        public string SalesPersonemail { get => _salesPersonemail; set => _salesPersonemail = value; }
-        public string SalesPersonMobileNumber { get => _salesPersonMobileNumber; set => _salesPersonMobileNumber = value; }
-        public static int SalesPersonID { get => _salesPersonID; set => _salesPersonID = value; }
+    }
 
-        public SalesPerson()
-        {
+    //Sales Person Class
+   public class SalesPerson:ISalesPerson
+    {
 
-            _salesPersonName = string.Empty;
-            _salesPersonMobileNumber = string.Empty;
-            _salesPersonemail = string.Empty;
-            _salesPersonID = 0;
-
-
-        }
-
-
+        public string SalesPersonName { get ; set ; }
+        public string SalesPersonemail { get; set; }
+        public string SalesPersonMobileNumber { get; set; }
+        public  int SalesPersonID { get; set; }
 
     }
 }

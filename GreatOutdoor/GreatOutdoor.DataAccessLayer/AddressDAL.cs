@@ -33,17 +33,7 @@ namespace GreatOutdoor.DataAccessLayer
             return AddressList;
         }
 
-        public Address GetMyData()
-        {
-<<<<<<< HEAD
-            string s = "Hello";
-            return new Address() { City = "Mumbai" };
-=======
-            return new Address() { City = "Hyderabad" };
->>>>>>> 6fc476ed3105400dea70422768d1805daf26e355
-        }
-        //Harsha line
-
+        
         public Address SearchAddressDAL(int searchAddressID)
         {
             Address searchAddress = null;
