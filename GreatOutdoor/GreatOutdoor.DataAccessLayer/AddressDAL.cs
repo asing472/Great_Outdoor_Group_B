@@ -35,7 +35,7 @@ namespace GreatOutdoor.DataAccessLayer
 
         public Address GetMyData()
         {
-            return new Address() { City = "Mumbai" };
+            return new Address() { City = "Hyderabad" };
         }
 
         public Address SearchAddressDAL(int searchAddressID)
