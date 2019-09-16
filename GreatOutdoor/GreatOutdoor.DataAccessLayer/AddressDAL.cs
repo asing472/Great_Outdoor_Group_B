@@ -9,8 +9,6 @@ using GreatOutdoor.Exceptions;
 namespace GreatOutdoor.DataAccessLayer
 {
     public class AddressDAL
-
-
     {
         public static List<Address> AddressList = new List<Address>();
 
@@ -33,6 +31,11 @@ namespace GreatOutdoor.DataAccessLayer
         public List<Address> GetAllAddressDAL()
         {
             return AddressList;
+        }
+
+        public Address GetMyData()
+        {
+            return new Address() { City = "Mumbai" };
         }
 
         public Address SearchAddressDAL(int searchAddressID)
