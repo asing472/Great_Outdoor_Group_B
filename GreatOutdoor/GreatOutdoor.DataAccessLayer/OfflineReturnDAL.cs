@@ -28,7 +28,7 @@ namespace GreatOutdoor.DataAccessLayer
 
         public List<OfflineReturns> GetAllOfflineReturnsDAL()
         {
-            OfflineReturns OfflineReturnList;
+            return OfflineReturnList;
         }
 
         public OfflineReturns SearchOfflineReturnDAL(int searchOfflineReturnID)
@@ -61,12 +61,12 @@ namespace GreatOutdoor.DataAccessLayer
                 {
                     if (OfflineReturnList[i].OfflineReturnID == updateOfflineReturn.OfflineReturnID)
                     {
-                        updateOfflineReturn.Order = OfflineReturnList[i].OrderID;
+                        updateOfflineReturn.OfflineOrderID = OfflineReturnList[i].OfflineOrderID;
                         updateOfflineReturn.ProductID = OfflineReturnList[i].ProductID;
-                        updateOfflineReturn.ReasonIncomplete = OfflineReturnList[i].ReasonIncomplete;
-                        updateOfflineReturn.ReasonWrong = OfflineReturnList[i].ReasonWrong;
-                        updateOfflineReturn.OfflineReturnValue = OfflineReturnList[i].OfflineReturnValue;
-                        updateOfflineReturn.OfflineReturnQuantity = OfflineReturnList[i].OfflineReturnQuantity;
+                        updateOfflineReturn.ReasonForReturn = OfflineReturnList[i].ReasonForReturn;
+                        updateOfflineReturn.OfflineReturnID = OfflineReturnList[i].OfflineReturnID;
+                        updateOfflineReturn.ReturnValue = OfflineReturnList[i].ReturnValue;
+                        updateOfflineReturn.ReturnQuantity = OfflineReturnList[i].ReturnQuantity;
                         OfflineReturnUpdated = true;
                     }
                 }
@@ -84,8 +84,8 @@ namespace GreatOutdoor.DataAccessLayer
             bool OfflineReturnDeleted = false;
             try
             {
-                OfflineReturn deleteOfflineReturn = null;
-                foreach (OfflineReturn item in OfflineReturnList)
+                OfflineReturns deleteOfflineReturn = null;
+                foreach (OfflineReturns item in OfflineReturnList)
                 {
                     if (item.OfflineReturnID == deleteOfflineReturnID)
                     {
@@ -99,7 +99,7 @@ namespace GreatOutdoor.DataAccessLayer
                     OfflineReturnDeleted = true;
                 }
             }
-            catch (DbException ex)
+            catch (Exception ex)
             {
                 throw new OfflineReturnException(ex.Message);
             }
