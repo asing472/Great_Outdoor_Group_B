@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatOutdoor.Presentation", "GreatOutdoor.Presentation\GreatOutdoor.Presentation.csproj", "{13A1B98C-977C-4815-8EAF-74912074DCC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatOutdoor.DataAccessLayer", "GreatOutdoor.DataAccessLayer\GreatOutdoor.DataAccessLayer.csproj", "{459A5AAB-07D3-4B48-821C-5CA735468C72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatOutdoor.Entities", "GreatOutdoor.Entities\GreatOutdoor.Entities.csproj", "{35EA939C-5167-4A98-B35F-EE86C498A25B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatOutdoor.BusinessLayer", "GreatOutdoor.BusinessLayer\GreatOutdoor.BusinessLayer.csproj", "{8A1B241F-6784-4CAA-B94B-D35B0F397EAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatOutdoor.Exceptions", "GreatOutdoor.Exceptions\GreatOutdoor.Exceptions.csproj", "{A84221FC-17F1-4D0D-A028-09706EE6F784}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13A1B98C-977C-4815-8EAF-74912074DCC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13A1B98C-977C-4815-8EAF-74912074DCC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13A1B98C-977C-4815-8EAF-74912074DCC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13A1B98C-977C-4815-8EAF-74912074DCC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{459A5AAB-07D3-4B48-821C-5CA735468C72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{459A5AAB-07D3-4B48-821C-5CA735468C72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{459A5AAB-07D3-4B48-821C-5CA735468C72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{459A5AAB-07D3-4B48-821C-5CA735468C72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35EA939C-5167-4A98-B35F-EE86C498A25B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EA939C-5167-4A98-B35F-EE86C498A25B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35EA939C-5167-4A98-B35F-EE86C498A25B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35EA939C-5167-4A98-B35F-EE86C498A25B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A1B241F-6784-4CAA-B94B-D35B0F397EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A1B241F-6784-4CAA-B94B-D35B0F397EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A1B241F-6784-4CAA-B94B-D35B0F397EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A1B241F-6784-4CAA-B94B-D35B0F397EAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84221FC-17F1-4D0D-A028-09706EE6F784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84221FC-17F1-4D0D-A028-09706EE6F784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84221FC-17F1-4D0D-A028-09706EE6F784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84221FC-17F1-4D0D-A028-09706EE6F784}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEBA9201-4370-4843-BDB7-D499321D874B}
+	EndGlobalSection
+EndGlobal

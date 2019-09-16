@@ -39,10 +39,10 @@ namespace GreatOutdoor.Entities
         }
     }
 
-
+<<<<<<< HEAD:GreatOutdoor/GreatOutdoor.Entities/Retailers.cs
 }
-
+=======
   
-
+>>>>>>> 9c562bb1a9fa9c1b488cd41601890e5b723439e3:GreatOutdoor/GreatOutdoor.Entities/GreatOutdoor.cs
 
     
