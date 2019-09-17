@@ -10,7 +10,7 @@ namespace GreatOutdoor.BusinessLayer
 {
     public class AddressBL
     {
-        private static bool ValidateAddress(Address address)
+        private  bool ValidateAddress(Address address)
         {
             StringBuilder sb = new StringBuilder();
             bool validAddress = true;
@@ -44,7 +44,7 @@ namespace GreatOutdoor.BusinessLayer
             return validAddress;
         }
 
-        public static bool AddAddressBL(Address newAddress)
+        public  bool AddAddressBL(Address newAddress)
         {
             bool AddressAdded = false;
             try
@@ -67,7 +67,7 @@ namespace GreatOutdoor.BusinessLayer
             return AddressAdded;
         }
 
-        public static List<Address> GetAllAddresssBL()
+        public  List<Address> GetAllAddresssBL()
         {
             List<Address> AddressList = null;
             try
@@ -86,7 +86,7 @@ namespace GreatOutdoor.BusinessLayer
             return AddressList;
         }
 
-        public static Address SearchAddressBL(int searchAddressID)
+        public  Address SearchAddressBL(int searchAddressID)
         {
             Address searchAddress = null;
             try
@@ -106,7 +106,7 @@ namespace GreatOutdoor.BusinessLayer
 
         }
 
-        public static bool UpdateAddressBL(Address updateAddress)
+        public  bool UpdateAddressBL(Address updateAddress)
         {
             bool AddressUpdated = false;
             try
@@ -129,7 +129,7 @@ namespace GreatOutdoor.BusinessLayer
             return AddressUpdated;
         }
 
-        public static bool DeleteAddressBL(int deleteAddressID)
+        public bool DeleteAddressBL(int deleteAddressID)
         {
             bool AddressDeleted = false;
             try
