@@ -6,9 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GreatOutdoor.DataAccessLayer\GreatOutdoor.DataAccessLayer.csproj" />
-    <ProjectReference Include="..\GreatOutdoor.Entities\GreatOutdoor.Entities.csproj" />
-    <ProjectReference Include="..\GreatOutdoor.Exceptions\GreatOutdoor.Exceptions.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GreatOutdoor.BusinessLayer\GreatOutdoor.BusinessLayer.csproj" />
   </ItemGroup>
 
 </Project>

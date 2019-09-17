@@ -1,4 +1,0 @@
-C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.csprojAssemblyReference.cache
-C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.csproj.CoreCompileInputs.cache
-C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.AssemblyInfoInputs.cache
-C:\Users\chesrava\Desktop\Project\Great_Outdoor_Group_B\GreatOutdoor\GreatOutdoor.DataAccessLayer\obj\Debug\netstandard2.0\GreatOutdoor.DataAccessLayer.AssemblyInfo.cs
