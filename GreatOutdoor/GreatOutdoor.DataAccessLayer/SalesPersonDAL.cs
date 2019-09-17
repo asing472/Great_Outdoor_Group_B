@@ -30,7 +30,7 @@ namespace GreatOutdoor.DataAccessLayer
     [Serializable]//Making Class Serializable
     public class SalesPersonDAL : SalesPersonDALAbstract
     {
-        public static List<SalesPerson> SalesPersonList = new List<SalesPerson>();
+        public static List<SalesPerson> salesPersonList = new List<SalesPerson>();
         public List<SalesPerson> SalesPersonListToSerialize = new List<SalesPerson>();
         private string filePath = "SalesPerson.dat";
 
@@ -39,9 +39,9 @@ namespace GreatOutdoor.DataAccessLayer
             bool SalesPersonAdded = false;
             try
             {   // Json file storage
-                newSalesPerson.SalesPersonID = SalesPersonList.Count + 1;
-                SalesPersonList.Add(newSalesPerson);
-                string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(SalesPersonList, Newtonsoft.Json.Formatting.Indented);
+                newSalesPerson.SalesPersonID = salesPersonList.Count + 1;
+                salesPersonList.Add(newSalesPerson);
+                string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(salesPersonList, Newtonsoft.Json.Formatting.Indented);
                 string path = AppDomain.CurrentDomain.BaseDirectory;
                 string Path = "path" + "Retiler.json";
                 File.WriteAllText(Path, outputJson);
@@ -50,21 +50,25 @@ namespace GreatOutdoor.DataAccessLayer
             }
             catch (Exception ex)
             {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Environment.NewLine + "Json Writing Falied Falied");
                 throw new GreatOutdoorException(ex.Message);
             }
             return SalesPersonAdded;
         }
-
+        // Show all Sales Person
         public override List<SalesPerson> GetAllSalesPersonDAL()
         {
-            return SalesPersonList;
+            return salesPersonList;
         }
-
+        //Show Sales Person By Sales ID
         public override SalesPerson GetSalesPersonByIDDAL(int GetSalesPersonID)
         {
             SalesPerson searchSalesPerson = null;
             try
             {
+                StringBuilder sb = new StringBuilder();
+                //Json File Read
                 if (File.Exists("Path"))
                 {
                     StreamReader r = new StreamReader("Path");
@@ -73,7 +77,7 @@ namespace GreatOutdoor.DataAccessLayer
                     SalesPersonLists = JsonConvert.DeserializeObject<List<SalesPerson>>(json);
 
                 }
-                foreach (SalesPerson item in SalesPersonList)
+                foreach (SalesPerson item in salesPersonList)
                 {
                     if (item.SalesPersonID == GetSalesPersonID)
                     {
@@ -83,7 +87,8 @@ namespace GreatOutdoor.DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Json Read F");
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Environment.NewLine + "Json Reading Falied");
                 throw new GreatOutdoorException(ex.Message);
             }
             return searchSalesPerson;
@@ -94,7 +99,7 @@ namespace GreatOutdoor.DataAccessLayer
             List<SalesPerson> searchSalesPerson = new List<SalesPerson>();
             try
             {
-                foreach (SalesPerson item in SalesPersonList)
+                foreach (SalesPerson item in salesPersonList)
                 {
                     if (item.SalesPersonName == SalesPersonName)
                     {
@@ -114,13 +119,13 @@ namespace GreatOutdoor.DataAccessLayer
             bool SalesPersonUpdated = false;
             try
             {
-                for (int i = 0; i < SalesPersonList.Count; i++)
+                for (int i = 0; i < salesPersonList.Count; i++)
                 {
-                    if (SalesPersonList[i].SalesPersonID == updateSalesPerson.SalesPersonID)
+                    if (salesPersonList[i].SalesPersonID == updateSalesPerson.SalesPersonID)
                     {
-                        updateSalesPerson.SalesPersonName = SalesPersonList[i].SalesPersonName;
-                        updateSalesPerson.SalesPersonMobile = SalesPersonList[i].SalesPersonMobile;
-                        updateSalesPerson.SalesPersonEmail = SalesPersonList[i].SalesPersonEmail;
+                        updateSalesPerson.SalesPersonName = salesPersonList[i].SalesPersonName;
+                        updateSalesPerson.SalesPersonMobile = salesPersonList[i].SalesPersonMobile;
+                        updateSalesPerson.SalesPersonEmail = salesPersonList[i].SalesPersonEmail;
                         SalesPersonUpdated = true;
                     }
                 }
@@ -139,7 +144,7 @@ namespace GreatOutdoor.DataAccessLayer
             try
             {
                 SalesPerson deleteSalesPerson = null;
-                foreach (SalesPerson item in SalesPersonList)
+                foreach (SalesPerson item in salesPersonList)
                 {
                     if (item.SalesPersonID == deleteSalesPersonID)
                     {
@@ -149,7 +154,7 @@ namespace GreatOutdoor.DataAccessLayer
 
                 if (deleteSalesPerson != null)
                 {
-                    SalesPersonList.Remove(deleteSalesPerson);
+                    salesPersonList.Remove(deleteSalesPerson);
                     SalesPersonDeleted = true;
                 }
             }
@@ -162,7 +167,7 @@ namespace GreatOutdoor.DataAccessLayer
 
         public override void Serialize()
         {
-            this.SalesPersonListToSerialize = SalesPersonList;
+            this.SalesPersonListToSerialize = salesPersonList;
             FileStream fs1 = new FileStream(filePath, FileMode.Create, FileAccess.Write);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             binaryFormatter.Serialize(fs1, this);
