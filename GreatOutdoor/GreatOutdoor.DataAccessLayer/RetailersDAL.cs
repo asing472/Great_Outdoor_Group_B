@@ -11,6 +11,9 @@ using GreatOutdoor.Exceptions;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json;
+using Microsoft.Web;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
 
 namespace GreatOutdoor.DataAccessLayer
 {
@@ -32,7 +35,7 @@ namespace GreatOutdoor.DataAccessLayer
     {
         public static List<Retailer> retailerList = new List<Retailer>();
         public List<Retailer> retailerListToSerialize = new List<Retailer>();
-        private string filePath = "retailers.dat";
+        private string filePath = @"C:\Users\prafshar\Documents\Lab\Great_Outdoor\GreatOutdoor\retailer.json";
 
         public override bool AddRetailerDAL(Retailer newRetailer)
         {
@@ -43,14 +46,15 @@ namespace GreatOutdoor.DataAccessLayer
                 retailerList.Add(newRetailer);
                 string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(retailerList, Newtonsoft.Json.Formatting.Indented);
                 string path = AppDomain.CurrentDomain.BaseDirectory;
-                string Path = "path" + "\retiler.json";
-                File.WriteAllText(Path, outputJson);
-                
-                RetailerAdded = true;
+                File.WriteAllText(filePath, outputJson);
+               
+               RetailerAdded = true;
             }
             catch (Exception ex)
             {
-                throw new GreatOutdoorException(ex.Message);
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Environment.NewLine + "Json Writing Falied");
+                throw new GreatOutdoorException(sb.ToString());
             }
             return RetailerAdded;
         }
@@ -67,13 +71,12 @@ namespace GreatOutdoor.DataAccessLayer
             Retailer searchRetailer = null;
             try
             {
-                if (File.Exists("Path"))
+                if (File.Exists("filePath"))
                 { //Reading the JSON File
-                    StreamReader r = new StreamReader("Path");
-                        string json = r.ReadToEnd();
-                    List<Retailer> retailerLists = new List<Retailer>();
-                        retailerLists = JsonConvert.DeserializeObject<List<Retailer>>(json);
-                    
+                    StreamReader r = new StreamReader("filePath");
+                    JObject o = JObject.Parse(r.ToString());
+                    JArray a = (JArray)o[filePath];
+                    List<Retailer> retailerList = a.ToObject<List<Retailer>>();
                 }
                 foreach (Retailer item in retailerList)
                 {
@@ -85,8 +88,9 @@ namespace GreatOutdoor.DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Json Read F");
-                throw new GreatOutdoorException(ex.Message);
+                StringBuilder sb = new StringBuilder();
+                sb.Append(Environment.NewLine + "Json Reading Falied");
+                throw new GreatOutdoorException(sb.ToString());
             }
             return searchRetailer;
         }

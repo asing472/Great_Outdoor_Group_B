@@ -44,6 +44,7 @@ namespace GreatOutdoor.DataAccessLayer
                 string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(salesPersonList, Newtonsoft.Json.Formatting.Indented);
                 string path = AppDomain.CurrentDomain.BaseDirectory;
                 string Path = "path" + "Retiler.json";
+
                 File.WriteAllText(Path, outputJson);
 
                 SalesPersonAdded = true;
@@ -52,7 +53,7 @@ namespace GreatOutdoor.DataAccessLayer
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append(Environment.NewLine + "Json Writing Falied Falied");
-                throw new GreatOutdoorException(ex.Message);
+                throw new GreatOutdoorException(sb.ToString());
             }
             return SalesPersonAdded;
         }
@@ -89,7 +90,7 @@ namespace GreatOutdoor.DataAccessLayer
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append(Environment.NewLine + "Json Reading Falied");
-                throw new GreatOutdoorException(ex.Message);
+                throw new GreatOutdoorException(sb.ToString());
             }
             return searchSalesPerson;
         }

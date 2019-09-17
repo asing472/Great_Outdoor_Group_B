@@ -19,7 +19,7 @@ namespace GreatOutdoor.BusinessLayer
             StringBuilder sb = new StringBuilder();
             bool validSalesPerson = true;
 
-            //Rule: Retaler Name should have alphabets only
+            //Rule: SalesPerson Name should have alphabets only
             Regex regex1 = new Regex("^[a-zA-z. ]*$");
             bool b = regex1.IsMatch(SalesPersons.SalesPersonName);
             if (b == false)
@@ -29,7 +29,7 @@ namespace GreatOutdoor.BusinessLayer
             }
 
 
-            //Rule: 
+            //Rule: Sarles Person Email Check
             Regex regex2 = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             bool c = regex2.IsMatch(SalesPersons.SalesPersonEmail);
             if (c == false)
@@ -38,7 +38,7 @@ namespace GreatOutdoor.BusinessLayer
                 sb.Append(Environment.NewLine + "Please Check Email");
             }
 
-
+            //Sales Person Mobile Check
             Regex regex3 = new Regex(@"^((\+)?(\d{2}[-]))?(\d{10}){1}?$");
             bool d = regex3.IsMatch(SalesPersons.SalesPersonMobile);
             if (d == false)
@@ -52,7 +52,7 @@ namespace GreatOutdoor.BusinessLayer
             return validSalesPerson;
         }
 
-
+        //Adding Sales Personal
         public bool AddSalesPersonBL(SalesPerson newSalesPerson)
         {
             bool SalesPersonAdded = false;
@@ -72,7 +72,7 @@ namespace GreatOutdoor.BusinessLayer
             return SalesPersonAdded;
         }
 
-
+        //Searching Sales Person By ID
         public SalesPerson GetSalesPersonByIDBL(int searchSalesPersonID)
         {
             SalesPerson searchSalesPerson = null;
@@ -92,7 +92,7 @@ namespace GreatOutdoor.BusinessLayer
             return searchSalesPerson;
 
         }
-
+        //Updating Sales Person
         public bool UpdateSalesPersonBL(SalesPerson updateSalesPerson)
         {
             bool SalesPersonUpdated = false;
@@ -115,7 +115,7 @@ namespace GreatOutdoor.BusinessLayer
 
             return SalesPersonUpdated;
         }
-
+        // Deleting Sales Person
         public bool DeleteSalesPersonBL(int deleteSalesPersonID)
         {
             bool SalesPersonDeleted = false;
@@ -141,7 +141,7 @@ namespace GreatOutdoor.BusinessLayer
             }
             return SalesPersonDeleted;
         }
-
+        // Serailization
         public void Serialize()
         {
             try
@@ -154,7 +154,7 @@ namespace GreatOutdoor.BusinessLayer
                 throw new GreatOutdoorException(ex.Message);
             }
         }
-
+        // Deserialization
         public void Deserialize()
         {
             try
