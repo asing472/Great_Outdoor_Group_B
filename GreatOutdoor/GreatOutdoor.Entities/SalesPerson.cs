@@ -11,6 +11,7 @@ namespace GreatOutdoor.Entities
         string SalesPersonEmail { get; set; }
         string SalesPersonMobile { get; set; }
         int SalesPersonID { get; set; }
+        string SalesPersonPassword { get; set; }
 
     }
 
@@ -22,6 +23,7 @@ namespace GreatOutdoor.Entities
         public string SalesPersonEmail { get; set; }
         public string SalesPersonMobile { get; set; }
         public  int SalesPersonID { get; set; }
+        public string SalesPersonPassword { get; set; }
 
     }
 }
