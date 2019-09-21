@@ -32,7 +32,7 @@ namespace GreatOutdoor.DataAccessLayer
     {
         public static List<Retailer> retailerList = new List<Retailer>();
         public List<Retailer> retailerListToSerialize = new List<Retailer>();
-        private string filePath = "retailers.dat";
+        private string filePath = @"C:\Users\prafu\OneDrive - morph B2B partnerships\Desktop\Newspaper\retailer.txt";
 
         public override bool AddRetailerDAL(Retailer newRetailer)
         {
@@ -42,9 +42,7 @@ namespace GreatOutdoor.DataAccessLayer
                 newRetailer.RetailerID = retailerList.Count+1;
                 retailerList.Add(newRetailer);
                 string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(retailerList, Newtonsoft.Json.Formatting.Indented);
-                string path = AppDomain.CurrentDomain.BaseDirectory;
-                string Path = "path" + "\retiler.json";
-                File.WriteAllText(Path, outputJson);
+                File.AppendAllText(filePath, outputJson);
                 
                 RetailerAdded = true;
             }
@@ -70,18 +68,23 @@ namespace GreatOutdoor.DataAccessLayer
                 if (File.Exists("Path"))
                 { //Reading the JSON File
                     StreamReader r = new StreamReader("Path");
+                   
                         string json = r.ReadToEnd();
-                    List<Retailer> retailerLists = new List<Retailer>();
-                        retailerLists = JsonConvert.DeserializeObject<List<Retailer>>(json);
+                        var retailerLists = JsonConvert.DeserializeObject<List<Retailer>>(json);
+                        foreach (Retailer item in retailerLists)
+                        {
+                        Console.WriteLine(item.RetailerEmail);
+                            if (item.RetailerID == GetRetailerID)
+                            {
+                                searchRetailer = item;
+                            }
+                        }
+
                     
+                        
+                   
                 }
-                foreach (Retailer item in retailerList)
-                {
-                    if (item.RetailerID == GetRetailerID)
-                    {
-                        searchRetailer = item;
-                    }
-                }
+                
             }
             catch (Exception ex)
             {
