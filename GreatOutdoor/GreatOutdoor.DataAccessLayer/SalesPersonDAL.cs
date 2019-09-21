@@ -31,22 +31,19 @@ namespace GreatOutdoor.DataAccessLayer
     public class SalesPersonDAL : SalesPersonDALAbstract
     {
         public static List<SalesPerson> salesPersonList = new List<SalesPerson>();
-        public List<SalesPerson> SalesPersonListToSerialize = new List<SalesPerson>();
-        private string filePath = "SalesPerson.dat";
+         private string filePath = "SalesPerson.dat";
 
+        // Add Sales Person
         public override bool AddSalesPersonDAL(SalesPerson newSalesPerson)
         {
             bool SalesPersonAdded = false;
             try
-            {   // Json file storage
+            {
+                Deserialize();
+                // Json file storage
                 newSalesPerson.SalesPersonID = salesPersonList.Count + 1;
                 salesPersonList.Add(newSalesPerson);
-                string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(salesPersonList, Newtonsoft.Json.Formatting.Indented);
-                string path = AppDomain.CurrentDomain.BaseDirectory;
-                string Path = "path" + "Retiler.json";
-
-                File.WriteAllText(Path, outputJson);
-
+                Serialize();
                 SalesPersonAdded = true;
             }
             catch (Exception ex)
@@ -60,6 +57,7 @@ namespace GreatOutdoor.DataAccessLayer
         // Show all Sales Person
         public override List<SalesPerson> GetAllSalesPersonDAL()
         {
+            Deserialize();
             return salesPersonList;
         }
         //Show Sales Person By Sales ID
@@ -68,16 +66,7 @@ namespace GreatOutdoor.DataAccessLayer
             SalesPerson searchSalesPerson = null;
             try
             {
-                StringBuilder sb = new StringBuilder();
-                //Json File Read
-                if (File.Exists("Path"))
-                {
-                    StreamReader r = new StreamReader("Path");
-                    string json = r.ReadToEnd();
-                    List<SalesPerson> SalesPersonLists = new List<SalesPerson>();
-                    SalesPersonLists = JsonConvert.DeserializeObject<List<SalesPerson>>(json);
-
-                }
+                Deserialize();
                 foreach (SalesPerson item in salesPersonList)
                 {
                     if (item.SalesPersonID == GetSalesPersonID)
@@ -95,8 +84,10 @@ namespace GreatOutdoor.DataAccessLayer
             return searchSalesPerson;
         }
 
+        // Get Sales Person By Name
         public override List<SalesPerson> GetSalesPersonByNameDAL(string SalesPersonName)
         {
+            Deserialize();
             List<SalesPerson> searchSalesPerson = new List<SalesPerson>();
             try
             {
@@ -115,8 +106,10 @@ namespace GreatOutdoor.DataAccessLayer
             return searchSalesPerson;
         }
 
+        //Update Sales Person Details
         public override bool UpdateSalesPersonDetailDAL(SalesPerson updateSalesPerson)
         {
+            Deserialize();
             bool SalesPersonUpdated = false;
             try
             {
@@ -138,7 +131,7 @@ namespace GreatOutdoor.DataAccessLayer
             return SalesPersonUpdated;
 
         }
-
+        // Delete Sales Person By ID
         public override bool DeleteSalesPersonDAL(int deleteSalesPersonID)
         {
             bool SalesPersonDeleted = false;
@@ -166,20 +159,23 @@ namespace GreatOutdoor.DataAccessLayer
             return SalesPersonDeleted;
         }
 
+        // Searializing Data of list in File
         public override void Serialize()
         {
-            this.SalesPersonListToSerialize = salesPersonList;
-            FileStream fs1 = new FileStream(filePath, FileMode.Create, FileAccess.Write);
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            binaryFormatter.Serialize(fs1, this);
-            fs1.Close();
+            JsonSerializer serializer = new JsonSerializer();
+            using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            using (StreamWriter sw = new StreamWriter(fs))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, salesPersonList);
+                sw.Close();
+                fs.Close();
+            }
         }
-
+        // Deserialzing Data of Field in File
         public override void Deserialize()
         {
-            FileStream fs2 = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            SalesPersonDAL SalesPersonDAL = (SalesPersonDAL)binaryFormatter.Deserialize(fs2);
+            salesPersonList = JsonConvert.DeserializeObject<List<SalesPerson>>(File.ReadAllText(filePath));
         }
     }
 }

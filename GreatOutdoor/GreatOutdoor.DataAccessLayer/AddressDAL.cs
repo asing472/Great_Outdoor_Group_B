@@ -5,14 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using GreatOutdoor.Entities;
 using GreatOutdoor.Exceptions;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace GreatOutdoor.DataAccessLayer
-{
-    public class AddressDAL
+{   // Abstract Class
+    public abstract class IAddressDAL
     {
+        public abstract bool AddAddressDAL(Address newAddress);
+        public abstract List<Address> GetAllAddressDAL();
+        public abstract Address SearchAddressDAL(int searchAddressID);
+        public abstract List<Address> GetAddressByRetailerId(int RetailerId);
+        public abstract void Serialize();
+        public abstract void Deserialize();
+    }
+    // Data Access Layer
+    public class AddressDAL: IAddressDAL
+    {
+        private string filePath = @"Address.dat";
         public static List<Address> AddressList = new List<Address>();
 
-        public bool AddAddressDAL(Address newAddress)
+        // For Adding Adress
+        // parameter is Address
+        public override bool AddAddressDAL(Address newAddress)
         {
             bool addressAdded = false;
             try
@@ -28,13 +43,15 @@ namespace GreatOutdoor.DataAccessLayer
 
         }
 
-        public List<Address> GetAllAddressDAL()
+        // Search All Address
+        public override List<Address> GetAllAddressDAL()
         {
             return AddressList;
         }
 
-        
-        public Address SearchAddressDAL(int searchAddressID)
+        //Search Address by AddressID
+        //Paramer is int AddressID
+        public override Address SearchAddressDAL(int searchAddressID)
         {
             Address searchAddress = null;
             try
@@ -54,7 +71,8 @@ namespace GreatOutdoor.DataAccessLayer
             return searchAddress;
         }
 
-        public List<Address> GetAddressByRetailerId(int RetailerId)
+        //Search Address by Retail ID
+        public override List<Address> GetAddressByRetailerId(int RetailerId)
         {
             List<Address> searchAddress = new List<Address>();
 
@@ -75,6 +93,7 @@ namespace GreatOutdoor.DataAccessLayer
             return searchAddress;
         }
 
+        // Update Address 
         public bool UpdateAddress(Address updateAddress)
         {
             bool AddressUpdated = false;
@@ -101,7 +120,7 @@ namespace GreatOutdoor.DataAccessLayer
             return AddressUpdated;
 
         }
-
+        // Delete Address
         public bool DeleteAddressDAL(int deleteAddressID)
         {
             bool AddressDeleted = false;
@@ -130,6 +149,26 @@ namespace GreatOutdoor.DataAccessLayer
 
         }
 
+        // Serialaize
+        public override void Serialize()
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            using (StreamWriter sw = new StreamWriter(fs))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, AddressList);
+                sw.Close();
+                fs.Close();
+            }
+        }
+        // Deserialzing Data of Field in File
+        public override void Deserialize()
+        {
+            AddressList = JsonConvert.DeserializeObject<List<Address>>(File.ReadAllText(filePath));
+        }
     }
 
+    
 }
+

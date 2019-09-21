@@ -10,16 +10,19 @@ namespace GreatOutdoor.BusinessLayer
 {
     public class AddressBL
     {
+        // For validating Address
         private  bool ValidateAddress(Address address)
         {
             StringBuilder sb = new StringBuilder();
             bool validAddress = true;
+            // For verifying Address ID
             if (address.AddressID <= 0)
             {
                 validAddress = false;
                 sb.Append(Environment.NewLine + "Invalid Address ID");
 
             }
+            //for Varifying Address Lines
             if (address.Address_line1 == string.Empty)
             {
                 validAddress = false;
@@ -43,7 +46,7 @@ namespace GreatOutdoor.BusinessLayer
                 throw new GreatOutdoorException(sb.ToString());
             return validAddress;
         }
-
+        // For Adding new Address
         public  bool AddAddressBL(Address newAddress)
         {
             bool AddressAdded = false;
@@ -66,7 +69,7 @@ namespace GreatOutdoor.BusinessLayer
 
             return AddressAdded;
         }
-
+        // See All Address
         public  List<Address> GetAllAddresssBL()
         {
             List<Address> AddressList = null;
@@ -85,7 +88,7 @@ namespace GreatOutdoor.BusinessLayer
             }
             return AddressList;
         }
-
+        // Search Address By Address ID
         public  Address SearchAddressBL(int searchAddressID)
         {
             Address searchAddress = null;
@@ -105,7 +108,7 @@ namespace GreatOutdoor.BusinessLayer
             return searchAddress;
 
         }
-
+        // Update Address By Address
         public  bool UpdateAddressBL(Address updateAddress)
         {
             bool AddressUpdated = false;
@@ -128,7 +131,7 @@ namespace GreatOutdoor.BusinessLayer
 
             return AddressUpdated;
         }
-
+        //Delete Address
         public bool DeleteAddressBL(int deleteAddressID)
         {
             bool AddressDeleted = false;

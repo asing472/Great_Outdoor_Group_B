@@ -11,7 +11,6 @@ using GreatOutdoor.Exceptions;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json;
-using Microsoft.Web;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json.Linq;
 
@@ -35,30 +34,22 @@ namespace GreatOutdoor.DataAccessLayer
     {
         public static List<Retailer> retailerList = new List<Retailer>();
         public List<Retailer> retailerListToSerialize = new List<Retailer>();
-<<<<<<< HEAD
-        private string filePath = @"C:\Users\prafu\OneDrive - morph B2B partnerships\Desktop\Newspaper\retailer.txt";
-=======
-        private string filePath = @"C:\Users\prafshar\Documents\Lab\Great_Outdoor\GreatOutdoor\retailer.json";
->>>>>>> ebc9b4990135c0076630b78c8c1bdbf33d026a96
+
+
+        private string filePath = @"Retailer.dat";
+
 
         public override bool AddRetailerDAL(Retailer newRetailer)
         {
+            Deserialize();
             bool RetailerAdded = false;
             try
             {   // Saving File as JSON file
-                newRetailer.RetailerID = retailerList.Count+1;
+                newRetailer.RetailerID = retailerList.Count + 1;
                 retailerList.Add(newRetailer);
-                string outputJson = Newtonsoft.Json.JsonConvert.SerializeObject(retailerList, Newtonsoft.Json.Formatting.Indented);
-<<<<<<< HEAD
-                File.AppendAllText(filePath, outputJson);
-                
+                Serialize();
                 RetailerAdded = true;
-=======
-                string path = AppDomain.CurrentDomain.BaseDirectory;
-                File.WriteAllText(filePath, outputJson);
-               
-               RetailerAdded = true;
->>>>>>> ebc9b4990135c0076630b78c8c1bdbf33d026a96
+
             }
             catch (Exception ex)
             {
@@ -72,42 +63,25 @@ namespace GreatOutdoor.DataAccessLayer
         //Having a List of All retailer
         public override List<Retailer> GetAllRetailersDAL()
         {
+            Deserialize();
             return retailerList;
         }
 
         //Searching Reatiler By ReatilerID
         public override Retailer GetRetailerByIDDAL(int GetRetailerID)
         {
+            Deserialize();
             Retailer searchRetailer = null;
             try
             {
-                if (File.Exists("filePath"))
-                { //Reading the JSON File
-<<<<<<< HEAD
-                    StreamReader r = new StreamReader("Path");
-                   
-                        string json = r.ReadToEnd();
-                        var retailerLists = JsonConvert.DeserializeObject<List<Retailer>>(json);
-                        foreach (Retailer item in retailerLists)
-                        {
-                        Console.WriteLine(item.RetailerEmail);
-                            if (item.RetailerID == GetRetailerID)
-                            {
-                                searchRetailer = item;
-                            }
-                        }
-
-                    
-                        
-                   
-=======
-                    StreamReader r = new StreamReader("filePath");
-                    JObject o = JObject.Parse(r.ToString());
-                    JArray a = (JArray)o[filePath];
-                    List<Retailer> retailerList = a.ToObject<List<Retailer>>();
->>>>>>> ebc9b4990135c0076630b78c8c1bdbf33d026a96
+                foreach (Retailer item in retailerList)
+                {
+                    Console.WriteLine(item.RetailerEmail);
+                    if (item.RetailerID == GetRetailerID)
+                    {
+                        searchRetailer = item;
+                    }
                 }
-                
             }
             catch (Exception ex)
             {
@@ -121,6 +95,7 @@ namespace GreatOutdoor.DataAccessLayer
         // Searching Retailers By Name
         public override List<Retailer> GetRetailersByNameDAL(string RetailerName)
         {
+            Deserialize();
             List<Retailer> searchRetailer = new List<Retailer>();
             try
             {
@@ -142,6 +117,7 @@ namespace GreatOutdoor.DataAccessLayer
         // Updating Reatilers
         public override bool UpdateRetailerDetailDAL(Retailer updateRetailer)
         {
+            Deserialize();
             bool RetailerUpdated = false;
             try
             {
@@ -166,6 +142,7 @@ namespace GreatOutdoor.DataAccessLayer
         // Deleting Retailer
         public override bool DeleteRetailerDAL(int deleteRetailerID)
         {
+            Deserialize();
             bool RetailerDeleted = false;
             try
             {
@@ -194,18 +171,20 @@ namespace GreatOutdoor.DataAccessLayer
         // Searializing Data of list in File
         public override void Serialize()
         {
-            this.retailerListToSerialize = retailerList;
-            FileStream fs1 = new FileStream(filePath, FileMode.Create, FileAccess.Write);
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            binaryFormatter.Serialize(fs1, this);
-            fs1.Close();
+            JsonSerializer serializer = new JsonSerializer();
+            using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            using (StreamWriter sw = new StreamWriter(fs))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, retailerList);
+                sw.Close();
+                fs.Close();
+            }
         }
         // Deserialzing Data of Field in File
         public override void Deserialize()
         {
-            FileStream fs2 = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            RetailersDAL retailersDAL = (RetailersDAL)binaryFormatter.Deserialize(fs2);
+            retailerList = JsonConvert.DeserializeObject<List<Retailer>>(File.ReadAllText(filePath));
         }
     }
 }
