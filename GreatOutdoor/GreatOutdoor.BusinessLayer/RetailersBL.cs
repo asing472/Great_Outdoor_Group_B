@@ -78,8 +78,8 @@ namespace GreatOutdoor.BusinessLayer
             Retailer searchRetailer = null;
             try
             {
-                RetailersDAL guestDAL = new RetailersDAL();
-                searchRetailer = guestDAL.GetRetailerByIDDAL(searchretailerID);
+                RetailersDAL retailerDAL = new RetailersDAL();
+                searchRetailer = retailerDAL.GetRetailerByIDDAL(searchretailerID);
             }
             catch (GreatOutdoorException ex)
             {
