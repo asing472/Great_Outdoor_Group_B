@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace GreatOutdoor.BusinessLayer
 {
-    class OfflineOrderBL
+   public class OfflineOrderBL
     {
         private static bool ValidateOfflineOrderBL(OfflineOrder offlineOrder)
         {

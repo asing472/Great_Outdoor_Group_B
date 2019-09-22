@@ -8,7 +8,7 @@ namespace GreatOutdoor.BusinessLayer
 {
 
 
-    public class OfflineReturn_BL
+    public class OfflineReturnBL
     {
         private static bool ValidateOfflineReturn(OfflineReturns OfflineReturnobj)
         {

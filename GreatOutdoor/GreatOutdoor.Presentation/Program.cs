@@ -58,9 +58,30 @@ namespace GreatOutdoor.Presentation
                     else if (option == 2)
                     {
 
-                        WriteLine("welcome salesperson");
-                        WriteLine("enter sales id");
-                        int salespersonid = int.Parse(ReadLine());
+                        WriteLine("WELCOME SALESPERSON");
+                        int option1;
+                        WriteLine("ENTER YOUR CHOICE\n1.View Personal Details\n2.Upload Offline Orders \n3.Upload Offline Return");
+                        option1 = int.Parse(ReadLine());
+                        if (option1 == 1)
+                        {
+                            WriteLine("Enter your sales ID");
+                            GetSalesPersonByID();
+                        }
+                        if (option1 == 2)
+                        {
+                            WriteLine("please fill the following details to complete registrartion:");
+                            AddOfflineOrder();
+                        }
+                        if (option1 == 3)
+                        {
+                           // AddOfflineReturn();
+                        }
+                        else
+                        {
+                            WriteLine("INVALID CHOICE");
+                        }
+                        //WriteLine("enter sales id");
+                        //int salespersonid = int.Parse(ReadLine());
                         //SalesPersonDAL spid = new SalesPersonDAL();
                         //SalesPerson item = spid.GetSalespersonByIDDAL(spid);
                         //if (item == null) { WriteLine("Invalid Salesperson id"); }
@@ -588,6 +609,33 @@ namespace GreatOutdoor.Presentation
                 private static void ViewSalesreports() { }
                 private static void ViewRetailerreports() { }
                 private static void ViewOverallreports() { }
+        private static void AddOfflineOrder()
+        {
+            try
+            {
+
+                OfflineOrder offlineOrder = new OfflineOrder();
+                Console.WriteLine("Enter Retailer ID :");
+                offlineOrder.RetailerID = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Sales Person ID :");
+                offlineOrder.SalespersonID = Convert.ToInt32(Console.ReadLine());
+               
+                OfflineOrderBL offlineOrder1 = new BusinessLayer.OfflineOrderBL();
+                bool offlinOrderAdded = OfflineOrderBL.AddOfflineOrderBL(offlineOrder);
+                if (offlinOrderAdded)
+                {
+                    Console.WriteLine("Offline Order Added");
+                    Console.WriteLine("Offline Order = ", offlineOrder.OfflineOrderID);
+                }
+                else
+                    Console.WriteLine("Offline Order Not Added");
+
+            }
+            catch (GreatOutdoorException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
+    }
+}
 
