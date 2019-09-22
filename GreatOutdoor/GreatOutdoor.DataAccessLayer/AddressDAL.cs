@@ -29,10 +29,14 @@ namespace GreatOutdoor.DataAccessLayer
         // parameter is Address
         public override bool AddAddressDAL(Address newAddress)
         {
+            Deserialize();
             bool addressAdded = false;
             try
             {
+                
+                newAddress.AddressID = (AddressList.Count + 1);
                 AddressList.Add(newAddress);
+                Serialize();
                 addressAdded = true;
             }
             catch (SystemException ex)
@@ -46,6 +50,7 @@ namespace GreatOutdoor.DataAccessLayer
         // Search All Address
         public override List<Address> GetAllAddressDAL()
         {
+            Deserialize();
             return AddressList;
         }
 
@@ -53,6 +58,7 @@ namespace GreatOutdoor.DataAccessLayer
         //Paramer is int AddressID
         public override Address SearchAddressDAL(int searchAddressID)
         {
+            Deserialize();
             Address searchAddress = null;
             try
             {
@@ -72,15 +78,19 @@ namespace GreatOutdoor.DataAccessLayer
         }
 
         //Search Address by Retail ID
-        public override List<Address> GetAddressByRetailerId(int RetailerId)
+        public override List<Address> GetAddressByRetailerId(int RetailerID)
         {
+            Deserialize();
             List<Address> searchAddress = new List<Address>();
 
             try
             {
-                foreach (Address item in AddressList)
+                foreach (var item in AddressList)
                 {
-                    if (item.RetailerId == RetailerId)
+
+                }
+                {
+                    if (item.RetailerID == RetailerID)
                     {
                         searchAddress.Add(item);
                     }
@@ -96,6 +106,7 @@ namespace GreatOutdoor.DataAccessLayer
         // Update Address 
         public bool UpdateAddress(Address updateAddress)
         {
+            Deserialize();
             bool AddressUpdated = false;
             try
             {
@@ -123,6 +134,7 @@ namespace GreatOutdoor.DataAccessLayer
         // Delete Address
         public bool DeleteAddressDAL(int deleteAddressID)
         {
+            Deserialize();
             bool AddressDeleted = false;
             try
             {

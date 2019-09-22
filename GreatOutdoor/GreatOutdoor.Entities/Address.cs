@@ -14,7 +14,7 @@ namespace GreatOutdoor.Entities
          string City { get; set; }
          string State { get; set; }
          int Pincode { get; set; }
-         int RetailerId { get; set; }
+         int RetailerID { get; set; }
 
     }
     //Address Class
@@ -29,6 +29,6 @@ namespace GreatOutdoor.Entities
         public string City { get; set ; }
         public string State { get; set; }
         public int Pincode { get; set ; }
-        public int RetailerId { get; set; }
+        public int RetailerID { get; set; }
     }
 }

@@ -88,6 +88,22 @@ namespace GreatOutdoor.BusinessLayer
             }
             return AddressList;
         }
+        // Searching Address By Retailers ID
+        public List<Address> GetAddressByAddressIDBL(int RetailerID)
+        {
+            List<Address> searchAddress = new List<Address>();
+            try
+            {
+                AddressDAL AddressDAL = new AddressDAL();
+                searchAddress = AddressDAL.GetAddressByRetailerId(RetailerID);
+
+            }
+            catch (SystemException ex)
+            {
+                throw new GreatOutdoorException(ex.Message);
+            }
+            return searchAddress;
+        }
         // Search Address By Address ID
         public  Address SearchAddressBL(int searchAddressID)
         {
