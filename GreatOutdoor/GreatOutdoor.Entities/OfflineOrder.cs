@@ -15,13 +15,14 @@ namespace GreatOutdoor.Entities
         private int _totalAmount;         
         private DateTime _dateOfOfflineOrder;
 
-        public int OfflineOrderID { get => _offlineOrderID; set => _offlineOrderID = value; }
-        public int RetailerID { get => _retailerID; set => _retailerID = value; }
-        public int SalespersonID { get => _salespersonID; set => _salespersonID = value; }
-        public int ProductID { get => _productID; set => _productID = value; }
-        public int Quantity { get => _quantity; set => _quantity = value; }
-        public int PriceAtOrder { get => _priceAtOrder; set => _priceAtOrder = value; }
-        public int TotalAmount { get => _totalAmount; set => _totalAmount = value; }
-        public DateTime DateOfOfflineOrder { get => _dateOfOfflineOrder; set => _dateOfOfflineOrder = value; }
+        public Guid OfflineOrderID { get ; set; }
+        public Guid RetailerID { get; set; }
+        public Guid SalespersonID { get; set; }
+        public int ProductID { get; set; }
+        public int Quantity { get; set; }
+        public int PriceAtOrder { get; set; }
+        public int TotalAmount { get; set; }
+        public DateTime DateOfOfflineOrder { get; set; }
+        public DateTime LastUpdateOfflineOrder { get; set; }
     }
 }
