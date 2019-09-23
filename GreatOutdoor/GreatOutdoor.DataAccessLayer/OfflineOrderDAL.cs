@@ -4,17 +4,27 @@ using System.Text;
 using GreatOutdoor.Entities;
 using GreatOutdoor.Exceptions;
 namespace GreatOutdoor.DataAccessLayer
-{
+{/// <summary>
+ /// Contains data access layer methods for inserting, updating, deleting systemUsers from OfflineOrder collection.
+ /// </summary>
     public class OfflineOrderDAL
 
     {
         public static List<OfflineOrder> OfflineOrderList = new List<OfflineOrder>();
 
+        /// <summary>
+        /// Adds new Offline Order to OfflineOrder collection.
+        /// </summary>
+        /// <param name="newOfflineOrder">Contains the Offline Orders details to be added.</param>
+        /// <returns>Determinates whether the new Offline Order is added.</returns>
         public bool AddOfflineOrderDAL(OfflineOrder newOfflineOrder)
         {
             bool OfflineOrderAdded = false;
             try
             {
+                newOfflineOrder.OfflineOrderID = Guid.NewGuid();
+                newOfflineOrder.DateOfOfflineOrder = DateTime.Now;
+                newOfflineOrder.LastUpdateOfflineOrder = DateTime.Now;
                 OfflineOrderList.Add(newOfflineOrder);
                 OfflineOrderAdded = true;
             }
@@ -25,33 +35,42 @@ namespace GreatOutdoor.DataAccessLayer
             return OfflineOrderAdded;
 
         }
-
+        // <summary>
+        /// Gets all offline orders from the collection.
+        /// </summary>
+        /// <returns>Returns list of all offline order.</returns>
         public List<OfflineOrder> GetAllOfflineOrdersDAL()
         {
             return OfflineOrderList;
         }
-
-        public OfflineOrder SearchOfflineOrderDAL(int searchOfflineOrderID)
+        /// <summary>
+        /// Gets Offline Order based on OfflineOrderID.
+        /// </summary>
+        /// <param name="searchOfflineOrderID">Represents OfflineOrderID to search.</param>
+        /// <returns>Returns SystemUser object.</returns>
+        public   OfflineOrder GetOfflineOrderByOfflineOrderIDDAL(Guid searchOfflineOrderID)
         {
-            OfflineOrder searchOfflineOrder = null;
+            OfflineOrder matchingOfflineOrder = null;
             try
             {
-                foreach (OfflineOrder item in OfflineOrderList)
-                {
-                    if (item.OfflineOrderID == searchOfflineOrderID)
-                    {
-                        searchOfflineOrder = item;
-                    }
-                }
+                //Find SystemUser based on searchSystemUserID
+                matchingOfflineOrder = OfflineOrderList.Find(
+                    (item) => { return item.OfflineOrderID == searchOfflineOrderID; }
+                );
             }
-            catch (SystemException ex)
+            catch (Exception)
             {
-                throw new OfflineOrderException(ex.Message);
+                throw;
             }
-            return searchOfflineOrder;
+            return matchingOfflineOrder;
         }
-
-        public List<OfflineOrder> GetOfflineOrderByRetailerIDDAL(int RetailerID)
+      
+        /// <summary>
+        /// Get list of Offline orders using retailerId
+        /// </summary>
+        /// <param name="RetailerID">Using Retailer Id to search offline orders.</param>
+        /// <returns>list of offline order</returns>
+        public List<OfflineOrder> GetOfflineOrderByRetailerIDDAL(Guid RetailerID)
         {
             List<OfflineOrder> searchOfflineOrder = new List<OfflineOrder>();
             try
@@ -71,27 +90,12 @@ namespace GreatOutdoor.DataAccessLayer
             return searchOfflineOrder;
         }
 
-        public List<OfflineOrder> GetOfflineOrderByOfflineOrderIDDAL(int offlineorderID)
-        {
-            List<OfflineOrder> searchOfflineOrder = new List<OfflineOrder>();
-            try
-            {
-                foreach (OfflineOrder item in OfflineOrderList)
-                {
-                    if (item.OfflineOrderID == offlineorderID)
-                    {
-                        searchOfflineOrder.Add(item);
-                    }
-                }
-            }
-            catch (SystemException ex)
-            {
-                throw new OfflineOrderException(ex.Message);
-            }
-            return searchOfflineOrder;
-        }
-
-        public List<OfflineOrder> GetOfflineOrderBySalespersonIDDAL(int salespersonID)
+        /// <summary>
+        /// Get list of Offline orders using SalesPersonId
+        /// </summary>
+        /// <param name="salespersonID">Using Sales Person Id to search offline orders.</param>
+        /// <returns>list of offline order</returns>
+        public List<OfflineOrder> GetOfflineOrderBySalespersonIDDAL(Guid salespersonID)
         {
             List<OfflineOrder> searchOfflineOrder = new List<OfflineOrder>();
             try
@@ -132,6 +136,34 @@ namespace GreatOutdoor.DataAccessLayer
             }
             return OfflineOrderUpdated;
 
+            }
+        /// <summary>
+        /// Deletes OfflineOrder based on OfflineOrderID.
+        /// </summary>
+        /// <param name="deleteOfflineOrderID">Represents OfflineOrderID to delete.</param>
+        /// <returns>Determinates whether the existing OfflineOrder is deleted.</returns>
+        public bool DeleteOfflineOrderDAL(Guid deleteOfflineOrderID)
+        {
+            bool OfflineOrderDeleted = false;
+            try
+            {
+                //Find SystemUser based on searchSystemUserID
+                OfflineOrder matchingOfflineOrder = OfflineOrderList.Find(
+                    (item) => { return item.OfflineOrderID == deleteOfflineOrderID; }
+                );
+
+                if (matchingOfflineOrder != null)
+                {
+                    //Delete SystemUser from the collection
+                    OfflineOrderList.Remove(matchingOfflineOrder);
+                    OfflineOrderDeleted = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return OfflineOrderDeleted;
         }
 
 
