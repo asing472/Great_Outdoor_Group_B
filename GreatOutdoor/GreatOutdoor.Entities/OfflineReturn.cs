@@ -4,18 +4,19 @@ using System.Text;
 
 namespace GreatOutdoor.Entities
 {
-     public class OfflineReturns
+     public class OfflineReturn
 
     {
         
 
             // Auto implemented Properties
-            public int OfflineReturnID { get ; set ; }
-            public int OfflineOrderID { get; set; }
-            public int ProductID { get; set; }
+            public Guid OfflineReturnID { get ; set ; }
+            public Guid OfflineOrderID { get; set; }
+            public Guid OfflineReturnDetailsID { get; set; }
             public double ReturnValue { get; set; }
-            public int ReturnQuantity { get; set; }
-            public string ReasonForReturn { get; set; }
+            public DateTime DateOfOfflineReturn { get; set; }
+
+
      }
 }
 

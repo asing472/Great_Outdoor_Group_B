@@ -10,46 +10,18 @@ namespace GreatOutdoor.BusinessLayer
 
     public class OfflineReturnBL
     {
-        private static bool ValidateOfflineReturn(OfflineReturns OfflineReturnobj)
+        private static bool ValidateOfflineReturn(OfflineReturn OfflineReturnobj)
         {
             StringBuilder sb = new StringBuilder();
             bool validOfflineReturn = true;
-            if (OfflineReturnobj.OfflineReturnID <= 0)
-            {
-                validOfflineReturn = false;
-                sb.Append(Environment.NewLine + "Invalid OfflineReturn ID");
-
-            }
-            if (OfflineReturnobj.OfflineOrderID <= 0)
-            {
-                validOfflineReturn = false;
-                sb.Append(Environment.NewLine + "Invalid Order ID");
-
-            }
-            if (OfflineReturnobj.ProductID <= 0)
-            {
-                validOfflineReturn = false;
-                sb.Append(Environment.NewLine + "Invalid Product ID");
-
-            }
-            if (OfflineReturnobj.ReasonForReturn == null)
-            {
-                validOfflineReturn = false;
-                sb.Append(Environment.NewLine + "Invalid IncompleteOrder status");
-            }
-
+            
 
             if (OfflineReturnobj.ReturnValue <= 0)
             {
                 validOfflineReturn = false;
                 sb.Append(Environment.NewLine + "Invalid OfflineReturn Value");
             }
-            if (OfflineReturnobj.ReturnQuantity <= 0)
-            {
-                validOfflineReturn = false;
-                sb.Append(Environment.NewLine + "Invalid OfflineReturn Quantity");
-
-            }
+            
 
 
             if (validOfflineReturn == false)
@@ -57,7 +29,7 @@ namespace GreatOutdoor.BusinessLayer
             return validOfflineReturn;
         }
 
-        public static bool AddOfflineReturnBL(OfflineReturns newOfflineReturn)
+        public static bool AddOfflineReturnBL(OfflineReturn newOfflineReturn)
         {
             bool OfflineReturnAdded = false;
             try
@@ -80,9 +52,9 @@ namespace GreatOutdoor.BusinessLayer
             return OfflineReturnAdded;
         }
 
-        public static List<OfflineReturns> GetAllOfflineReturnsBL()
+        public static List<OfflineReturn> GetAllOfflineReturnsBL()
         {
-            List<OfflineReturns> OfflineReturnList = null;
+            List<OfflineReturn> OfflineReturnList = null;
             try
             {
                 OfflineReturnDAL OfflineReturnDAL = new OfflineReturnDAL();
@@ -99,27 +71,8 @@ namespace GreatOutdoor.BusinessLayer
             return OfflineReturnList;
         }
 
-        public static OfflineReturns SearchOfflineReturnBL(int searchOfflineReturnID)
-        {
-            OfflineReturns searchOfflineReturn = null;
-            try
-            {
-                OfflineReturnDAL OfflineReturnDAL = new OfflineReturnDAL();
-                searchOfflineReturn = OfflineReturnDAL.SearchOfflineReturnDAL(searchOfflineReturnID);
-            }
-            catch (OfflineReturnException ex)
-            {
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return searchOfflineReturn;
-
-        }
-
-        public static bool UpdateOfflineReturnBL(OfflineReturns updateOfflineReturn)
+       
+        public static bool UpdateOfflineReturnBL(OfflineReturn updateOfflineReturn)
         {
             bool OfflineReturnUpdated = false;
             try
@@ -142,12 +95,12 @@ namespace GreatOutdoor.BusinessLayer
             return OfflineReturnUpdated;
         }
 
-        public static bool DeleteOfflineReturnBL(int deleteOfflineReturnID)
+        public static bool DeleteOfflineReturnBL(Guid deleteOfflineReturnID)
         {
             bool OfflineReturnDeleted = false;
             try
             {
-                if (deleteOfflineReturnID > 0)
+                if (true)//Add condition
                 {
                     OfflineReturnDAL OfflineReturnDAL = new OfflineReturnDAL();
                     OfflineReturnDeleted = OfflineReturnDAL.DeleteOfflineReturnDAL(deleteOfflineReturnID);

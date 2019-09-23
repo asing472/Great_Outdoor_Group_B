@@ -70,7 +70,7 @@ namespace GreatOutdoor.Presentation
                         if (option1 == 2)
                         {
                             WriteLine("please fill the following details to complete registrartion:");
-                            AddOfflineOrder();
+                            //AddOfflineOrder();
                         }
                         if (option1 == 3)
                         {
@@ -609,33 +609,33 @@ namespace GreatOutdoor.Presentation
                 private static void ViewSalesreports() { }
                 private static void ViewRetailerreports() { }
                 private static void ViewOverallreports() { }
-        private static void AddOfflineOrder()
-        {
-            try
-            {
+        //private static void AddOfflineOrder()
+        //{
+        //    try
+        //    {
 
-                OfflineOrder offlineOrder = new OfflineOrder();
-                Console.WriteLine("Enter Retailer ID :");
-                offlineOrder.RetailerID = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Sales Person ID :");
-                offlineOrder.SalespersonID = Convert.ToInt32(Console.ReadLine());
+        //        OfflineOrder offlineOrder = new OfflineOrder();
+        //        Console.WriteLine("Enter Retailer ID :");
+        //        offlineOrder.RetailerID = Convert.ToInt32(Console.ReadLine());
+        //        Console.WriteLine("Enter Sales Person ID :");
+        //        offlineOrder.SalespersonID = Convert.ToInt32(Console.ReadLine());
                
-                OfflineOrderBL offlineOrder1 = new BusinessLayer.OfflineOrderBL();
-                bool offlinOrderAdded = OfflineOrderBL.AddOfflineOrderBL(offlineOrder);
-                if (offlinOrderAdded)
-                {
-                    Console.WriteLine("Offline Order Added");
-                    Console.WriteLine("Offline Order = ", offlineOrder.OfflineOrderID);
-                }
-                else
-                    Console.WriteLine("Offline Order Not Added");
+        //        OfflineOrderBL offlineOrder1 = new BusinessLayer.OfflineOrderBL();
+        //        bool offlinOrderAdded = OfflineOrderBL.AddOfflineOrderBL(offlineOrder);
+        //        if (offlinOrderAdded)
+        //        {
+        //            Console.WriteLine("Offline Order Added");
+        //            Console.WriteLine("Offline Order = ", offlineOrder.OfflineOrderID);
+        //        }
+        //        else
+        //            Console.WriteLine("Offline Order Not Added");
 
-            }
-            catch (GreatOutdoorException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
+        //    }
+        //    catch (GreatOutdoorException ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //    }
+        //}
     }
 }
 

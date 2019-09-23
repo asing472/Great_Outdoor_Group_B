@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GreatOutdoor.Entities\GreatOutdoor.Entities.csproj" />
     <ProjectReference Include="..\GreatOutdoor.Exceptions\GreatOutdoor.Exceptions.csproj" />
+    <ProjectReference Include="..\GreatOutdoors.Contracts\GreatOutdoor.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

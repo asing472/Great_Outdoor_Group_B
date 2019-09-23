@@ -3,19 +3,30 @@ using System.Collections.Generic;
 using System.Text;
 using GreatOutdoor.Entities;
 using GreatOutdoor.Exceptions;
-
+using GreatOutdoor.Contracts.DALContracts;
 namespace GreatOutdoor.DataAccessLayer
-{
-    public class OfflineReturnDAL
-    {
-        public static List<OfflineReturns> OfflineReturnList = new List<OfflineReturns>();
+{/// <summary>
+ /// Contains data access layer methods for inserting, updating, deleting systemUsers from OfflineReturn collection.
+ /// </summary>
+    public class OfflineReturnDAL : OfflineReturnDALBase
 
-        public bool AddOfflineReturnDAL(OfflineReturns newOfflineReturn)
+    {
+        public static List<OfflineReturn> OfflineReturnList1 = new List<OfflineReturn>();
+
+        /// <summary>
+        /// Adds new Offline return to OfflineReturn collection.
+        /// </summary>
+        /// <param name="newOfflineReturn">Contains the Offline returns details to be added.</param>
+        /// <returns>Determinates whether the new Offline return is added.</returns>
+        public bool AddOfflineReturnDAL(OfflineReturn newOfflineReturn)
         {
             bool OfflineReturnAdded = false;
             try
             {
-                OfflineReturnList.Add(newOfflineReturn);
+                newOfflineReturn.OfflineReturnID = Guid.NewGuid();
+                newOfflineReturn.DateOfOfflineReturn = DateTime.Now;
+                
+                OfflineReturnList1.Add(newOfflineReturn);
                 OfflineReturnAdded = true;
             }
             catch (SystemException ex)
@@ -25,48 +36,49 @@ namespace GreatOutdoor.DataAccessLayer
             return OfflineReturnAdded;
 
         }
-
-        public List<OfflineReturns> GetAllOfflineReturnsDAL()
+        // <summary>
+        /// Gets all offline returns from the collection.
+        /// </summary>
+        /// <returns>Returns list of all offline return.</returns>
+        public List<OfflineReturn> GetAllOfflineReturnsDAL()
         {
-            return OfflineReturnList;
+            return OfflineReturnList1;
         }
-
-        public OfflineReturns SearchOfflineReturnDAL(int searchOfflineReturnID)
+        /// <summary>
+        /// Gets Offline return based on OfflineReturnID.
+        /// </summary>
+        /// <param name="searchOfflineReturnID">Represents OfflineReturnID to search.</param>
+        /// <returns>Returns SystemUser object.</returns>
+        public OfflineReturn GetOfflineReturnByOfflineReturnIDDAL(Guid searchOfflineReturnID)
         {
-            OfflineReturns searchOfflineReturn = null;
+            OfflineReturn matchingOfflineReturn = null;
             try
             {
-                foreach (OfflineReturns item in OfflineReturnList)
-                {
-                    if (item.OfflineReturnID == searchOfflineReturnID)
-                    {
-                        searchOfflineReturn = item;
-                    }
-                }
+                //Find SystemUser based on searchSystemUserID
+                matchingOfflineReturn = OfflineReturnList1.Find(
+                    (item) => { return item.OfflineReturnID == searchOfflineReturnID; }
+                );
             }
-            catch (SystemException ex)
+            catch (Exception)
             {
-                throw new OfflineReturnException(ex.Message);
+                throw;
             }
-            return searchOfflineReturn;
+            return matchingOfflineReturn;
         }
 
 
-        public bool UpdateOfflineReturnDAL(OfflineReturns updateOfflineReturn)
+       
+        public bool UpdateOfflineReturnDAL(OfflineReturn updateOfflineReturn)
         {
             bool OfflineReturnUpdated = false;
             try
             {
-                for (int i = 0; i < OfflineReturnList.Count; i++)
+                for (int i = 0; i < OfflineReturnList1.Count; i++)
                 {
-                    if (OfflineReturnList[i].OfflineReturnID == updateOfflineReturn.OfflineReturnID)
+                    if (OfflineReturnList1[i].OfflineReturnID == updateOfflineReturn.OfflineReturnID)
                     {
-                        updateOfflineReturn.OfflineOrderID = OfflineReturnList[i].OfflineOrderID;
-                        updateOfflineReturn.ProductID = OfflineReturnList[i].ProductID;
-                        updateOfflineReturn.ReasonForReturn = OfflineReturnList[i].ReasonForReturn;
-                        updateOfflineReturn.OfflineReturnID = OfflineReturnList[i].OfflineReturnID;
-                        updateOfflineReturn.ReturnValue = OfflineReturnList[i].ReturnValue;
-                        updateOfflineReturn.ReturnQuantity = OfflineReturnList[i].ReturnQuantity;
+                        OfflineReturnList1[i] = updateOfflineReturn;
+
                         OfflineReturnUpdated = true;
                     }
                 }
@@ -78,36 +90,35 @@ namespace GreatOutdoor.DataAccessLayer
             return OfflineReturnUpdated;
 
         }
-
-        public bool DeleteOfflineReturnDAL(int deleteOfflineReturnID)
+        /// <summary>
+        /// Deletes OfflineReturn based on OfflineReturnID.
+        /// </summary>
+        /// <param name="deleteOfflineReturnID">Represents OfflineReturnID to delete.</param>
+        /// <returns>Determinates whether the existing OfflineReturn is deleted.</returns>
+        public bool DeleteOfflineReturnDAL(Guid deleteOfflineReturnID)
         {
             bool OfflineReturnDeleted = false;
             try
             {
-                OfflineReturns deleteOfflineReturn = null;
-                foreach (OfflineReturns item in OfflineReturnList)
-                {
-                    if (item.OfflineReturnID == deleteOfflineReturnID)
-                    {
-                        deleteOfflineReturn = item;
-                    }
-                }
+                //Find SystemUser based on searchSystemUserID
+                OfflineReturn matchingOfflineReturn = OfflineReturnList1.Find(
+                    (item) => { return item.OfflineReturnID == deleteOfflineReturnID; }
+                );
 
-                if (deleteOfflineReturn != null)
+                if (matchingOfflineReturn != null)
                 {
-                    OfflineReturnList.Remove(deleteOfflineReturn);
+                    //Delete SystemUser from the collection
+                    OfflineReturnList1.Remove(matchingOfflineReturn);
                     OfflineReturnDeleted = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new OfflineReturnException(ex.Message);
+                throw;
             }
             return OfflineReturnDeleted;
-
         }
 
 
     }
-
 }

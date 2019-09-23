@@ -15,31 +15,11 @@ namespace GreatOutdoor.BusinessLayer
             StringBuilder sb = new StringBuilder();
             bool validOfflineOrder = true;
             Regex regex1 = new Regex("^[a-zA-z. ]*$");
-            ;
-            if (offlineOrder.OfflineOrderID <= 0)
-            {
-                validOfflineOrder = false;
-                sb.Append(Environment.NewLine + "Invalid Order ID");
+            
+            
 
-            }
-            if (offlineOrder.RetailerID <= 0)
-            {
-                validOfflineOrder = false;
-                sb.Append(Environment.NewLine + "Invalid Retailer ID");
-
-            }
-            if (offlineOrder.ProductID <= 0)
-            {
-                validOfflineOrder = false;
-                sb.Append(Environment.NewLine + "Invalid Prdouct ID");
-
-            }
-            if (offlineOrder.PriceAtOrder <= 0)
-            {
-                validOfflineOrder = false;
-                sb.Append(Environment.NewLine + "Price can't be negative");
-
-            }
+           
+            
             if (validOfflineOrder == false)
                 throw new OfflineOrderException(sb.ToString());
             return validOfflineOrder;
