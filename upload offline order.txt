@@ -1,0 +1,154 @@
+public static async Task UploadOfflineOrder()
+        {
+            try
+            {
+                //Read inputs
+                OfflineOrder offlineOrder = new OfflineOrder();
+                OfflineOrderBL offlineOrderBL1 = new OfflineOrderBL();
+
+                using (IRetailerBL retailerBL = new RetailerBL())
+                {
+                    int serial = 0;
+
+
+                    //Get and display list of Retailer.
+                    List<Retailer> retailers = await retailerBL.GetAllRetailersBL();
+                    WriteLine("Retailers:");
+                    if (retailers != null && retailers?.Count > 0)
+                    {
+                        WriteLine("#\tName\tEmail\tRetailerID\t");
+
+                        foreach (var retailer in retailers)
+                        {
+                            serial++;
+                            WriteLine($"{serial}\t{retailer.RetailerName}\t{retailer.Email}\t{retailer.RetailerID}");
+
+                        }
+                    }
+
+                    Write("Select Retailer #: ");
+                    bool isNumberValid = int.TryParse(ReadLine(), out serial);
+                    if (isNumberValid)
+                    {
+                        serial--;
+                        if (serial <= retailers.Count - 1)
+                        {
+
+                            Retailer retailer1 = retailers[serial];
+
+                            offlineOrder.RetailerID = retailer1.RetailerID;
+                        }
+                        else
+                        {
+                            WriteLine("INVALID ENTRY");
+                        }
+
+                    }
+                    SalesPersonBL salespersonBL = new SalesPersonBL();
+                    SalesPerson salesPerson = await salespersonBL.GetSalesPersonByEmailBL(CommonData.CurrentUser.Email);
+                    offlineOrder.SalesPersonID = salesPerson.SalesPersonID;
+
+
+                    using (IOfflineOrderBL offlineOrderBL = new OfflineOrderBL())
+                    {
+                        bool isAdded = await offlineOrderBL.AddOfflineOrderBL(offlineOrder);
+                        if (isAdded)
+                        {
+                            WriteLine("Offline Order Added");
+                        }
+                    }
+                }
+
+
+                    using (IProductBL productBL = new ProductBL())
+                    {
+                        int serial1 = 0;
+
+                        //Get and display list of Product.
+                        List<Product> products = await productBL.GetAllProductsBL();
+                        WriteLine("Products:");
+                        if (products != null && products?.Count > 0)
+                        {
+                            WriteLine("#\tName\tProductCategory\tProductPrice\t");
+
+                            foreach (var product in products)
+                            {
+                                serial1++;
+                                WriteLine($"{serial1}\t{product.ProductName}\t{product.ProductCategory}\t{product.ProductPrice}");
+
+                            }
+                        }
+
+                        WriteLine("Add product(Y/N)");
+                        char c = Char.Parse(ReadLine());
+                        if (c == 'Y' || c == 'y')
+                        {
+                            OfflineOrderDetail offlineOrderDetail = new OfflineOrderDetail();
+                            offlineOrderDetail.OfflineOrderID = offlineOrder.OfflineOrderID;
+
+                            Write("Select Product #: ");
+                            bool isNumberValid1 = int.TryParse(ReadLine(), out serial1);
+                            if (isNumberValid1)
+                            {
+                                serial1--;
+                                if (serial1 <= products.Count - 1)
+                                {
+
+                                    Product product1 = products[serial1];
+
+                                    offlineOrderDetail.ProductID = product1.ProductID;
+                                    offlineOrderDetail.UnitPrice = product1.ProductPrice;
+                                    WriteLine("Enter Quantity");
+
+                                    double quantity = Double.Parse(ReadLine());
+                                    offlineOrderDetail.Quantity = quantity;
+                                    offlineOrderDetail.TotalPrice = offlineOrderDetail.UnitPrice * quantity;
+                                    using (IOfflineOrderDetailBL offlineOrderDetailBL = new OfflineOrderDetailBL())
+                                    {
+                                        bool isAdded = await offlineOrderDetailBL.AddOfflineOrderDetailBL(offlineOrderDetail);
+                                        if (isAdded)
+                                        {
+                                            WriteLine("Offline Order Detail Added");
+                                        }
+                                    }
+
+                                }
+
+                            }
+
+                        }
+                    }
+
+
+                using(IOfflineOrderBL offlineOrderBL = new OfflineOrderBL())
+                {
+                    //Get and display Current Order
+                    OfflineOrder offlineOrder1  = await offlineOrderBL.GetOfflineOrderByOfflineOrderIDBL(offlineOrder.OfflineOrderID);
+                    WriteLine("Offline Order:");
+                    WriteLine("#\tRetailerID\tSalesPersonID\tCreated\tModified");
+                    WriteLine($"1.\t{offlineOrder.RetailerID}\t{offlineOrder.SalesPersonID}\t{offlineOrder.CreationDateTime}\t{offlineOrder.LastModifiedOfflineOrder}");
+                    
+                }
+
+                using (IOfflineOrderDetailBL offlineOrderDetailBL = new OfflineOrderDetailBL())
+                {
+                    //Get and display list of offline order details using order ID .
+                    List<OfflineOrderDetail> offlineOrderDetails = await offlineOrderDetailBL.GetOfflineOrderDetailByOfflineOrderDetailIDBL(offlineOrder.OfflineOrderID);
+                    WriteLine("OfflineOrderDetails:");
+                    if (offlineOrderDetails != null && offlineOrderDetails?.Count > 0)
+                    {
+                        WriteLine("#\tProductID\tUnitPrice\tQuantity\tTotal Price");
+                        int serial = 0;
+                        foreach (var offlineOrderDetail in offlineOrderDetails)
+                        {
+                            serial++;
+                            WriteLine($"{serial}\t{offlineOrderDetail.ProductID}\t{offlineOrderDetail.UnitPrice}\t{offlineOrderDetail.Quantity}\t{offlineOrderDetail.TotalPrice}");
+                        }
+                    }
+                }
+            }
+            catch (Exception )
+            {
+                throw;
+            }
+        }
