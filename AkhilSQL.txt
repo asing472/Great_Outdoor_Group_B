@@ -1,0 +1,133 @@
+USE GreatOutdoor
+GO
+
+
+create table OrdersTable
+(
+OrderId varchar(30) primary key not null,
+RetailerId varchar(30) not null,
+DateOfOrder datetime not null,
+TotalQuantity int not null,
+OrderAmount float not null,
+LastModifiedDateTime datetime not null,
+OrderStatus varchar(20) not null,
+OrderNumber int identity(1,1) not null
+)
+
+create table OrderDetailsTable
+(
+OrderDetailId varchar(30) primary key not null,
+OrderId varchar(30) foreign key references OrdersTable,
+IsCancelled varchar(3) default 'no',
+ProductID varchar(30) not null,
+ProductQuantityOrdered int not null,
+ProductPrice float not null,
+AddressId varchar(30) not null,
+TotalAmount float not null,
+LastModifiedDateTime datetime not null,
+DateOfOrder datetime not null,
+)
+
+
+alter procedure AddOrder(@retailerId varchar(30), @dateOfOrder datetime, @totalQuantity int, @orderAmount float, @lastModifiedDate datetime,@orderStatus varchar(20)) 
+as
+begin 
+begin try
+	insert into OrdersTable (RetailerId, DateOfOrder, TotalQuantity, OrderAmount, LastModifiedDateTime, OrderStatus)
+		values (@retailerId, @dateOfOrder, @totalQuantity, @orderAmount, @lastModifiedDate, @orderStatus)
+end try
+begin catch
+throw 500000,'Invalid details',1
+end catch
+end
+
+alter procedure ViewOrder(@orderId varchar(30)) 
+as
+begin 
+begin try
+	select * from OrdersTable where OrderId= @orderId
+end try
+begin catch
+throw 500000,'Invalid Order Id',1
+end catch
+end
+
+alter procedure UpdateOrder(@orderId varchar(30), @totalQuantity int, @orderAmount float, @lastModifiedDate datetime,@orderStatus varchar(20)) 
+as
+begin 
+begin try
+	 update OrdersTable 
+		set
+		 TotalQuantity=@totalQuantity,
+		 OrderAmount=@orderAmount, 
+		 LastModifiedDateTime=@lastModifiedDate, 
+		 OrderStatus=@orderStatus
+		 where OrderId=@orderId
+end try
+begin catch
+throw 500000,'Invalid details',1
+end catch
+end
+
+alter procedure DeleteOrder(@orderId varchar(30))
+as
+begin 
+begin try
+	delete from OrdersTable where OrderId=@orderId
+end try
+begin catch
+throw 500000,'Invalid Order Id',1
+end catch
+end
+
+
+alter procedure AddOrderDetails(@orderId varchar(30), @orderDetailsId varchar(30), @productId varchar(30), @productQuantityOrdered int, @productPrice float, @addressId varchar(30), @totalAmount float, @dateOfOrder datetime, @lastModifiedDate datetime) 
+as
+begin
+begin try 
+	insert into OrderDetailsTable (OrderId, OrderDetailId, ProductID, ProductQuantityOrdered, ProductPrice, AddressId, TotalAmount, DateOfOrder, LastModifiedDateTime )
+		values (@orderId, @orderDetailsId, @productId, @productQuantityOrdered, @productPrice, @addressId, @totalAmount, @dateOfOrder, @lastModifiedDate)
+end try
+begin catch
+throw 500000,'Invalid details',1
+end catch
+end
+
+alter procedure ViewOrderDetails(@orderDetailsId varchar(30)) 
+as
+begin 
+begin try
+	select * from OrderDetailsTable where OrderDetailId= @orderDetailsId
+end try
+begin catch
+throw 500000,'Invalid Orderdetails Id',1
+end catch
+end
+
+alter procedure UpdateOrderDetails(@orderId varchar(30), @productQuantityOrdered int, @addressId varchar(30), @totalAmount float, @lastModifiedDate datetime) 
+as
+begin 
+begin try
+	 update OrderDetailsTable 
+		set
+		 ProductQuantityOrdered=@productQuantityOrdered,
+		 AddressId=@addressId, 
+		 TotalAmount=@totalAmount, 
+		 LastModifiedDateTime = @lastModifiedDate
+		 where OrderId=@orderId
+end try
+begin catch
+throw 500000,'Invalid details',1
+end catch
+end
+
+alter procedure DeleteOrderDetails(@orderId varchar(30))
+as
+begin
+begin try 
+	delete from OrdersTable where OrderId=@orderId
+end try
+begin catch
+throw 500000,'Invalid Orderdetails Id',1
+end catch
+end
