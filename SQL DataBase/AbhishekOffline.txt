@@ -1,0 +1,164 @@
+--Developed by Abhishek
+CREATE DATABASE GreatOutdoors
+Go
+
+CREATE SCHEMA SalesPerson 
+Go
+-- Creating table for OfflineOrder class
+
+CREATE TABLE OfflineOrder
+(
+OfflineOrderID varchar(30)  NOT NULL CONSTRAINT PK_OfflineOrderID Primary key,
+RetailerID varchar(30) NOT NULL,
+SalesPersonID varchar(30) NOT NULL,
+TotalOfflineOrderAmount money NOT NULL,
+TotalQuantity float NOT NULL,
+CreationDateTime DATETIME NOT NULL,
+LastModifiedOfflineOrder DATETIME NOT NULL)
+
+GO
+
+
+--Offline OfflineOrder Detail table creation
+CREATE TABLE OfflineOrderDetail(
+OfflineOrderDetailID varchar(100) NOT NULL CONSTRAINT PK_OfflineOrderDetailID Primary key,
+ProductID varchar(30) NOT NULL,
+ProductName varchar(30),
+Quantity int,
+UnitPrice money,
+TotalPrice money,
+OfflineOrderID varchar(30) NOT NULL)
+
+GO
+
+
+
+
+
+Create Table OfflineReturns
+(
+ OfflineReturn_ID varchar(30) CONSTRAINT PK_OfflineReturn Primary key,
+ Purpose VARCHAR(50) NOT NULL,
+ QuantityOfReturn int NOT NULL,
+ OfflineOrder_ID varchar(30) NOT NULL ,CONSTRAINT FK_OfflineOrders_OfflineOrderID REFERENCES SalesPerson.OfflineOrders(OfflineOrder_ID),
+ Product_ID varchar(30) NOT NULL, CONSTRAINT FK_Products_ProductID REFERENCES SalesPerson.Product(Product_ID),
+ ReturnAmount int NOT NULL,
+ Unit_Price Decimal NOT NULL,
+ Creation_DateTime datetime,
+ Last_Modified_DateTime datetime,
+   
+)
+GO
+
+ Select*from OfflineReturns
+
+ --Created Table With VARCHAR OF OfflineRETURN
+
+
+Alter Procedure AddOfflineReturn(@offlinereturnid varchar(30), @offlineofflineOfflineOrderid varchar(3s0), 
+@returnamount int, @unitprice int, @productid varchar(100), 
+@purpose varchar(50), @quantityofreturn int, @creationdatetime datetime)
+as
+Begin
+    
+   if @Offlinereturnid is null OR @Offlinereturnid = ''
+   throw 5001, 'Invalid Offline Return ID', 1
+   if @offlineofflineOfflineOrderid is null OR @offlineofflineOfflineOrderid = ''
+   throw 5001, 'Invalid offlineofflineOfflineOrder ID', 2
+   if @productid is null OR @productid = ''
+   throw 5001, 'Invalid Product ID', 3
+    if @returnamount =0
+   throw 5001, 'Invalid Return Amount', 4
+   if @unitprice = 0
+   throw 5001, 'Invalid Unit Price', 5
+   if @quantityofreturn = 0
+   throw 5001, 'Quantity Of Return is 0', 7
+   if @purpose is null OR @purpose = ''
+   throw 5001, 'Purpose Not Selected', 8
+   Insert into  OfflineReturns(OfflineReturn_ID, offlineOrder_ID, Product_ID, Purpose, 
+   QuantityOfReturn, Last_Modified_DateTime, Creation_DateTime, Unit_Price, ReturnAmount)
+   values(@Offlinereturnid, @offlineofflineOfflineOrderid, @productid, @purpose, @quantityofreturn,
+   null,@creationdatetime, @unitprice, @returnamount)
+end
+
+--created procedure
+
+--Exec Users.AddOfflineReturns '20','30', 20,20,'55','r3', 'defective', 1,'1-oct-2019'
+
+
+Create Procedure GetOfflineReturnByOfflineReturnID(@Offlinereturnid VARCHAR(100))
+ASa
+BEGIN
+   begin try
+   select * from OfflineReturns where OfflineReturn_ID = @Offlinereturnid
+   end try
+   begin catch
+      PRINT @@ERROR;
+	  throw 5000, 'Invalid Values fatched',2
+	  return 0
+   end catch
+end
+Go
+--created procedure
+
+Create Procedure GetOfflineReturnsByPurpose(@purpose VARCHAR(50))
+AS
+BEGIN
+   begin try
+   select * from OfflineReturns where Purpose = @purpose
+   end try
+   begin catch
+      PRINT @@ERROR;
+	  throw 5000, 'Invalid Values fatched',3
+	  return 0
+   end catch
+end
+Go
+--created procedure
+
+
+   
+Create Procedure DeleteOfflineReturn(@Offlinereturnid VARCHAR(100))
+AS
+BEGIN
+   begin try
+   Delete from OfflineReturns where OfflineReturn_ID = @Offlinereturnid
+   end try
+   begin catch
+      PRINT @@ERROR;
+	  throw 5000, 'Invalid Values fatched',5
+	  return 0
+   end catch
+end
+Go
+--created procedure
+
+Create Procedure UpdateOfflineReturn(@Offlinereturnid VARCHAR(100), @purpose varchar(50), @quantityofreturn int)
+AS
+BEGIN
+   begin try
+   Update OfflineReturns set QuantityOfReturn =@quantityofreturn,Purpose=@purpose  Where   OfflineReturn_ID = @Offlinereturnid
+   end try
+   begin catch
+      PRINT @@ERROR;
+	  throw 5000, 'Invalid Values fatched',6
+	  return 0
+   end catch
+end
+Go
+--created procedure
+
+Create Procedure GetAllOfflineReturns(@Offlinereturnid varchar(100))
+AS
+BEGIN
+   begin try
+   select * from OfflineReturns 
+   end try
+   begin catch
+      PRINT @@ERROR;
+	  throw 5000, 'Invalid Values fatched',7
+	  return 0
+   end catch
+end
+Go
+--created procedure

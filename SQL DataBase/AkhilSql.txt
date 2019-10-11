@@ -1,0 +1,228 @@
+--sql code for orders and orderdetails tables
+--author: C Akhil Chowdary
+USE GreatOutdoor
+GO
+
+--Orders Table to store orders
+create table OrdersTable
+(
+OrderId varchar(30) primary key not null,
+RetailerId varchar(30) not null,
+DateOfOrder datetime not null,
+TotalQuantity int not null,
+OrderAmount float not null,
+LastModifiedDateTime datetime not null,
+OrderStatus varchar(20) not null,
+OrderNumber int identity(1,1) not null
+)
+
+--Orders Table to store orderdetails
+create table OrderDetailsTable
+(
+OrderDetailId varchar(30) primary key not null,
+OrderId varchar(30) foreign key references OrdersTable,
+IsCancelled varchar(3) default 'no',
+ProductID varchar(30) not null,
+ProductQuantityOrdered int not null,
+ProductPrice float not null,
+AddressId varchar(30) not null,
+TotalAmount float not null,
+LastModifiedDateTime datetime not null,
+DateOfOrder datetime not null,
+)
+
+--stored procedure to add order to orders table
+alter procedure AddOrder(@retailerId varchar(30), @dateOfOrder datetime, @totalQuantity int, @orderAmount float, @lastModifiedDate datetime,@orderStatus varchar(20))
+as
+begin
+begin try
+insert into OrdersTable (RetailerId, DateOfOrder, TotalQuantity, OrderAmount, LastModifiedDateTime, OrderStatus)
+ values (@retailerId, @dateOfOrder, @totalQuantity, @orderAmount, @lastModifiedDate, @orderStatus)
+end try
+begin catch
+throw 500000,'Invalid details',1
+end catch
+end
+
+--stored procedure to show all orders
+alter procedure ViewOrder(@orderId varchar(30))
+as
+begin
+begin try
+select * from OrderDetailsTable where OrderId= @orderId
+end try
+begin catch
+throw 500000,'Invalid Order Id',1
+end catch
+end
+
+
+--stored procedure to update an order in orders table
+alter procedure UpdateOrder(@orderId varchar(30), @totalQuantity int, @orderAmount float, @lastModifiedDate datetime,@orderStatus varchar(20))
+as
+begin
+begin try
+ update OrdersTable
+ set
+  TotalQuantity=@totalQuantity,
+  OrderAmount=@orderAmount,
+  LastModifiedDateTime=@lastModifiedDate,
+  OrderStatus=@orderStatus
+  where OrderId=@orderId
+end try
+begin catch
+throw 500000,'Invalid details',1
+end catch
+end
+
+
+--stored procedure to delete an order from orders table
+alter procedure DeleteOrder(@orderId varchar(30))
+as
+begin
+begin try
+delete from OrdersTable where OrderId=@orderId
+delete from OrderDetailstable where OrderId=@orderId
+end try
+begin catch
+throw 500000,'Invalid Order Id',1
+end catch
+end
+
+--stored procedure to add a orderdetail to orderdetails table
+alter procedure AddOrderDetails(@orderId varchar(30), @orderDetailsId varchar(30), @productId varchar(30), @productQuantityOrdered int, @productPrice float, @addressId varchar(30), @totalAmount float, @dateOfOrder datetime, @lastModifiedDate datetime)
+as
+begin
+begin try
+insert into OrderDetailsTable (OrderId, OrderDetailId, ProductID, ProductQuantityOrdered, ProductPrice, AddressId, TotalAmount, DateOfOrder, LastModifiedDateTime )
+ values (@orderId, @orderDetailsId, @productId, @productQuantityOrdered, @productPrice, @addressId, @totalAmount, @dateOfOrder, @lastModifiedDate)
+end try
+begin catch
+throw 500000,'Invalid details',1
+end catch
+end
+
+
+--stored procedure to view a orderdetail from orderdetails table
+alter procedure ViewOrderDetails(@orderDetailsId varchar(30))
+as
+begin
+begin try
+select * from OrderDetailsTable where OrderDetailId= @orderDetailsId
+end try
+begin catch
+throw 500000,'Invalid Orderdetails Id',1
+end catch
+end
+
+
+--stored procedure to update a orderdetail in orderdetails table
+alter procedure UpdateOrderDetails(@orderId varchar(30), @productQuantityOrdered int, @addressId varchar(30), @totalAmount float, @lastModifiedDate datetime)
+as
+begin
+begin try
+ update OrderDetailsTable
+ set
+  ProductQuantityOrdered=@productQuantityOrdered,
+  AddressId=@addressId,
+  TotalAmount=@totalAmount,
+  LastModifiedDateTime = @lastModifiedDate
+  where OrderId=@orderId
+end try
+begin catch
+throw 500000,'Invalid details',1
+end catch
+end
+
+
+--stored procedure to delete a orderdetail from orderdetails table
+alter procedure DeleteOrderDetails(@orderId varchar(30))
+as
+begin
+begin try
+delete from OrdersTable where OrderId=@orderId
+end try
+begin catch
+throw 500000,'Invalid Orderdetails Id',1
+end catch
+end
+
+--stored procedure to view a orders of a retailer
+create procedure ViewRetailerOrders(@retailerId varchar(30))
+as
+begin
+begin try
+select * from OrderDetailsTable where OrderId=
+(select OrderId from OrdersTable where RetailerId= @retailerId)
+end try
+begin catch
+throw 500000,'Invalid Retailer Id',1
+end catch
+end
+
+
+--stored procedure to view a orders of a retailer on a particular date
+create procedure ViewRetailerOrdersByDateOfOrder(@retailerId varchar(30), @dateOfOrder datetime)
+as
+begin
+begin try
+select * from OrderDetailsTable where OrderId=
+(select OrderId from OrdersTable where (RetailerId= @retailerId) and (DateOfOrder=@dateOfOrder))
+end try
+begin catch
+throw 500000,'Invalid Retailer Id',1
+end catch
+end
+
+
+--stored procedure to view a orders on a particular date
+create procedure ViewAllOrdersOnGivenDate(@dateOfOrder datetime)
+as
+begin
+begin try
+select * from OrderDetailsTable where OrderId=
+(select OrderId from OrdersTable where DateOfOrder=@dateOfOrder)
+end try
+begin catch
+throw 500000,'Invalid Date',1
+end catch
+end
+
+
+--stored procedure to view a orderdetails of a particular product
+create procedure ViewOrderDetailsOfParticularProduct(@productId varchar(30))
+as
+begin
+begin try
+select * from OrderDetailsTable where ProductID=@productId
+
+end try
+begin catch
+throw 500000,'Invalid Product',1
+end catch
+end
+
+
+--stored procedure to view cancelled products
+create procedure ViewCancelledProducts(@productId varchar(30))
+as
+begin
+begin try
+select * from OrderDetailsTable where (ProductID=@productId and IsCancelled='yes')
+end try
+begin catch
+throw 500000,'Invalid Product',1
+end catch
+end
+
+--stored procedure to view products delivered to a particular address
+create procedure ViewProductsDeliveredToSameAddress(@addressId varchar(30))
+as
+begin
+begin try
+select * from OrderDetailsTable where (AddressId=@addressId and IsCancelled='no')
+end try
+begin catch
+throw 500000,'Invalid Address',1
+end catch
+end
