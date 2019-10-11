@@ -1,0 +1,171 @@
+<!-- Created By Prafull Sharma on 08/10/2019 -->
+<!-- Reailer Profile Page -->
+<!--Left Block of SalesPerson Profile Options-->
+<div class="row">
+  <div class="col-md-3 col-lg-2 ml-0 pl-0 pt-0 pr-0 border-right left-menu bg-info">
+    <div class="list-group mb-5">
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#updateSalesPersonModal" (click)="onUpdateSalesPersonClick()">Update Profile</a>
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#changePasswordModal" (click)="onChangePasswordClick()">Change Password</a>
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#deleteSalesPersonModal" (click)="onDeleteSalesPersonClick()">Delete Account</a>
+    </div>
+  </div>
+
+  <!-- Right Block of Profile Presentation -->
+  <div class="col-md-9 col-lg-9">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">SalesPerson</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Profile
+          <i class="fa fa-circle-o-notch  fa-spin" *ngIf="showAddressesSpinner"></i>
+        </li>
+      </ol>
+    </nav>
+    <div>
+      <table class=" table mt-2" *ngFor="let salesPerson of salesPersons; let index = index">
+        <tr><td style="font-size:120%"> Your Name</td><td style="font-size:120%">{{salesPerson.salesPersonName}}</td></tr>
+        <tr><td style="font-size:120%"> Your Email</td><td style="font-size:120%">{{salesPerson.email}}</td></tr>
+        <tr><td style="font-size:120%"> Mobile Number</td><td style="font-size:120%">{{salesPerson.salesPersonMobile}}</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Update SalesPerson Modal -->
+<form [formGroup]="updateSalesPersonForm">
+  <div class="modal fade" id="updateSalesPersonModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Update Profile</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group form-row">
+            <label for="salesPersonName" class="col-form-label col-md-4">Your Name:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Your Name" class="form-control" id="salesPersonName" formControlName="salesPersonName" [ngClass]="getFormControlCssClass(updateSalesPersonForm.get('salesPersonName'), updateSalesPersonForm)" />
+              <small class="form-text text-muted">Name of the supplier </small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('salesPersonName', 'required', updateSalesPersonForm)">{{getFormControlErrorMessage('salesPersonName', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('salesPersonName', 'minlength', updateSalesPersonForm)">{{getFormControlErrorMessage('salesPersonName', 'minlength')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('salesPersonName', 'maxlength', updateSalesPersonForm)">{{getFormControlErrorMessage('salesPersonName', 'maxlength')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="salesPersonMobile" class="col-form-label col-md-4">Mobile:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Mobile" class="form-control" id="salesPersonMobile" formControlName="salesPersonMobile" [ngClass]="getFormControlCssClass(updateSalesPersonForm.get('salesPersonMobile'), updateSalesPersonForm)" />
+              <small class="form-text text-muted">10 digit mobile number of the supplier | Can't be duplicate.</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('salesPersonMobile', 'required', updateSalesPersonForm)">{{getFormControlErrorMessage('salesPersonMobile', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('salesPersonMobile', 'pattern', updateSalesPersonForm)">{{getFormControlErrorMessage('salesPersonMobile', 'pattern')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="email" class="col-form-label col-md-4">Email:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Email" class="form-control" id="email" formControlName="email" [ngClass]="getFormControlCssClass(updateSalesPersonForm.get('email'), updateSalesPersonForm)" />
+              <small class="form-text text-muted">Your Email Address | Can't be duplicate.</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('email', 'required', updateSalesPersonForm)">{{getFormControlErrorMessage('email', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('email', 'email', updateSalesPersonForm)">{{getFormControlErrorMessage('email', 'email')}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnUpdateSalesPersonCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" (click)="onUpdateSalesPersonConfirmClick($event)" [disabled]="updateSalesPersonDisabled">
+            <span *ngIf="!updateSalesPersonDisabled"><i class="fa fa-save"></i> Save</span>
+            <span *ngIf="updateSalesPersonDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+
+<!-- Change SalesPerson Password Modal -->
+<form [formGroup]="changePasswordForm">
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Update Password</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group form-row">
+            <label for="currentPassword" class="col-form-label col-md-4">Current Password:</label>
+            <div class="col-md-7">
+              <input type="password" placeholder="Current Password" class="form-control" id="currentPassword" formControlName="currentPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('currentPassword'), changePasswordForm)" />
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('currentPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('currentPassword', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('currentPassword', 'pattern', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('currentPassword', 'pattern')}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-row">
+          <label for="newpassword" class="col-form-label col-md-4 ">  New Password:</label>
+          <div class="col-md-7">
+            <input type="password" placeholder="New Password" class="form-control" id="newPassword" formControlName="newPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('newPassword'), changePasswordForm)" />
+            <small class="form-text text-muted">At least one uppercase letter, one lowercase letter and one digit.</small>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('newPassword', 'required')}}</span>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'pattern',changePasswordForm)">{{getChangePasswordFormControlErrorMessage('newPassword', 'pattern')}}</span>
+          </div>
+        </div>
+        <div class="form-group form-row">
+          <label for="confirmNewpassword" class="col-form-label col-md-4 ">Confirm New Password:</label>
+          <div class="col-md-7">
+            <input type="password" placeholder="Confirm New Password" class="form-control" id="confirmNewPassword" formControlName="confirmNewPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('confirmNewPassword'), changePasswordForm)" />
+            <small class="form-text text-muted">Should Match With New Password.</small>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('confirmNewPassword', 'required')}}</span>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'pattern', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('confirmNewPassword', 'pattern')}}</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnChangePasswordCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" (click)="onChangePasswordConfirmClick($event)" [disabled]="changePasswordDisabled">
+            <span *ngIf="!changePasswordDisabled"><i class="fa fa-save"></i>Change</span>
+            <span *ngIf="changePasswordDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!--<!-- Delete SalesPerson Modal -->
+<form [formGroup]="deleteSalesPersonForm">
+  <div class="modal fade" id="deleteSalesPersonModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Delete Your Account</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5 class="mb-4">Are you sure want to Delete Your Account?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnDeleteSalesPersonCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" (click)="onDeleteSalesPersonConfirmClick($event)" [disabled]="deleteSalesPersonDisabled">
+            <span *ngIf="!deleteSalesPersonDisabled"><i class="fa fa-save"></i> Delete</span>
+            <span *ngIf="deleteSalesPersonDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Deleting</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
