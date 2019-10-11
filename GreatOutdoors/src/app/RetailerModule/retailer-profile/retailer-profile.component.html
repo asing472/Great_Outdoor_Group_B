@@ -1,0 +1,171 @@
+<!-- Created By Prafull Sharma on 08/10/2019 -->
+<!-- Reailer Profile Page -->
+<!--Left Block of Retailer Profile Options-->
+<div class="row">
+  <div class="col-md-3 col-lg-2 ml-0 pl-0 pt-0 pr-0 border-right left-menu">
+    <div class="list-group mb-5">
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#updateRetailerModal" (click)="onUpdateRetailerClick()">Update Profile</a>
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#changePasswordModal" (click)="onChangePasswordClick()">Change Password</a>
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#deleteRetailerModal" (click)="onDeleteRetailerClick()">Delete Account</a>
+    </div>
+  </div>
+
+  <!-- Right Block of Profile Presentation -->
+  <div class="col-md-9 col-lg-9">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Retailer</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Profile
+          <i class="fa fa-circle-o-notch  fa-spin" *ngIf="showAddressesSpinner"></i>
+        </li>
+      </ol>
+    </nav>
+    <div>
+      <table class=" table mt-2" *ngFor="let retailer of retailers; let index = index">
+        <tr><td style="font-size:120%"> Your Name</td><td style="font-size:120%">{{retailer.retailerName}}</td></tr>
+        <tr><td style="font-size:120%"> Your Email</td><td style="font-size:120%">{{retailer.email}}</td></tr>
+        <tr><td style="font-size:120%"> Mobile Number</td><td style="font-size:120%">{{retailer.retailerMobile}}</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Update Retailer Modal -->
+<form [formGroup]="updateRetailerForm">
+  <div class="modal fade" id="updateRetailerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Update Profile</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group form-row">
+            <label for="retailerName" class="col-form-label col-md-4">Your Name:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Your Name" class="form-control" id="retailerName" formControlName="retailerName" [ngClass]="getFormControlCssClass(updateRetailerForm.get('retailerName'), updateRetailerForm)" />
+              <small class="form-text text-muted">Name of the supplier </small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('retailerName', 'required', updateRetailerForm)">{{getFormControlErrorMessage('retailerName', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('retailerName', 'minlength', updateRetailerForm)">{{getFormControlErrorMessage('retailerName', 'minlength')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('retailerName', 'maxlength', updateRetailerForm)">{{getFormControlErrorMessage('retailerName', 'maxlength')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="retailerMobile" class="col-form-label col-md-4">Mobile:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Mobile" class="form-control" id="retailerMobile" formControlName="retailerMobile" [ngClass]="getFormControlCssClass(updateRetailerForm.get('retailerMobile'), updateRetailerForm)" />
+              <small class="form-text text-muted">10 digit mobile number of the supplier | Can't be duplicate.</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('retailerMobile', 'required', updateRetailerForm)">{{getFormControlErrorMessage('retailerMobile', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('retailerMobile', 'pattern', updateRetailerForm)">{{getFormControlErrorMessage('retailerMobile', 'pattern')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="email" class="col-form-label col-md-4">Email:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Email" class="form-control" id="email" formControlName="email" [ngClass]="getFormControlCssClass(updateRetailerForm.get('email'), updateRetailerForm)" />
+              <small class="form-text text-muted">Your Email Address | Can't be duplicate.</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('email', 'required', updateRetailerForm)">{{getFormControlErrorMessage('email', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('email', 'email', updateRetailerForm)">{{getFormControlErrorMessage('email', 'email')}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnUpdateRetailerCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" (click)="onUpdateRetailerConfirmClick($event)" [disabled]="updateRetailerDisabled">
+            <span *ngIf="!updateRetailerDisabled"><i class="fa fa-save"></i> Save</span>
+            <span *ngIf="updateRetailerDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+
+<!-- Change Retailer Password Modal -->
+<form [formGroup]="changePasswordForm">
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Update Password</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group form-row">
+            <label for="cupprentPassword" class="col-form-label col-md-4">Current Password:</label>
+            <div class="col-md-8">
+              <input type="password" placeholder="Current Password" class="form-control" id="currentPassword" formControlName="currentPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('currentPassword'), changePasswordForm)" />
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('currentPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('currentPassword', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('currentPassword', 'pattern', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('currentPassword', 'pattern')}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-row">
+          <label for="newpassword" class="col-form-label col-md-4">New Password:</label>
+          <div class="col-md-8">
+            <input type="password" placeholder="New Password" class="form-control" id="newPassword" formControlName="newPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('newPassword'), changePasswordForm)" />
+            <small class="form-text text-muted">At least one uppercase letter, one lowercase letter and one digit.</small>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('newPassword', 'required')}}</span>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'pattern',changePasswordForm)">{{getChangePasswordFormControlErrorMessage('newPassword', 'pattern')}}</span>
+          </div>
+        </div>
+        <div class="form-group form-row">
+          <label for="confirmNewpassword" class="col-form-label col-md-4">Confirm New Password:</label>
+          <div class="col-md-8">
+            <input type="password" placeholder="Confirm New Password" class="form-control" id="confirmNewPassword" formControlName="confirmNewPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('confirmNewPassword'), changePasswordForm)" />
+            <small class="form-text text-muted">Should Match With New Password.</small>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('confirmNewPassword', 'required')}}</span>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'pattern', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('confirmNewPassword', 'pattern')}}</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnChangePasswordCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" (click)="onChangePasswordConfirmClick($event)" [disabled]="changePasswordDisabled">
+            <span *ngIf="!changePasswordDisabled"><i class="fa fa-save"></i>Change</span>
+            <span *ngIf="changePasswordDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!--<!-- Delete Retailer Modal -->
+<form [formGroup]="deleteRetailerForm">
+  <div class="modal fade" id="deleteRetailerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Delete Your Account</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5 class="mb-4">Are you sure want to Delete Your Account?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnDeleteRetailerCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" (click)="onDeleteRetailerConfirmClick($event)" [disabled]="deleteRetailerDisabled">
+            <span *ngIf="!deleteRetailerDisabled"><i class="fa fa-save"></i> Delete</span>
+            <span *ngIf="deleteRetailerDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Deleting</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

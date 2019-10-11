@@ -1,0 +1,314 @@
+<div class="row">
+  <div class="col-md-3 col-lg-2 ml-0 pl-0 pt-0 pr-0 border-right left-menu">
+    <div class="p-2">
+      <h5>
+        OnlineReturns <span class="badge badge-secondary float-right" *ngIf="onlineReturns.length > 0">{{onlineReturns.length}}</span>
+      </h5>
+    </div>
+    <div class="list-group mb-5">
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#newOnlineReturnModal" (click)="onCreateOnlineReturnClick()">ADD Online Return</a>
+    </div>
+    <div class="p-2 border-top"><h5>View</h5></div>
+    <div class="px-2">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="viewOrderNumber" [(ngModel)]="viewOnlineReturnCheckBoxes.orderNumber">
+        <label class="form-check-label" for="viewOrderNumber">
+          Order Number
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="viewPurpose" [(ngModel)]="viewOnlineReturnCheckBoxes.purpose">
+        <label class="form-check-label" for="viewPurpose">
+          Purpose
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="viewQuantityOfReturn" [(ngModel)]="viewOnlineReturnCheckBoxes.quantityOfReturn">
+        <label class="form-check-label" for="viewQuantityOfReturn">
+          Quantity Of Return
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="viewCreatedOn" [(ngModel)]="viewOnlineReturnCheckBoxes.createdOn">
+        <label class="form-check-label" for="viewCreatedOn">
+          Created On
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="viewLastModifiedOn" [(ngModel)]="viewOnlineReturnCheckBoxes.lastModifiedOn">
+        <label class="form-check-label" for="viewLastModifiedOn">
+          Last Modified On
+        </label>
+      </div>
+      <div class="form-group my-2">
+        <button class="btn btn-secondary btn-sm mr-1" (click)="onViewSelectAllClick()">Select All</button>
+        <button class="btn btn-secondary btn-sm" (click)="onViewDeselectAllClick()">Deselect All</button>
+      </div>
+    </div>
+
+    <div class="p-2 border-top mt-4"><h5>Sort by</h5></div>
+    <div class="px-2">
+      <div class="form-group">
+        <select class="form-control" [(ngModel)]="sortBy">
+          <option value="orderNumber">Order Number</option>
+          <option value="purpose">Purpose</option>
+          <option value="quantityOfReturn">QuantityOfReturn</option>
+          <option value="creationDateTime">Created On</option>
+          <option value="lastModifiedDateTime">Last Modified On</option>
+        </select>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="sortAscending" value="ASC" [(ngModel)]="sortDirection">
+        <label class="form-check-label" for="sortAscending">
+          Ascending
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="sortDescending" value="DESC" [(ngModel)]="sortDirection">
+        <label class="form-check-label" for="sortDescending">
+          Descending
+        </label>
+      </div>
+      <div class="form-group my-2">
+        <button class="btn btn-secondary btn-sm mr-1 px-3" (click)="onBtnSortClick()">Sort</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9 col-lg-10">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Retailer</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Online Returns
+          <i class="fa fa-circle-o-notch  fa-spin" *ngIf="showOnlineReturnsSpinner"></i>
+        </li>
+      </ol>
+    </nav>
+    <!--<!--<!--<h4>OnlineReturns </h4>-->
+    <!--<button class="btn btn-primary" data-toggle="modal" data-target="#newOnlineReturnModal" (click)="onCreateOnlineReturnClick()">Create OnlineReturn</button>-->
+    <table class="table mt-2">
+      <thead>
+        <tr  class="table-secondary">
+          <th *ngIf="viewOnlineReturnCheckBoxes.orderNumber" >Order Number</th>
+          <th *ngIf="viewOnlineReturnCheckBoxes.purpose">Purpose</th>
+          <th *ngIf="viewOnlineReturnCheckBoxes.quantityOfReturn">Quantity Of Return</th>
+          <th *ngIf="viewOnlineReturnCheckBoxes.createdOn">Created on</th>
+          <th *ngIf="viewOnlineReturnCheckBoxes.lastModifiedOn">Last Modified on</th>
+          <th class="text-secondary">Actions</th>
+        </tr>
+      </thead>
+
+
+
+      <tbody>
+        <tr *ngFor="let onlineReturn of onlineReturns; let i = index">
+          <td *ngIf="viewOnlineReturnCheckBoxes.orderNumber">{{onlineReturn.orderNumber}}</td>
+          <td *ngIf="viewOnlineReturnCheckBoxes.purpose">{{onlineReturn.purpose}}</td>
+          <td *ngIf="viewOnlineReturnCheckBoxes.quantityOfReturn">{{onlineReturn.quantityOfReturn}}</td>
+          <td *ngIf="viewOnlineReturnCheckBoxes.createdOn">{{onlineReturn.creationDateTime}}</td>
+          <td >{{onlineReturn.lastModifiedDateTime}}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-secondary" data-toggle="modal" data-target="#editOnlineReturnModal" (click)="onEditOnlineReturnClick(i)">Edit</button>
+              <button class="btn btn-danger" data-toggle="modal" data-target="#deleteOnlineReturnModal" (click)="onDeleteOnlineReturnClick(i)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- New OnlineReturn Modal -->
+<form [formGroup]="newOnlineReturnForm">
+  <div class="modal fade" id="newOnlineReturnModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Initialize OnlineReturn</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group form-row">
+            <label for="neworderNumber" class="col-form-label col-md-4">Order Number: *</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Order Number" class="form-control" id="neworderNumber" formControlName="orderNumber" [ngClass]="{
+                    'is-valid': newOnlineReturnForm.get('orderNumber').valid && (newOnlineReturnForm.get('orderNumber').touched || newOnlineReturnForm.submitted),
+                    'is-invalid': newOnlineReturnForm.get('orderNumber').invalid && (newOnlineReturnForm.get('orderNumber').touched || newOnlineReturnForm.submitted) }" />
+
+              <small class="form-text text-muted">Enter OrderNumber generated during Ordering | Can't be duplicate.</small>
+              <span class="text-danger" *ngIf="newOnlineReturnForm.get('orderNumber').invalid && newOnlineReturnForm.get('orderNumber').errors?.required && (newOnlineReturnForm.get('orderNumber').touched || newOnlineReturnForm.submitted)">OrderNumber can't be blank</span>
+              <span class="text-danger" *ngIf="newOnlineReturnForm.get('orderNumber').invalid && newOnlineReturnForm.get('orderNumber').errors?.minlength && (newOnlineReturnForm.get('orderNumber').touched || newOnlineReturnForm.submitted)">OrderNumber can't be blank</span>
+              <span class="text-danger" *ngIf="newOnlineReturnForm.get('orderNumber').invalid && newOnlineReturnForm.get('orderNumber').errors?.maxlength && (newOnlineReturnForm.get('orderNumber').touched || newOnlineReturnForm.submitted)">OrderNumber can't be blank</span>
+
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="newpurpose" class="col-form-label col-md-4">Purpose:</label>
+            <div class="col-md-8">
+             
+              <!--<input type="text" placeholder="Purpose" class="form-control" id="newpurpose" formControlName="purpose" [ngClass]="{
+                    'is-valid': newOnlineReturnForm.get('purpose').valid && (newOnlineReturnForm.get('purpose').touched || newOnlineReturnForm.submitted),
+                    'is-invalid': newOnlineReturnForm.get('purpose').invalid && (newOnlineReturnForm.get('purpose').touched || newOnlineReturnForm.submitted) }" />-->
+              
+              <select class="form-control" placeholder="Purpose" id="newpurpose" formControlName="purpose" [ngClass]="{
+                    'is-valid': newOnlineReturnForm.get('purpose').valid && (newOnlineReturnForm.get('purpose').touched || newOnlineReturnForm.submitted),
+                    'is-invalid': newOnlineReturnForm.get('purpose').invalid && (newOnlineReturnForm.get('purpose').touched || newOnlineReturnForm.submitted) }">
+                
+                <option>Defective Product</option>
+                <option>Unsatisfactory Product</option>
+                <option>Wrong Product Ordered</option>
+                <option>Wrong Product Shipped</option>
+
+              </select>
+              <!--<span class="text-danger" *ngIf="newOnlineReturnForm.get('purpose').invalid && newOnlineReturnForm.get('purpose').errors?.required && (newOnlineReturnForm.get('purpose').touched || newOnlineReturnForm.submitted)">purpose can't be blank</span>-->
+
+
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="newquantityOfReturn" class="col-form-label col-md-4">Quantity Of Return:</label>
+            <div class="col-md-8">
+             <input type="text" placeholder="Quantity Of Return" class="form-control" id="newquantityOfReturn" formControlName="quantityOfReturn" [ngClass]="{
+                    'is-valid': newOnlineReturnForm.get('quantityOfReturn').valid && (newOnlineReturnForm.get('quantityOfReturn').touched || newOnlineReturnForm.submitted),
+                    'is-invalid': newOnlineReturnForm.get('quantityOfReturn').invalid && (newOnlineReturnForm.get('quantityOfReturn').touched || newOnlineReturnForm.submitted) }" />
+
+              <small class="form-text text-muted">Enter quantity of return less than or equal to product ordered.</small>
+              <span class="text-danger" *ngIf="newOnlineReturnForm.get('quantityOfReturn').invalid && newOnlineReturnForm.get('quantityOfReturn').errors?.required && (newOnlineReturnForm.get('quantityOfReturn').touched || newOnlineReturnForm.submitted)">quantity of return can't be blank</span>
+              <span class="text-danger" *ngIf="newOnlineReturnForm.get('quantityOfReturn').invalid && newOnlineReturnForm.get('quantityOfReturn').errors?.pattern && (newOnlineReturnForm.get('quantityOfReturn').touched || newOnlineReturnForm.submitted)">quantity of return can't be blank</span>
+             
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnAddOnlineReturnCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" (click)="onAddOnlineReturnClick($event)" [disabled]="newOnlineReturnDisabled">
+           
+            <span *ngIf="newOnlineReturnDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+            <i class="fa fa-times-circle"></i> Confirmed
+
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Edit OnlineReturn Modal -->
+<form [formGroup]="editOnlineReturnForm">
+  <div class="modal fade" id="editOnlineReturnModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Update OnlineReturn</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!--<div class="form-group form-row">
+            <label for="editorderNumber" class="col-form-label col-md-4">Order Number: *</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Order Number" class="form-control" id="editorderNumber" formControlName="orderNumber" [ngClass]="{
+                    'is-valid': editOnlineReturnForm.get('orderNumber').valid && (editOnlineReturnForm.get('orderNumber').touched || editOnlineReturnForm.submitted),
+                    'is-invalid':editOnlineReturnForm.get('orderNumber').invalid && (editOnlineReturnForm.get('orderNumber').touched || editOnlineReturnForm.submitted) }" />
+
+              <small class="form-text text-muted">Enter OrderNumber generated during Ordering | Can't be duplicate.</small>
+              <span class="text-danger" *ngIf="editOnlineReturnForm.get('orderNumber').invalid && editOnlineReturnForm.get('orderNumber').errors?.required && (editOnlineReturnForm.get('orderNumber').touched || editOnlineReturnForm.submitted)">OrderNumber can't be blank</span>
+              <span class="text-danger" *ngIf="editOnlineReturnForm.get('orderNumber').invalid && editOnlineReturnForm.get('orderNumber').errors?.minlength && (editOnlineReturnForm.get('orderNumber').touched || editOnlineReturnForm.submitted)">OrderNumber can't be blank</span>
+              <span class="text-danger" *ngIf="editOnlineReturnForm.get('orderNumber').invalid && editOnlineReturnForm.get('orderNumber').errors?.maxlength && (editOnlineReturnForm.get('orderNumber').touched || editOnlineReturnForm.submitted)">OrderNumber can't be blank</span>
+            </div>
+          </div>-->
+          <div class="form-group form-row">
+            <label for="editpurpose" class="col-form-label col-md-4">Purpose:</label>
+            <div class="col-md-8">
+
+              <!--<input type="text" placeholder="Purpose" class="form-control" id="editpurpose" formControlName="purpose" [ngClass]="{
+                    'is-valid': editOnlineReturnForm.get('purpose').valid && (editOnlineReturnForm.get('purpose').touched || editOnlineReturnForm.submitted),
+                    'is-invalid': editOnlineReturnForm.get('purpose').invalid && (editOnlineReturnForm.get('purpose').touched || editOnlineReturnForm.submitted) }" />-->
+              <small class="form-text text-muted">Update Your Purpose Of Return.</small>
+              <select class="form-control" placeholder="Purpose" id="newpurpose" formControlName="purpose" [ngClass]="{
+                    'is-valid': newOnlineReturnForm.get('purpose').valid && (newOnlineReturnForm.get('purpose').touched || newOnlineReturnForm.submitted),
+                    'is-invalid': newOnlineReturnForm.get('purpose').invalid && (newOnlineReturnForm.get('purpose').touched || newOnlineReturnForm.submitted) }">
+                <option>Defective Product</option>
+                <option>Unsatisfactory Product</option>
+                <option>Wrong Product Ordered</option>
+                <option>Wrong Product Shipped</option>
+              </select>
+              <!--<span class="text-danger" *ngIf="newOnlineReturnForm.get('purpose').invalid && newOnlineReturnForm.get('purpose').errors?.required && (newOnlineReturnForm.get('purpose').touched || newOnlineReturnForm.submitted)">purpose can't be blank</span>-->
+
+
+            </div>
+          </div>
+
+
+          <div class="form-group form-row">
+            <label for="editquantityOfReturn" class="col-form-label col-md-4">Quantity Of Return:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Quantity Of Return" class="form-control" id="editquantityOfReturn" formControlName="quantityOfReturn" [ngClass]="{
+                    'is-valid': editOnlineReturnForm.get('quantityOfReturn').valid && (editOnlineReturnForm.get('quantityOfReturn').touched || editOnlineReturnForm.submitted),
+                    'is-invalid': editOnlineReturnForm.get('quantityOfReturn').invalid && (editOnlineReturnForm.get('quantityOfReturn').touched || editOnlineReturnForm.submitted) }" />
+
+              <small class="form-text text-muted">Enter quantity of return equal to or less than product ordered. | Can't be duplicate.</small>
+              <span class="text-danger" *ngIf="editOnlineReturnForm.get('quantityOfReturn').invalid && editOnlineReturnForm.get('quantityOfReturn').errors?.required && (editOnlineReturnForm.get('quantityOfReturn').touched || editOnlineReturnForm.submitted)">quantity of return can't be blank</span>
+              <span class="text-danger" *ngIf="editOnlineReturnForm.get('quantityOfReturn').invalid && editOnlineReturnForm.get('quantityOfReturn').errors?.pattern && (editOnlineReturnForm.get('quantityOfReturn').touched || editOnlineReturnForm.submitted)">Quantity Of Return can't be blank</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnUpdateOnlineReturnCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" (click)="onUpdateOnlineReturnClick($event)" [disabled]="editOnlineReturnDisabled">
+            <span *ngIf="!editOnlineReturnDisabled"><i class="fa fa-save"></i> Save</span>
+            <span *ngIf="editOnlineReturnDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<!-- Delete OnlineReturn Modal -->
+<form [formGroup]="deleteOnlineReturnForm">
+  <div class="modal fade" id="deleteOnlineReturnModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Delete Online Return</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5 class="mb-4">Are you sure to delete this Online Return?</h5>
+          <div class="form-group form-row">
+            <label for="deleteorderNumber" class="col-form-label col-md-4">Order Number:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Order Number" class="form-control-plaintext" id="deleteorderNumber" formControlName="orderNumber" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnDeleteOnlineReturnCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" (click)="onDeleteOnlineReturnConfirmClick($event)" [disabled]="deleteOnlineReturnDisabled">
+            <span *ngIf="!deleteOnlineReturnDisabled"><i class="fa fa-save"></i> Delete</span>
+            <span *ngIf="deleteOnlineReturnDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Deleting</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
