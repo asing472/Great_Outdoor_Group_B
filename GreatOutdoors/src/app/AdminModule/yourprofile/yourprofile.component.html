@@ -1,0 +1,127 @@
+<div class="row">
+  <div class="col-md-3 col-lg-2 ml-0 pl-0 pt-0 pr-0 border-right left-menu">
+    <div class="list-group mb-5">
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#updateProfileModal" (click)="onUpdateProfileClick()">Update Profile</a>
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#changePasswordModal" (click)="onChangePasswordClick()">Change Password</a>
+    </div>
+  </div>
+
+  <!-- Right Block of Profile Presentation -->
+  <div class="col-md-9 col-lg-9">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Profile
+          <i class="fa fa-circle-o-notch  fa-spin" *ngIf="showAddressesSpinner"></i>
+        </li>
+      </ol>
+    </nav>
+    <div>
+      <table class=" table mt-2" *ngFor="let admin of admins; let index = index">
+        <tr><td style="font-size:120%"> Your Name</td><td style="font-size:120%">Admin</td></tr>
+        <tr><td style="font-size:120%"> Your Email</td><td style="font-size:120%">admin@capgemini.com</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Update Admin Modal -->
+<form [formGroup]="updateProfileForm">
+  <div class="modal fade" id="updateProfileModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Update Profile</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group form-row">
+            <label for="retailerName" class="col-form-label col-md-4">Your Name:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Your Name" class="form-control" id="Name" formControlName="Name" [ngClass]="getFormControlCssClass(updateProfileForm.get('Name'), updateProfileForm)" />
+              <small class="form-text text-muted">Name of the Admin </small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('Name', 'required', updateProfileForm)">{{getFormControlErrorMessage('Name', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('Name', 'minlength', updateProfileForm)">{{getFormControlErrorMessage('Name', 'minlength')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('Name', 'maxlength', updateProfileForm)">{{getFormControlErrorMessage('Name', 'maxlength')}}</span>
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <label for="email" class="col-form-label col-md-4">Email:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Email" class="form-control" id="email" formControlName="email" [ngClass]="getFormControlCssClass(updateProfileForm.get('email'), updateProfileForm)" />
+              <small class="form-text text-muted">Your Email Address | Can't be duplicate.</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('email', 'required', updateProfileForm)">{{getFormControlErrorMessage('email', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('email', 'email', updateProfileForm)">{{getFormControlErrorMessage('email', 'email')}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnUpdateProfileCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" (click)="onUpdateProfileConfirmClick($event)" [disabled]="updateProfileDisabled">
+            <span *ngIf="!updateProfileDisabled"><i class="fa fa-save"></i> Save</span>
+            <span *ngIf="updateProfileDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<!-- Change Admin Password Modal -->
+<form [formGroup]="changePasswordForm">
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Update Password</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group form-row">
+            <label for="currentPassword" class="col-form-label col-md-4">Current Password:</label>
+            <div class="col-md-8">
+              <input type="password" placeholder="Current Password" class="form-control" id="currentPassword" formControlName="currentPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('currentPassword'), changePasswordForm)" />
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('currentPassword', 'required', changePasswordForm)">{{getFormControlErrorMessage('currentPassword', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('currentPassword', 'pattern', changePasswordForm)">{{getFormControlErrorMessage('currentPassword', 'pattern')}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-row">
+          <label for="newpassword" class="col-form-label col-md-4">New Password:</label>
+          <div class="col-md-8">
+            <input type="password" placeholder="New Password" class="form-control" id="newPassword" formControlName="newPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('newPassword'), changePasswordForm)" />
+            <small class="form-text text-muted">At least one uppercase letter, one lowercase letter and one digit.</small>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'required', changePasswordForm)">{{getFormControlErrorMessage('newPassword', 'required')}}</span>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'pattern',changePasswordForm)">{{getFormControlErrorMessage('newPassword', 'pattern')}}</span>
+          </div>
+        </div>
+        <div class="form-group form-row">
+          <label for="confirmNewpassword" class="col-form-label col-md-4">Confirm New Password:</label>
+          <div class="col-md-8">
+            <input type="password" placeholder="Confirm New Password" class="form-control" id="confirmNewPassword" formControlName="confirmNewPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('confirmNewPassword'), changePasswordForm)" />
+            <small class="form-text text-muted">Should Match With New Password.</small>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'required', changePasswordForm)">{{gePasswordFormControlErrorMessage('confirmNewPassword', 'required')}}</span>
+            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'pattern', changePasswordForm)">{{getPasswordFormControlErrorMessage('confirmNewPassword', 'pattern')}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnChangePasswordCancel">
+          <i class="fa fa-times-circle"></i> Cancel
+        </button>
+        <button type="submit" class="btn btn-success" (click)="onUpdateProfileConfirmClick($event)" [disabled]="updateProfileDisabled">
+          <span *ngIf="!updateProfileDisabled"><i class="fa fa-save"></i> Save</span>
+          <span *ngIf="updateProfileDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

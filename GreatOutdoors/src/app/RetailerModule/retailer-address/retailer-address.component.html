@@ -1,0 +1,238 @@
+<!--Created By Prafull Sharma on 09/11/2019-->
+<div class="row">
+  <div class="col-md-3 col-lg-2 ml-0 pl-0 pt-0 pr-0 border-right left-menu">
+    <div class="p-2">
+      <h5>
+        Addresses <span class="badge badge-secondary float-right" *ngIf="addresses.length > 0">{{addresses.length}}</span>
+      </h5>
+    </div>
+    <div class="list-group mb-5">
+      <a class="list-group-item list-group-item-action list-group-item-primary" data-toggle="modal" href="#newAddressModal" (click)="onCreateAddressClick()">Add Address</a>
+    </div>
+  </div>
+
+
+  <div class="col-md-9 col-lg-9">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Retailer</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Addresses
+          <i class="fa fa-circle-o-notch  fa-spin" *ngIf="showAddressesSpinner"></i>
+        </li>
+      </ol>
+    </nav>
+    <!--<h4>Addresses </h4>-->
+    <!--<button class="btn btn-primary" data-toggle="modal" data-target="#newAddressModal" (click)="onCreateAddressesClick()">Create Address</button>-->
+    <table class="table mt-2">
+      <thead>
+        <tr class="table-secondary">
+          <th>Address Line 1</th>
+          <th>Address Line 2</th>
+          <th>LandMark</th>
+          <th>City</th>
+          <th>State</th>
+          <th>PinCode</th>
+          <th>Update/Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let address of addresses; let index = index">
+          <td style="font-size:120%"> {{address.addressLine1}}</td>
+          <td>{{address.addressLine2}}</td>
+          <td>{{address.landmark}}</td>
+          <td>{{address.city}}</td>
+          <td>{{address.state}}</td>
+          <td>{{address.pinCode}}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-secondary" data-toggle="modal" data-target="#editAddressModal" (click)="onEditAddressClick(index)">Edit</button>
+              <button class="btn btn-danger" data-toggle="modal" data-target="#deleteAddressModal" (click)="onDeleteAddressClick(index)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- New Address Modal -->
+<form [formGroup]="newAddressForm">
+  <div class="modal fade" id="newAddressModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Add Address</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group form-row">
+            <label for="addressLine1" class="col-form-label col-md-4">Address Line 1: *</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Address Line 1" class="form-control" id="addressLine1" formControlName="addressLine1" [ngClass]="getFormControlCssClass(newAddressForm.get('addressLine1'), newAddressForm)" />
+              <small class="form-text text-muted">House No /Flat No./ Society Name</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('addressLine1', 'required', newAddressForm)">{{getFormControlErrorMessage('addressLine1', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('addressLine1', 'minlength', newAddressForm)">{{getFormControlErrorMessage('addressLine1', 'minlength')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('addressLine1', 'maxlength', newAddressForm)">{{getFormControlErrorMessage('addressLine1', 'maxlength')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="addresssLine2" class="col-form-label col-md-4">AddressLine2:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Retailer-Line-2" class="form-control" id="addressLine2" formControlName="addressLine2" [ngClass]="getFormControlCssClass(newAddressForm.get('addressLine2'), newAddressForm)" />
+              <small class="form-text text-muted">Locality</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('addressLine2', 'required', newAddressForm)">{{getFormControlErrorMessage('addressLine2', 'required')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="landmark" class="col-form-label col-md-4">LandMark(Optional)</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Landmark" class="form-control" id="landmark" formControlName="landmark" [ngClass]="getFormControlCssClass(newAddressForm.get('landmark'), newAddressForm)" />
+              <small class="form-text text-muted">Local Known Place.</small>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="city" class="col-form-label col-md-4">City</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="City Name" class="form-control" id="city" formControlName="city" [ngClass]="getFormControlCssClass(newAddressForm.get('city'), newAddressForm)" />
+              <small class="form-text text-muted">City Name</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('city', 'required', newAddressForm)">{{getFormControlErrorMessage('city', 'required')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="state" class="col-form-label col-md-4">State</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="State" class="form-control" id="state" formControlName="state" [ngClass]="getFormControlCssClass(newAddressForm.get('state'), newAddressForm)" />
+              <small class="form-text text-muted">State Name</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('state', 'required', newAddressForm)">{{getFormControlErrorMessage('state', 'required')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="pinCode" class="col-form-label col-md-4">Pin Code</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="PinCode" class="form-control" id="pinCode" formControlName="pinCode" [ngClass]="getFormControlCssClass(newAddressForm.get('pinCode'), newAddressForm)" />
+              <small class="form-text text-muted">6 Digit Pin Code</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('pinCode', 'required', newAddressForm)">{{getFormControlErrorMessage('pinCode', 'required')}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnAddAddressCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" (click)="onAddAddressClick($event)" [disabled]="newAddressDisabled">
+            <span *ngIf="!newAddressDisabled"><i class="fa fa-save"></i> Save</span>
+            <span *ngIf="newAddressDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Edit Address Modal -->
+<form [formGroup]="editAddressForm">
+  <div class="modal fade" id="editAddressModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Update Address</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group form-row">
+            <label for="addressLine1" class="col-form-label col-md-4">Address Line 1: *</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="House No /Flat No./ Society Name" class="form-control" id="addressLine1" formControlName="addressLine1" [ngClass]="getFormControlCssClass(editAddressForm.get('addressLine1'), editAddressForm)" />
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('addressLine1', 'required', editAddressForm)">{{getFormControlErrorMessage('addressLine1', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('addressLine1', 'minlength', editAddressForm)">{{getFormControlErrorMessage('addressLine1', 'minlength')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('addressLine1', 'maxlength', editAddressForm)">{{getFormControlErrorMessage('addressLine1', 'maxlength')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="addresssLine2" class="col-form-label col-md-4">AddressLine2:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Locality" class="form-control" id="addressLine2" formControlName="addressLine2" [ngClass]="getFormControlCssClass(editAddressForm.get('addressLine2'), editAddressForm)" />
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('addressLine2', 'required', editAddressForm)">{{getFormControlErrorMessage('addressLine2', 'required')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="landmark" class="col-form-label col-md-4">LandMark(Optional)</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="Local Known Place" class="form-control" id="landmark" formControlName="landmark" [ngClass]="getFormControlCssClass(editAddressForm.get('landmark'), editAddressForm)" />
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="city" class="col-form-label col-md-4">City</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="City Name" class="form-control" id="city" formControlName="city" [ngClass]="getFormControlCssClass(editAddressForm.get('city'), editAddressForm)" />
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('city', 'required', editAddressForm)">{{getFormControlErrorMessage('city', 'required')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="state" class="col-form-label col-md-4">State</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="State Name" class="form-control" id="state" formControlName="state" [ngClass]="getFormControlCssClass(editAddressForm.get('state'), editAddressForm)" />
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('state', 'required', editAddressForm)">{{getFormControlErrorMessage('state', 'required')}}</span>
+            </div>
+          </div>
+          <div class="form-group form-row">
+            <label for="pinCode" class="col-form-label col-md-4">Pin Code</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="PinCode" class="form-control" id="pinCode" formControlName="pinCode" [ngClass]="getFormControlCssClass(editAddressForm.get('pinCode'), editAddressForm)" />
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('pinCode', 'required', editAddressForm)">{{getFormControlErrorMessage('pinCode', 'required')}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnUpdateAddressCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-success" (click)="onUpdateAddressClick($event)" [disabled]="editAddressDisabled">
+            <span *ngIf="!editAddressDisabled"><i class="fa fa-save"></i> Save</span>
+            <span *ngIf="editAddressDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<!-- Delete Address Modal -->
+<form [formGroup]="deleteAddressForm">
+  <div class="modal fade" id="deleteAddressModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Delete Address</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5 class="mb-4">Are you sure to delete this Address?</h5>
+          <div class="form-group form-row">
+            <label for="addressLine1" class="col-form-label col-md-4">Address Line 1:</label>
+            <div class="col-md-8">
+              <input type="text" placeholder="addressLine1" readonly="readonly" class="form-control-plaintext" id="addressLine1" formControlName="addressLine1" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnDeleteAddressCancel">
+            <i class="fa fa-times-circle"></i> Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" (click)="onDeleteAddressConfirmClick($event)" [disabled]="deleteAddressDisabled">
+            <span *ngIf="!deleteAddressDisabled"><i class="fa fa-save"></i> Delete</span>
+            <span *ngIf="deleteAddressDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Deleting</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
