@@ -1,0 +1,113 @@
+<div class="row">
+ 
+  <div class="col-md col-lg">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          New Order
+          <i class="fa fa-circle-o-notch  fa-spin" *ngIf="showOrderSpinner"></i>
+        </li>
+      </ol>
+    </nav>
+
+
+    <form [formGroup]="newOrderDetailForm">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div style="width:60%">
+          <select class="form-control" style="width:30%">
+            <option value="Select Category">Select Category</option>
+            <option value="Mountaineering Equipment">Mountaineering Equipment</option>
+            <option value="Golf Equipment">Golf Equipment</option>
+            <option value="Camping Equipment">Camping Equipment</option>
+            <option value="Personal Accessories">Personal Accessories</option>
+            <option value="Outdoor Protection">Outing Equipment</option>
+          </select>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-info btn-sm" (click)="onAddNewProductClick()">Add New Product</button>
+        </div>
+
+
+        <div class="btn-group">
+          <button type="submit" class="btn btn-info" (click)="onAddOrderClick($event)">Confirm Order</button>
+        </div>
+
+      </div>
+
+        <table class="table mt-2">
+          <thead class="thead-dark">
+            <tr>
+
+              <th scope="col" style="width:20%">Products</th>
+              <th scope="col" style="width:22%">Quantity</th>
+              <th scope="col" style="width:8%">Price</th>
+              <th scope="col" style="width:8%">Total</th>
+              <!--<th scope="col" style="width:20%">Address</th>-->
+              <th scope="col">Action</th>
+            </tr>
+
+          </thead>
+          <tbody formArrayName="orderDetails">
+
+            <tr *ngFor="let orderDetail of newOrderDetailForm.get('orderDetails').controls; let index = index">
+
+              <td [formGroupName]="index">
+                <select class="form-control" formControlName="productID"  (change)="onProductDropDownChange(index)">
+                  <option value="">Select Product</option>
+                  <option value="tent">Tent</option>
+                  <option value="mat">Mat</option>
+                  <!--<option *ngFor="let product of products" [value]="product.productCategory">
+              {{product.productName}}
+            </option>-->
+                </select>
+              </td>
+
+              <td [formGroupName]="index">
+                <div class="input-group mb-3 " style="width:80%">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text hand-icon form-control" id="subtract" (click)="onQuantityDecrementClick(index)">-</span>
+                  </div>
+                  <input type="number" class="form-control" formControlName="quantity" value="1" min="1" (change)="onQuantityChange(index)" />
+                  <div class="input-group-append">
+                    <span class="input-group-text hand-icon form-control" id="add" (click)="onQuantityIncrementClick(index)">+</span>
+                  </div>
+                </div>
+              </td>
+
+              <td [formGroupName]="index">
+                <div class="input-group mb-3">
+                  <input type="number" readonly style="width:100%" formControlName="unitPrice" />
+                </div>
+              </td>
+
+              <td [formGroupName]="index">
+                <div class="input-group mb-3">
+                  <input type="number" readonly style="width:100%" formControlName="totalAmount" />
+                </div>
+              </td>
+
+              <!--<td [formGroupName]="index">
+                <select class="form-control" formControlName="addressID">
+                  <option value="Select Products">Select Address</option>
+                  <option value="Select Products">New Address</option>
+                </select>
+              </td>-->
+
+              <td>
+                <div class="btn-grp">
+                  <button class="btn-info btn-sm btn-danger" (click)="onRemoveClick(index)">Remove</button>&nbsp;
+
+                </div>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+</form>
+  </div>
+</div>
+
+
+

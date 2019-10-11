@@ -1,0 +1,37 @@
+ 
+
+
+  <div class="col-md col-lg">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Orders History
+          <i class="fa fa-circle-o-notch  fa-spin" *ngIf="showSuppliersSpinner"></i>
+        </li>
+      </ol>
+    </nav>
+
+    <table class="table mt-2">
+      <thead>
+        <tr class="table-secondary">
+          <th>Order Number</th>
+          <th>Order Date</th>
+          <th>Product Name</th>
+          <th>Total Quantity</th>
+          <th>Total Amount</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orderdetail of orderdetails; let index = index">
+          <td>{{orderdetail.ordernumber}}</td>
+          <td>{{orderdetail.creationDateTime}}</td>
+          <td>{{orderdetail.productname}}</td>
+          <td>{{orderdetail.quantity}}</td>
+          <td>{{orderdetail.totalAmount}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
