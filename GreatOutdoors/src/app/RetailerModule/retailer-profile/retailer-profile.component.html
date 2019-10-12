@@ -109,23 +109,24 @@
               <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('currentPassword', 'pattern', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('currentPassword', 'pattern')}}</span>
             </div>
           </div>
-        </div>
-        <div class="form-group form-row">
-          <label for="newpassword" class="col-form-label col-md-4">New Password:</label>
-          <div class="col-md-8">
-            <input type="password" placeholder="New Password" class="form-control" id="newPassword" formControlName="newPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('newPassword'), changePasswordForm)" />
-            <small class="form-text text-muted">At least one uppercase letter, one lowercase letter and one digit.</small>
-            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('newPassword', 'required')}}</span>
-            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'pattern',changePasswordForm)">{{getChangePasswordFormControlErrorMessage('newPassword', 'pattern')}}</span>
+
+          <div class="form-group form-row">
+            <label for="newpassword" class="col-form-label col-md-4">New Password:</label>
+            <div class="col-md-8">
+              <input type="password" placeholder="New Password" class="form-control" id="newPassword" formControlName="newPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('newPassword'), changePasswordForm)" />
+              <small class="form-text text-muted">At least one uppercase letter, one lowercase letter and one digit.</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('newPassword', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('newPassword', 'pattern',changePasswordForm)">{{getChangePasswordFormControlErrorMessage('newPassword', 'pattern')}}</span>
+            </div>
           </div>
-        </div>
-        <div class="form-group form-row">
-          <label for="confirmNewpassword" class="col-form-label col-md-4">Confirm New Password:</label>
-          <div class="col-md-8">
-            <input type="password" placeholder="Confirm New Password" class="form-control" id="confirmNewPassword" formControlName="confirmNewPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('confirmNewPassword'), changePasswordForm)" />
-            <small class="form-text text-muted">Should Match With New Password.</small>
-            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('confirmNewPassword', 'required')}}</span>
-            <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'pattern', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('confirmNewPassword', 'pattern')}}</span>
+          <div class="form-group form-row">
+            <label for="confirmNewpassword" class="col-form-label col-md-4">Confirm New Password:</label>
+            <div class="col-md-8">
+              <input type="password" placeholder="Confirm New Password" class="form-control" id="confirmNewPassword" formControlName="confirmNewPassword" [ngClass]="getFormControlCssClass(changePasswordForm.get('confirmNewPassword'), changePasswordForm)" />
+              <small class="form-text text-muted">Should Match With New Password.</small>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'required', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('confirmNewPassword', 'required')}}</span>
+              <span class="text-danger" *ngIf="getCanShowFormControlErrorMessage('confirmNewPassword', 'pattern', changePasswordForm)">{{getChangePasswordFormControlErrorMessage('confirmNewPassword', 'pattern')}}</span>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
