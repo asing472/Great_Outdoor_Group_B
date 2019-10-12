@@ -10,11 +10,11 @@
 </nav>
 <button type="button" class="btn btn-outline-primary mr-3" (click)="onEnterDetailsClick()">Enter Details</button>
 <button type="button" class="btn btn-outline-primary mr-3" (click)="onSelectProductClick()">Select Product</button>
-<button type="button" class="btn btn-outline-primary" (click)="onConfirmDetailsClick()">Confirm details</button>
+<button type="button" class="btn btn-outline-primary" (click)="onConfirmDetailsClick()">Order Details</button>
+<form [formGroup]="newOrderForm">
+  <div>
+    <div *ngIf="EnterdetailsEnable">
 
-<div>
-  <div *ngIf="EnterdetailsEnable">
-    <form [formGroup]="newOrderForm">
       <div class="form-group form-row mt-2">
         <label for="email" class="col-form-label col-md-4">Retailer:</label>
         <div class="col-md-6">
@@ -39,39 +39,33 @@
       <div class="text-center mb-3">
         <button class="btn btn-primary" (click)="onNextButtonClick()">Next</button>
       </div>
-    </form>
-  </div>
+
+    </div>
 
 
 
 
-  <div *ngIf="SelectproductEnable">
+    <div *ngIf="SelectproductEnable">
 
 
 
-    <form [formGroup]="newOrderDetailForm">
 
-      <!--<select class=" form-control  mt-3 " style="width:70%">
-        <option value="Select Category">Select Category</option>
-        <option value="Mountaineering Equipment">Mountaineering Equipment</option>
-        <option value="Golf Equipment">Golf Equipment</option>
-        <option value="Camping Equipment">Camping Equipment</option>
-        <option value="Personal Accessories">Personal Accessories</option>
-        <option value="Outing Equipment">Outing Equipment</option>
-      </select>-->
 
-      <button class="btn btn-sm btn-light" (click)="onBtnAddProductClick(index)">Add Product</button>
 
-      <button type="submit" class="btn btn-success float-right" (click)="onSaveClick($event)" [disabled]="newOrderDisabled">
-        <span *ngIf="!newOrderDisabled"><i class="fa fa-save"></i> Save</span>
-        <span *ngIf="newOrderDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+
+      <button type="submit" class="btn btn-success float-right mb-4" (click)="onSaveClick($event)">
+        <span> Place Order</span>
+
       </button>
+      <div>
+        <button class="btn btn-sm btn-info float-right mr-2" (click)="onBtnAddProductClick(index)">Add Product</button>
+      </div>
       <table class="table mt-2">
         <thead>
           <tr class="table-secondary">
             <th>#</th>
             <th>Product Name</th>
-            <th>Details</th>
+
             <th>Unit Price</th>
 
             <th>Quantity</th>
@@ -81,7 +75,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let offlineorderDetail of newOrderDetailForm.get ('offlineorderDetails').controls; let index = index" formArrayName="offlineorderDetails">
+          <tr *ngFor="let offlineorderDetail of newOrderForm.get ('offlineorderDetails').controls; let index = index" formArrayName="offlineorderDetails">
 
             <td>{{index + 1}}</td>
 
@@ -93,33 +87,7 @@
                 </option>
               </select>
             </td>
-            <td [formGroupName]="index">
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
-                View
-              </button>
 
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel"></h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      ...
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
             <td [formGroupName]="index">
               {{offlineorderDetail.get('unitPrice').value}}
             </td>
@@ -136,19 +104,20 @@
       </table>
 
 
-    </form>
+
+    </div>
   </div>
-</div>
+</form>
 <div *ngIf="ConfirmDetailsenable">
   <table class="table mt-2">
     <thead>
       <tr class="table-secondary">
         <th>#</th>
-        <th>Product Name</th>
+        <th>Product ID</th>
         <th>Unit Price</th>
         <th>Quantity</th>
         <th>Total</th>
-        </tr>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let offlineorderdetail of offlineOrderDetails; let index = index">
@@ -158,7 +127,7 @@
         <td>{{offlineorderdetail.quantity}}</td>
         <td>{{offlineorderdetail.totalAmount}}</td>
       </tr>
-        
+
     </tbody>
-    </table>
+  </table>
 </div>

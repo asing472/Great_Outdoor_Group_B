@@ -18,7 +18,7 @@ import { ProductsService } from '../../Services/product.services'
   templateUrl: './new-order.component.html',
   styleUrls: ['./new-order.component.scss']
 })
-export class NewOrderComponent extends GreatOutdoorComponentBase implements OnInit {
+export class NewOrderComponent extends GreatOutdoorsComponentBase implements OnInit {
   offlineorder: OfflineOrder;
 
   i: number;
@@ -28,8 +28,9 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
   SelectproductEnable: boolean = false;
   ConfirmDetailsenable: boolean = false;
   newOrderForm: FormGroup;
-  newOrderDetailForm: FormGroup;
+
   offlineOrderDetails: OfflineOrderDetail[] = [];
+  offlineOrders: OfflineOrder[] = []
 
 
 
@@ -42,18 +43,17 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
       retailerID: new FormControl(null),
       salespersonID: new FormControl(null),
       totalQuantity: new FormControl(0),
-      totalAmount: new FormControl(0)
-    })
-    this.newOrderDetailForm = new FormGroup({
-      offlineorderDetails: new FormArray([
-        new FormGroup({
-          offlineorderID: new FormControl(null),
-          productID: new FormControl("", [Validators.required]),
-          quantity: new FormControl(1, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
-          unitPrice: new FormControl(null),
-          totalAmount: new FormControl(null)
-        })
-      ])
+      totalAmount: new FormControl(0),
+      offlineorderDetails:
+        new FormArray([
+          new FormGroup({
+            offlineorderID: new FormControl(null),
+            productID: new FormControl("", [Validators.required]),
+            quantity: new FormControl(1, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
+            unitPrice: new FormControl(null),
+            totalAmount: new FormControl(null)
+          })
+        ])
     });
   }
   onEnterDetailsClick() {
@@ -68,15 +68,10 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
     this.ConfirmDetailsenable = false;
 
   }
-  
-  //onButtonModelClick(index:number) {
-  //  var currentFormGroup: FormGroup = (this.newOrderDetailForm.get('offlineorderDetails') as FormArray).at(index) as FormGroup;
-  //  var id = String(currentFormGroup.get('productID').value)
-  //  var product: Product = this.productsService.GetProductByProductID(id);
 
-  //}
+
   onQuantityChange(index: number) {
-    var currentFormGroup: FormGroup = (this.newOrderDetailForm.get('offlineorderDetails') as FormArray).at(index) as FormGroup;
+    var currentFormGroup: FormGroup = (this.newOrderForm.get('offlineorderDetails') as FormArray).at(index) as FormGroup;
     var quantity = Number(currentFormGroup.get('quantity').value);
     var unitPrice = Number(currentFormGroup.get('unitPrice').value);
 
@@ -98,12 +93,20 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
     }, (error) => {
       console.log(error);
     });
+    this.offlineorderDetailsService.GetAllOfflineOrderDetails().subscribe((response) => {
+      console.log(response)
+      this.offlineOrderDetails = response;
+
+
+    }, (error) => {
+      console.log(error);
+    });
 
   }
   onBtnAddProductClick(index: number) {
 
 
-    (this.newOrderDetailForm.get('offlineorderDetails') as FormArray).push(new FormGroup({
+    (this.newOrderForm.get('offlineorderDetails') as FormArray).push(new FormGroup({
       offlineorderID: new FormControl(null),
       productID: new FormControl("", [Validators.required]),
       quantity: new FormControl(1, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
@@ -113,7 +116,7 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
   }
 
   onProductDropdownChange(index: number) {
-    var currentFormGroup: FormGroup = (this.newOrderDetailForm.get('offlineorderDetails') as FormArray).at(index) as FormGroup;
+    var currentFormGroup: FormGroup = (this.newOrderForm.get('offlineorderDetails') as FormArray).at(index) as FormGroup;
     var currentProductID = currentFormGroup.get('productID').value;
     this.productsService.GetProductByProductID(currentProductID).subscribe((response: any) => {
       if (response.length > 0) {
@@ -129,7 +132,7 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
   }
   onProductDeleteClick(index: number) {
     if (confirm("Are you sure to delete?")) {
-      (this.newOrderDetailForm.get('offlineorderDetails') as FormArray).removeAt(index);
+      (this.newOrderForm.get('offlineorderDetails') as FormArray).removeAt(index);
     }
   }
 
@@ -144,60 +147,90 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
 
   }
 
-  onSaveClick(event) {
-    this.newOrderForm["submitted"] = true;
-    if (this.newOrderForm.valid) {
-
-      var order: OfflineOrder = this.newOrderForm.value;
-      this.offlineordersService.AddOrder(order);
-      console.log(order);
-
-      var currentFormArray: FormArray = (this.newOrderDetailForm.get('offlineorderDetails') as FormArray);
-      
-      for (this.i = 0; this.i < 2; this.i++) {
-        var currentFormGroup: FormGroup = (currentFormArray[this.i] as FormGroup);
-        this.newOrderDetailForm["submitted"] = true;
-        if (this.newOrderDetailForm.valid) {
-
-          var orderdetail: OfflineOrderDetail = this.newOrderDetailForm.value;
-          orderdetail.offlineorderID = order.offlineorderID;
-          this.offlineorderDetailsService.AddOfflineOrderDetail(orderdetail);
-          console.log(orderdetail);
-        }
 
 
-      }
-
-
-
-    }
-    
-
-
-
-
-
-
-
-
-
-
-  }
   onConfirmDetailsClick() {
     this.EnterdetailsEnable = false;
     this.SelectproductEnable = false;
     this.ConfirmDetailsenable = true;
 
 
-    this.offlineorderDetailsService.GetAllOfflineOrderDetails().subscribe((response) => {
-      console.log(response)
-      this.offlineOrderDetails = response;
-
-
-    }, (error) => {
-      console.log(error);
-    });
 
 
   }
+  onSaveClick(event) {
+
+
+    this.newOrderForm["submitted"] = true;
+    console.log(this.newOrderForm.valid);
+    if (true) {//this.newOrderForm.valid
+
+      var order1: OfflineOrder = new OfflineOrder(null, null, null, null, null, null, null, null, null);
+      var orderdetail: OfflineOrderDetail = new OfflineOrderDetail(null, null, null, null, null, null, null, null, null);
+      var array: FormArray = this.newOrderForm.get('offlineorderDetails') as FormArray;
+      order1.id = 1;
+      console.log(array);
+      order1.totalQuantity = 0;
+      for (let i = 0; i < array.value.length; i++) {
+        order1.totalQuantity += array.value[i].quantity; //array.at(i).get('totalQuantity').value;
+      }
+      console.log(order1.totalQuantity);
+      for (let i = 0; i < array.length; i++) {
+        order1.totalAmount += array.value[i].totalAmount;//array.at(i).get('totalAmount').value;
+      }
+      console.log(order1.totalAmount);
+      if (confirm("Do you want to place order")) {
+
+        this.offlineordersService.AddOrder(order1).subscribe((addResponse) => {
+
+          for (let i = 0; i < array.value.length; i++) {
+            orderdetail.offlineorderID = order1.offlineorderID;
+            orderdetail.productID = array.value[i].productID;
+            orderdetail.quantity = array.value[i].quantity;
+            orderdetail.totalAmount = array.value[i].totalAmount;
+            orderdetail.unitPrice = array.value[i].unitPrice;
+            orderdetail.id = i + 1;
+
+            this.offlineorderDetailsService.AddOfflineOrderDetail(orderdetail).subscribe((addResponse) => {
+
+              console.log(addResponse);
+              this.offlineorderDetailsService.GetAllOfflineOrderDetails().subscribe((getResponse) => {
+
+                this.offlineOrderDetails = getResponse;
+              },
+                (error) => {
+                  console.log(error);
+                });
+              this.newOrderForm.reset();
+
+
+              this.offlineordersService.GetAllOrders().subscribe((getResponse) => {
+
+                this.offlineOrders = getResponse;
+                this.EnterdetailsEnable = false;
+                this.SelectproductEnable = false;
+                this.ConfirmDetailsenable = true;
+                console.log(this.offlineOrderDetails);
+              }, (error) => {
+                console.log(error);
+              });
+            },
+              (error) => {
+                console.log(error);
+
+              });
+          }
+        },
+          (error) => {
+            console.log(error);
+
+          });
+
+
+
+
+      }
+    }
+  }
+
 }
