@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: "about", component: AboutComponent },
   { path: "signup", component: SignupComponent },
   { path: "admin", loadChildren: () => import("./AdminModule/admin.module").then(m => m.AdminModule) },
+  { path: "salesPerson", loadChildren: () => import("./SalespersonModule/salesPerson.module").then(m => m.SalesPersonModule) },
   { path: "retailer", loadChildren: () => import("./RetailerModule/retailer.module").then(m => m.RetailerModule) },
   { path: "**", redirectTo: '/main', pathMatch: 'full' },
  

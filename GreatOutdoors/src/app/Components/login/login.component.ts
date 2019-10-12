@@ -48,17 +48,31 @@ export class LoginComponent implements OnInit
         console.log(this.loginForm.value.email);
         console.log(this.loginForm.value.password);
         console.log(response);
+
         if (response != null && response.length > 0) {
+          if (sel == "Admin") {
           this.userAccountService.currentUser = new User(this.loginForm.value.email, response[0].adminName);
           this.userAccountService.currentUserType = sel;
           this.userAccountService.isLoggedIn = true;
           this.userAccountService.currentUserID = response[0].adminID;
-          if (sel == "Admin") {
+          
             this.router.navigate(["/admin", "home"]);
-          } else if (sel == "SalesPerson") {
-            this.router.navigate(["/about"]);
+          }
+          else if (sel == "SalesPerson")
+          {
+            this.userAccountService.currentUser = new User(this.loginForm.value.email, response[0].salesPersonName);
+            this.userAccountService.currentUserType = sel;
+            this.userAccountService.currentUserID = response[0].salesPersonID;
+
+            this.userAccountService.isLoggedIn = true;
+            this.router.navigate(["/salesPerson","home"]);
           }
           else {
+            this.userAccountService.currentUser = new User(this.loginForm.value.email, response[0].retailerName);
+            this.userAccountService.currentUserType = sel;
+            this.userAccountService.currentUserID = response[0].retailerID;
+
+            this.userAccountService.isLoggedIn = true;
             this.router.navigate(["/retailer","home"]);
           }
           

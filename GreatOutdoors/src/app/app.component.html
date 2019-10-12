@@ -16,6 +16,9 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]=" [ '/admin', 'home' ] " [routerLinkActive]="['active']" *ngIf="userAccountService.isLoggedIn &&  userAccountService.currentUserType == 'Admin' ">Home</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]=" [ '/salesPerson', 'home' ] " [routerLinkActive]="['active']" *ngIf="userAccountService.isLoggedIn &&  userAccountService.currentUserType == 'SalesPerson' ">Home</a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="userAccountService.isLoggedIn &&  userAccountService.currentUserType == 'Admin' ">
           Admin Menu
@@ -27,7 +30,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Retailer Options</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Product Options</a>
+          <a class="dropdown-item" [routerLink]=" [ '/admin', 'products' ] " [routerLinkActive]="['active']">Product Options</a>
 
         </div>
       </li>
@@ -35,11 +38,25 @@
         <a class="nav-link" [routerLink]=" [ '/retailer', 'home' ] " [routerLinkActive]="['active']" *ngIf="userAccountService.isLoggedIn &&  userAccountService.currentUserType == 'Retailer' ">Home</a>
       </li>
       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="userAccountService.isLoggedIn &&  userAccountService.currentUserType == 'SalesPerson' ">
+          SalesPerson Menu
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]=" [ '/salesPerson', 'salesPersonProfile' ] " [routerLinkActive]="['active']">Your Profile</a>
+          <a class="dropdown-item" [routerLink]=" [ '/salesPerson', 'neworder' ] " [routerLinkActive]="['active']">Upload Offline Order</a>
+          <div class="dropdown-divider"></div>
+
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="userAccountService.isLoggedIn &&  userAccountService.currentUserType == 'Retailer' ">
           Retailer Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]=" [ '/retailer', 'order' ] " [routerLinkActive]="['active']">Your Orders</a>
+          <a class="dropdown-item" [routerLink]=" [ '/retailer', 'orders' ] " [routerLinkActive]="['active']">Your Orders</a>
+          <a class="dropdown-item" [routerLink]=" [ '/retailer', 'order' ] " [routerLinkActive]="['active']">New Order</a>
+
           <a class="dropdown-item" [routerLink]=" [ '/retailer', 'onlineReturns' ] " [routerLinkActive]="['active']">OnlineReturns</a>
           <a class="dropdown-item" [routerLink]=" [ '/retailer', 'address' ] " [routerLinkActive]="['active']">Manage Address</a>
           <div class="dropdown-divider"></div>

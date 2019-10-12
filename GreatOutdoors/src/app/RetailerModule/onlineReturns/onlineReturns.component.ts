@@ -5,6 +5,8 @@ import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import * as $ from "jquery";
 import { GreatOutdoorComponentBase } from '../../GreatOutdoor-component';
 
+// Create By Ayush Agrawal on 08/10/2019
+// Online Return type Script file
 @Component({
   selector: 'app-onlineReturns',
   templateUrl: './onlineReturns.component.html',
@@ -24,13 +26,17 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
   newOnlineReturnDisabled: boolean = false;
   newOnlineReturnFormErrorMessages: any;
 
+  // edit Online Return Form Creation
   editOnlineReturnForm: FormGroup;
   editOnlineReturnDisabled: boolean = false;
   editOnlineReturnFormErrorMessages: any;
 
+   // delete Online Return Form Creation
   deleteOnlineReturnForm: FormGroup;
   deleteOnlineReturnDisabled: boolean = false;
 
+
+   // Constructor Initialization
   constructor(private onlineReturnsService: OnlineReturnsService) {
     super();
     this.newOnlineReturnForm = new FormGroup
@@ -49,7 +55,8 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
     };
 
 
-
+    // Create By Ayush Agrawal on 08/10/2019
+    //  edit Online Return type Script form
     this.editOnlineReturnForm = new FormGroup({
       id: new FormControl(null),
       onlineReturnID: new FormControl(null),
@@ -87,7 +94,7 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
       orderNumber: new FormControl(null)
     });
   }
-
+  // Page Initial Function
   ngOnInit() {
     this.showOnlineReturnsSpinner = true;
     this.onlineReturnsService.GetAllOnlineReturns().subscribe((response) => {
@@ -98,12 +105,13 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
         console.log(error);
       })
   }
-
+  // Page Create Online Return Function
   onCreateOnlineReturnClick() {
     this.newOnlineReturnForm.reset();
     this.newOnlineReturnForm["submitted"] = false;
   }
 
+  // Page Add online Return Function
   onAddOnlineReturnClick(event) {
     this.newOnlineReturnForm["submitted"] = true;
     if (this.newOnlineReturnForm.valid) {
@@ -150,7 +158,7 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
   }
 
 
-
+  // Page Edit Online Return Function
   onEditOnlineReturnClick(index) {
     this.editOnlineReturnForm.reset();
     this.editOnlineReturnForm["submitted"] = false;
@@ -163,7 +171,7 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
       creationDateTime: this.onlineReturns[index].creationDateTime
     });
   }
-
+  // Page Update Online Return Function
   onUpdateOnlineReturnClick(event) {
     this.editOnlineReturnForm["submitted"] = true;
     if (this.editOnlineReturnForm.valid) {
@@ -195,7 +203,7 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
       super.getFormGroupErrors(this.editOnlineReturnForm);
     }
   }
-
+  // Page Quantity Change Function
   onQuantityChange(index: number) {
     var currentFormGroup: FormGroup = (this.newOnlineReturnForm.get('onlineReturns') as FormArray).at(index) as FormGroup;
     var quantity = Number(currentFormGroup.get('quantity').value);
@@ -207,7 +215,7 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
     });
   }
 
-
+  // Page Quantity Decrement Click Function
   onQuantityDecrementClick(index: number) {
     var currentFormGroup: FormGroup = (this.newOnlineReturnForm.get('onlineReturns') as FormArray).at(index) as FormGroup;
 
@@ -222,7 +230,7 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
     });
   }
   }
-
+  // Page Increment Click  Function
   onQuantityIncrementClick(index: number) {
     var currentFormGroup: FormGroup = (this.newOnlineReturnForm.get('onlineReturns') as FormArray).at(index) as FormGroup;
     var quantity = Number(currentFormGroup.get('quantityOfReturn').value)+1;
@@ -234,7 +242,7 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
      
     });
   }
-
+  // Page Delete Function
   onDeleteOnlineReturnClick(index) {
     this.deleteOnlineReturnForm.reset();
     this.deleteOnlineReturnForm["submitted"] = false;
@@ -244,7 +252,7 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
       orderNumber: this.onlineReturns[index].orderNumber
     });
   }
-
+  // Page Delete Confirm Function
   onDeleteOnlineReturnConfirmClick(event) {
     this.deleteOnlineReturnForm["submitted"] = true;
     if (this.deleteOnlineReturnForm.valid) {
@@ -275,7 +283,7 @@ export class OnlineReturnsComponent extends GreatOutdoorComponentBase implements
   }
 
 
-
+  // Page view all click Function
   onViewSelectAllClick() {
     for (let propertyName of Object.keys(this.viewOnlineReturnCheckBoxes)) {
       this.viewOnlineReturnCheckBoxes[propertyName] = true;

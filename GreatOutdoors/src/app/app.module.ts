@@ -12,6 +12,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { MainlogoComponent } from './Components/mainlogo/mainlogo.component';
 import { AdminModule } from './AdminModule/admin.module'; 
 import { SignupComponent } from './Components/signup/signup.component';
+import { SalesPersonModule } from './SalesPersonModule/salesPerson.module';
 import { GreatOutdoorDataService } from './InMemoryWebAPIServices/GreatOutdoor-data.service';
 
 @NgModule({
@@ -32,7 +33,8 @@ import { GreatOutdoorDataService } from './InMemoryWebAPIServices/GreatOutdoor-d
     ReactiveFormsModule,
     environment.production ? HttpClientInMemoryWebApiModule.forRoot(GreatOutdoorDataService, { delay: 1000 }) : [],
     AdminModule,
-    RetailerModule
+    RetailerModule,
+    SalesPersonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,6 +19,11 @@ export class SalesPersonsService
     salesPerson.salesPersonID = this.uuidv4();
     return this.httpClient.post<boolean>(`/api/salesPersons`, salesPerson);
   }
+  ChangeSalesPersonPassword(salesPerson: SalesPerson): Observable<boolean> {
+    salesPerson.lastModifiedDateTime = new Date().toLocaleDateString();
+    return this.httpClient.put<boolean>(`/api/salesPersons`, salesPerson);
+  }
+
 
   UpdateSalesPerson(salesPerson: SalesPerson): Observable<boolean>
   {
@@ -36,9 +41,9 @@ export class SalesPersonsService
     return this.httpClient.get<SalesPerson[]>(`/api/salesPersons`);
   }
 
-  GetSalesPersonBySalesPersonID(SalesPersonID: number): Observable<SalesPerson>
+  GetSalesPersonBySalesPersonID(SalesPersonID: number): Observable<SalesPerson[]>
   {
-    return this.httpClient.get<SalesPerson>(`/api/salesPersons?salesPersonID=${SalesPersonID}`);
+    return this.httpClient.get<SalesPerson[]>(`/api/salesPersons?salesPersonID=${SalesPersonID}`);
   }
 
   GetSalesPersonsBySalesPersonName(SalesPersonName: string): Observable<SalesPerson[]>

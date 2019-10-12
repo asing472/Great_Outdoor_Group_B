@@ -1,0 +1,164 @@
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Retailer</a></li>
+    <li class="breadcrumb-item active" aria-current="page">
+      New Order
+      <i class="fa fa-circle-o-notch  fa-spin" *ngIf="showOrderSpinner"></i>
+    </li>
+  </ol>
+</nav>
+<button type="button" class="btn btn-outline-primary mr-3" (click)="onEnterDetailsClick()">Enter Details</button>
+<button type="button" class="btn btn-outline-primary mr-3" (click)="onSelectProductClick()">Select Product</button>
+<button type="button" class="btn btn-outline-primary" (click)="onConfirmDetailsClick()">Confirm details</button>
+
+<div>
+  <div *ngIf="EnterdetailsEnable">
+    <form [formGroup]="newOrderForm">
+      <div class="form-group form-row mt-2">
+        <label for="email" class="col-form-label col-md-4">Retailer:</label>
+        <div class="col-md-6">
+          <select class="form-control" formControlName="retailerID">
+            <option value="">Please Select</option>
+            <option *ngFor="let retailer of retailers" [value]="retailer.retailerID" class="form-control">
+              {{retailer.retailerName}}
+            </option>
+          </select>
+
+        </div>
+      </div>
+
+      <div class="form-group form-row mt-2">
+        <label for="dateoforder" class="col-form-label col-md-4">Date of order:</label>
+        <div class="col-md-6">
+          <input type="date" placeholder="Offline Order Date" class="form-control" id="dateoforder" formControlName="offlineorderDate" />
+          <small class="form-text text-muted">Enter valid date.</small>
+
+        </div>
+      </div>
+      <div class="text-center mb-3">
+        <button class="btn btn-primary" (click)="onNextButtonClick()">Next</button>
+      </div>
+    </form>
+  </div>
+
+
+
+
+  <div *ngIf="SelectproductEnable">
+
+
+
+    <form [formGroup]="newOrderDetailForm">
+
+      <!--<select class=" form-control  mt-3 " style="width:70%">
+        <option value="Select Category">Select Category</option>
+        <option value="Mountaineering Equipment">Mountaineering Equipment</option>
+        <option value="Golf Equipment">Golf Equipment</option>
+        <option value="Camping Equipment">Camping Equipment</option>
+        <option value="Personal Accessories">Personal Accessories</option>
+        <option value="Outing Equipment">Outing Equipment</option>
+      </select>-->
+
+      <button class="btn btn-sm btn-light" (click)="onBtnAddProductClick(index)">Add Product</button>
+
+      <button type="submit" class="btn btn-success float-right" (click)="onSaveClick($event)" [disabled]="newOrderDisabled">
+        <span *ngIf="!newOrderDisabled"><i class="fa fa-save"></i> Save</span>
+        <span *ngIf="newOrderDisabled"><i class="fa fa-circle-o-notch  fa-spin"></i> Saving</span>
+      </button>
+      <table class="table mt-2">
+        <thead>
+          <tr class="table-secondary">
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Details</th>
+            <th>Unit Price</th>
+
+            <th>Quantity</th>
+            <th>Total</th>
+            <th class="text-secondary">Actions</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let offlineorderDetail of newOrderDetailForm.get ('offlineorderDetails').controls; let index = index" formArrayName="offlineorderDetails">
+
+            <td>{{index + 1}}</td>
+
+            <td [formGroupName]="index">
+              <select class="form-control" [ngClass]="{ 'is-invalid': offlineorderDetail.get('productID').invalid && (offlineorderDetail.get('productID').dirty || offlineorderDetail.get('productID').touched || newOrderForm['submitted']) }" formControlName="productID" (change)=" onProductDropdownChange(index)">
+                <option value="">Please Select</option>
+                <option *ngFor="let product of products" [value]="product.productID">
+                  {{product.productName}}
+                </option>
+              </select>
+            </td>
+            <td [formGroupName]="index">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                View
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel"></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td [formGroupName]="index">
+              {{offlineorderDetail.get('unitPrice').value}}
+            </td>
+            <td [formGroupName]="index"><input type="number" placeholder="Quantity" class="form-control" id="quantity" formControlName="quantity" min="0" max="1000000" style="width:70%" (change)="onQuantityChange(index)" /></td>
+            <td [formGroupName]="index">{{offlineorderDetail.get('totalAmount').value}}</td>
+            <td [formGroupName]="index">
+              <div class="btn-group">
+                <button class="btn btn-sm btn-danger" (click)="onProductDeleteClick(index)">Delete</button>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </form>
+  </div>
+</div>
+<div *ngIf="ConfirmDetailsenable">
+  <table class="table mt-2">
+    <thead>
+      <tr class="table-secondary">
+        <th>#</th>
+        <th>Product Name</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offlineorderdetail of offlineOrderDetails; let index = index">
+        <td>{{index+1}}</td>
+        <td>{{offlineorderdetail.productID}}</td>
+        <td>{{offlineorderdetail.unitPrice}}</td>
+        <td>{{offlineorderdetail.quantity}}</td>
+        <td>{{offlineorderdetail.totalAmount}}</td>
+      </tr>
+        
+    </tbody>
+    </table>
+</div>

@@ -7,6 +7,9 @@ import { RetailerRoutingModule } from './retailer-routing.module';
 import { RetailersProfileComponent } from './retailer-profile/retailer-profile.component';
 import { AddressComponent } from './retailer-address/retailer-address.component';
 import { OnlineReturnsComponent } from './onlineReturns/onlineReturns.component';
+import { OrderComponent } from './order/order.component';
+import { OrdersComponent } from './orders/orders.component';
+
 
 // Create By Prafull Sharma on 08/10/2019
 @NgModule({
@@ -14,7 +17,9 @@ import { OnlineReturnsComponent } from './onlineReturns/onlineReturns.component'
     RetailerHomeComponent,
     RetailersProfileComponent,
     AddressComponent,
-    OnlineReturnsComponent
+    OnlineReturnsComponent,
+    OrderComponent,
+    OrdersComponent
     //SuppliersComponent
   ],
   imports: [
@@ -29,7 +34,8 @@ import { OnlineReturnsComponent } from './onlineReturns/onlineReturns.component'
     RetailerHomeComponent,
     OnlineReturnsComponent,
     RetailersProfileComponent,
-    AddressComponent
+    AddressComponent,
+    OrderComponent
     //SuppliersComponent
   ]
 })
