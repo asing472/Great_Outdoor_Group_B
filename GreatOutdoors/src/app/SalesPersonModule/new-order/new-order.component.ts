@@ -18,7 +18,7 @@ import { ProductsService } from '../../Services/product.services'
   templateUrl: './new-order.component.html',
   styleUrls: ['./new-order.component.scss']
 })
-export class NewOrderComponent extends GreatOutdoorsComponentBase implements OnInit {
+export class NewOrderComponent extends GreatOutdoorComponentBase implements OnInit {
   offlineorder: OfflineOrder;
 
   i: number;

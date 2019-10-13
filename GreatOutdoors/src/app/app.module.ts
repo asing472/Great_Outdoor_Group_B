@@ -31,7 +31,7 @@ import { GreatOutdoorDataService } from './InMemoryWebAPIServices/GreatOutdoor-d
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    environment.production ? HttpClientInMemoryWebApiModule.forRoot(GreatOutdoorDataService, { delay: 1000 }) : [],
+    environment.production ? HttpClientInMemoryWebApiModule.forRoot(GreatOutdoorDataService) : [],
     AdminModule,
     RetailerModule,
     SalesPersonModule

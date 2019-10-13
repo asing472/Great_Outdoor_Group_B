@@ -6,13 +6,14 @@ import { SalesPersonsComponent } from './salesPersons/salesPersons.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { YourprofileComponent } from './yourprofile/yourprofile.component';
 import { ProductsComponent } from './products/products.component';
-
+import { RetailersComponent } from './retailers/retailers.component';
 
 
 @NgModule({
   declarations: [
     AdminHomeComponent,
     SalesPersonsComponent,
+     RetailersComponent,
     ProductsComponent,
     YourprofileComponent,
   ],
@@ -26,6 +27,7 @@ import { ProductsComponent } from './products/products.component';
     AdminRoutingModule,
     AdminHomeComponent,
     SalesPersonsComponent,
+    RetailersComponent,
     ProductsComponent,
     YourprofileComponent,
   ]

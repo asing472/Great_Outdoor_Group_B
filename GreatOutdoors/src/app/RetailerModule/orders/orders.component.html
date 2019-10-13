@@ -17,19 +17,19 @@
         <tr class="table-secondary">
           <th>Order Number</th>
           <th>Order Date</th>
-          <th>Product Name</th>
+          <th>OrderID</th>
           <th>Total Quantity</th>
           <th>Total Amount</th>
 
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let orderdetail of orderdetails; let index = index">
-          <td>{{orderdetail.ordernumber}}</td>
-          <td>{{orderdetail.creationDateTime}}</td>
-          <td>{{orderdetail.productname}}</td>
-          <td>{{orderdetail.quantity}}</td>
-          <td>{{orderdetail.totalAmount}}</td>
+        <tr *ngFor="let order of orderdetails; let index = index">
+          <td>{{index+1}}</td>
+          <td>{{order.creationDateTime}}</td>
+          <td>{{order.orderID}}</td>
+          <td>{{order.totalQuantity}}</td>
+          <td>{{order.totalAmount}}</td>
         </tr>
       </tbody>
     </table>

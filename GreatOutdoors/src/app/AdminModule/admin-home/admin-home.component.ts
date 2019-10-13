@@ -11,8 +11,19 @@ export class AdminHomeComponent implements OnInit
   {
   }
 
-  ngOnInit()
-  {
+  ngOnInit() {
+    
+    this.retailersService.GetAllRetailers().subscribe((response) => {
+      this.retailers = response;
+      }, (error) => {
+        console.log(error);
+      })
+       this.salesPersonsService.GetAllSalesPersons().subscribe((response) => {
+      this.salesPersons = response;
+     
+    }, (error) => {
+        console.log(error);
+      })
   }
 }
 
