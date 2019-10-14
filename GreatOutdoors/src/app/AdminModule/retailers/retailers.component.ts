@@ -1,14 +1,14 @@
+//developed by prafull sharma
+//retailer component
 import { Component, OnInit } from '@angular/core';
 import { Retailer } from '../../Models/retailer';
 import { RetailersService } from '../../Services/retailers.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import * as $ from "jquery";
 import { GreatOutdoorComponentBase } from '../../GreatOutdoor-component';
 
 @Component({
   selector: 'app-retailers',
-  templateUrl: './retailers.component.html',
-  styleUrls: ['./retailers.component.scss']
+  templateUrl: './retailers.component.html',// respective template for this component
+  styleUrls: ['./retailers.component.scss'] // respective style sheet for this component
 })
 export class RetailersComponent extends GreatOutdoorComponentBase implements OnInit {
   retailers: Retailer[] = [];
@@ -18,7 +18,7 @@ export class RetailersComponent extends GreatOutdoorComponentBase implements OnI
   sortBy: string = "retailerName";
   sortDirection: string = "ASC";
 
-  
+   //constructor to inject components
   constructor(private retailersService: RetailersService) {
     super();
    
@@ -44,19 +44,21 @@ export class RetailersComponent extends GreatOutdoorComponentBase implements OnI
       })
   }
 
-  
+  //function on clicking select all
   onViewSelectAllClick() {
     for (let propertyName of Object.keys(this.viewRetailerCheckBoxes)) {
       this.viewRetailerCheckBoxes[propertyName] = true;
     }
   }
 
+  //function on clicking deselect all
   onViewDeselectAllClick() {
     for (let propertyName of Object.keys(this.viewRetailerCheckBoxes)) {
       this.viewRetailerCheckBoxes[propertyName] = false;
     }
   }
 
+  // function on clicking sort button
   onBtnSortClick() {
     console.log(this.sortBy);
     this.retailers.sort((a, b) => {

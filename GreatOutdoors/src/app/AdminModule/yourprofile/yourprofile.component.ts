@@ -1,17 +1,18 @@
+//developed by Sravani
+//componet to update details
 import { Component, OnInit } from '@angular/core';
 import { Admin } from '../../Models/admin';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminsService } from '../../Services/admins.service';
 import * as $ from "jquery";
-import { User } from 'src/app/Models/user';
 import { UserAccountService } from 'src/app/Services/user-account.service';
 import { GreatOutdoorComponentBase } from '../../greatoutdoor-component';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-yourprofile',
-  templateUrl: './yourprofile.component.html',
-  styleUrls: ['./yourprofile.component.scss']
+  templateUrl: './yourprofile.component.html',// respective template for this component
+  styleUrls: ['./yourprofile.component.scss'] // respective style sheet for this component
 })
 export class YourprofileComponent extends GreatOutdoorComponentBase implements OnInit {
   admins: Admin[] = [];
@@ -25,6 +26,8 @@ export class YourprofileComponent extends GreatOutdoorComponentBase implements O
   changePasswordForm: FormGroup;
   changePasswordDisabled: boolean = false;
   changePasswordFormErrorMessages: any;
+
+   //constructor to inject components
   constructor(private adminsService: AdminsService, private userAccountService: UserAccountService, private router: Router) {
     super();
    
@@ -66,7 +69,7 @@ export class YourprofileComponent extends GreatOutdoorComponentBase implements O
       console.log(error);
     })
   }
-  // Function after Chilcking on Update Profile
+  // Function after Cilcking on Update Profile
   onUpdateAdminClick() {
     this.updateProfileForm.reset();
     this.updateProfileForm["submitted"] = false;
@@ -111,6 +114,7 @@ export class YourprofileComponent extends GreatOutdoorComponentBase implements O
     this.changePasswordForm["submitted"] = false;
   }
 
+  //function after confirm password click
   onChangePasswordConfirmClick($event) {
     this.changePasswordForm["submitted"] = true;
     if (this.changePasswordForm.valid) {
