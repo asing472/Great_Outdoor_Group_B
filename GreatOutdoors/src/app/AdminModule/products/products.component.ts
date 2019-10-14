@@ -1,3 +1,5 @@
+//developed by arshpreet
+//products component
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../Models/product';
 import { ProductsService } from '../../Services/products.service';
@@ -7,8 +9,8 @@ import { GreatOutdoorComponentBase } from '../../GreatOutdoor-component';
 
 @Component({
   selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  templateUrl: './products.component.html', // respective template for this component
+  styleUrls: ['./products.component.scss'] // respective style sheet for this component
 })
 export class ProductsComponent extends GreatOutdoorComponentBase implements OnInit {
   products: Product[] = [];
@@ -29,6 +31,7 @@ export class ProductsComponent extends GreatOutdoorComponentBase implements OnIn
   deleteProductForm: FormGroup;
   deleteProductDisabled: boolean = false;
 
+   //constructor to inject components
   constructor(private productsService: ProductsService) {
     super();
     this.newProductForm = new FormGroup({
@@ -50,7 +53,7 @@ export class ProductsComponent extends GreatOutdoorComponentBase implements OnIn
     };
 
 
-
+    //function on clicking edit product 
     this.editProductForm = new FormGroup({
       id: new FormControl(null),
       productID: new FormControl(null),
@@ -83,6 +86,8 @@ export class ProductsComponent extends GreatOutdoorComponentBase implements OnIn
       lastModifiedOn: true
     };
 
+
+    //function on clicking delete product 
     this.deleteProductForm = new FormGroup({
       id: new FormControl(null),
       productID: new FormControl(null),
@@ -100,11 +105,15 @@ export class ProductsComponent extends GreatOutdoorComponentBase implements OnIn
       })
   }
 
+
+    //function on clicking create product 
   onCreateProductClick() {
     this.newProductForm.reset();
     this.newProductForm["submitted"] = false;
   }
 
+
+    //event on clicking add product 
   onAddProductClick(event) {
     this.newProductForm["submitted"] = true;
     if (this.newProductForm.valid) {
@@ -153,6 +162,7 @@ export class ProductsComponent extends GreatOutdoorComponentBase implements OnIn
 
 
 
+    //function on clicking edit product 
   onEditProductClick(index) {
     this.editProductForm.reset();
     this.editProductForm["submitted"] = false;
@@ -169,6 +179,8 @@ export class ProductsComponent extends GreatOutdoorComponentBase implements OnIn
     });
   }
 
+
+    //event on clicking update product 
   onUpdateProductClick(event) {
     this.editProductForm["submitted"] = true;
     if (this.editProductForm.valid) {
@@ -200,6 +212,7 @@ export class ProductsComponent extends GreatOutdoorComponentBase implements OnIn
 
 
 
+    //function on clicking delete product 
   onDeleteProductClick(index) {
     this.deleteProductForm.reset();
     this.deleteProductForm["submitted"] = false;
@@ -210,6 +223,8 @@ export class ProductsComponent extends GreatOutdoorComponentBase implements OnIn
     });
   }
 
+
+    //event on clicking delete product 
   onDeleteProductConfirmClick(event) {
     this.deleteProductForm["submitted"] = true;
     if (this.deleteProductForm.valid) {
@@ -241,19 +256,23 @@ export class ProductsComponent extends GreatOutdoorComponentBase implements OnIn
 
 
 
+    //function on clicking select all 
   onViewSelectAllClick() {
     for (let propertyName of Object.keys(this.viewProductCheckBoxes)) {
       this.viewProductCheckBoxes[propertyName] = true;
     }
   }
 
+
+    //function on clicking deselect all
   onViewDeselectAllClick() {
     for (let propertyName of Object.keys(this.viewProductCheckBoxes)) {
       this.viewProductCheckBoxes[propertyName] = false;
     }
   }
 
-  
+
+    //function on clicking sort
     onBtnSortClick()
     {
       console.log(this.sortBy);

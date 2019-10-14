@@ -1,3 +1,5 @@
+//author: Abhishek Kushwah
+//offline order component 
 import { Component, OnInit } from '@angular/core';
 import { OfflineOrder } from '../../Models/OfflineOrder';
 import { OfflineOrdersService } from '../../Services/offline-order.services';
@@ -11,12 +13,10 @@ import { GreatOutdoorComponentBase } from '../../GreatOutdoor-component';
 import { Product } from 'src/app/Models/product';
 import { ProductsService } from '../../Services/product.services'
 
-
-
 @Component({
   selector: 'app-new-order',
-  templateUrl: './new-order.component.html',
-  styleUrls: ['./new-order.component.scss']
+  templateUrl: './new-order.component.html', // respective template for this component
+  styleUrls: ['./new-order.component.scss'] // respective style sheet for this componet
 })
 export class NewOrderComponent extends GreatOutdoorComponentBase implements OnInit {
   offlineorder: OfflineOrder;
@@ -31,11 +31,9 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
 
   offlineOrderDetails: OfflineOrderDetail[] = [];
   offlineOrders: OfflineOrder[] = []
+  
 
-
-
-
-
+ //constructor to initialize forms
   constructor(private retailerService: RetailersService, private productsService: ProductsService, private offlineordersService: OfflineOrdersService, private offlineorderDetailsService: OfflineOrderDetailsService) {
     super();
     this.newOrderForm = new FormGroup({
@@ -56,20 +54,22 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
         ])
     });
   }
+
+  //click event for details 
   onEnterDetailsClick() {
     this.EnterdetailsEnable = true;
     this.SelectproductEnable = false;
-    this.ConfirmDetailsenable = false;
-
+   this.ConfirmDetailsenable = false;
   }
+
+  //click event for product dropdown
   onSelectProductClick() {
     this.EnterdetailsEnable = false;
     this.SelectproductEnable = true;
     this.ConfirmDetailsenable = false;
-
   }
 
-
+  //for change in quanity
   onQuantityChange(index: number) {
     var currentFormGroup: FormGroup = (this.newOrderForm.get('offlineorderDetails') as FormArray).at(index) as FormGroup;
     var quantity = Number(currentFormGroup.get('quantity').value);
@@ -103,9 +103,9 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
     });
 
   }
+  //on clicking add products
   onBtnAddProductClick(index: number) {
-
-
+  
     (this.newOrderForm.get('offlineorderDetails') as FormArray).push(new FormGroup({
       offlineorderID: new FormControl(null),
       productID: new FormControl("", [Validators.required]),
@@ -115,6 +115,7 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
     }));
   }
 
+  //click event for product dropdown
   onProductDropdownChange(index: number) {
     var currentFormGroup: FormGroup = (this.newOrderForm.get('offlineorderDetails') as FormArray).at(index) as FormGroup;
     var currentProductID = currentFormGroup.get('productID').value;
@@ -130,6 +131,8 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
         console.log(error);
       });
   }
+
+  //click event for product removal
   onProductDeleteClick(index: number) {
     if (confirm("Are you sure to delete?")) {
       (this.newOrderForm.get('offlineorderDetails') as FormArray).removeAt(index);
@@ -137,30 +140,25 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
   }
 
 
-
+  //click event for next button 
   onNextButtonClick(event) {
-
     this.EnterdetailsEnable = false;
     this.SelectproductEnable = true;
     this.ConfirmDetailsenable = false;
 
-
   }
 
 
-
+  //click event forconfirming details
   onConfirmDetailsClick() {
     this.EnterdetailsEnable = false;
     this.SelectproductEnable = false;
     this.ConfirmDetailsenable = true;
-
-
-
-
   }
+
+  //event for saving
   onSaveClick(event) {
-
-
+    
     this.newOrderForm["submitted"] = true;
     console.log(this.newOrderForm.valid);
     if (true) {//this.newOrderForm.valid
@@ -202,8 +200,7 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
                   console.log(error);
                 });
               this.newOrderForm.reset();
-
-
+              
               this.offlineordersService.GetAllOrders().subscribe((getResponse) => {
 
                 this.offlineOrders = getResponse;
@@ -225,10 +222,7 @@ export class NewOrderComponent extends GreatOutdoorComponentBase implements OnIn
             console.log(error);
 
           });
-
-
-
-
+        
       }
     }
   }

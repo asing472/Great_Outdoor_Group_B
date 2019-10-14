@@ -1,3 +1,5 @@
+//deveoped by Ayush Agrawal
+//sales person component
 import { Component, OnInit } from '@angular/core';
 import { SalesPerson } from '../../Models/salesPerson';
 import { SalesPersonsService } from '../../Services/salesPersons.service';
@@ -7,8 +9,8 @@ import { GreatOutdoorComponentBase } from '../../GreatOutdoor-component';
 
 @Component({
   selector: 'app-salesPersons',
-  templateUrl: './salesPersons.component.html',
-  styleUrls: ['./salesPersons.component.scss']
+  templateUrl: './salesPersons.component.html',// respective template for this component
+  styleUrls: ['./salesPersons.component.scss'] // respective style sheet for this component
 })
 export class SalesPersonsComponent extends GreatOutdoorComponentBase implements OnInit {
   salesPersons: SalesPerson[] = [];
@@ -29,6 +31,7 @@ export class SalesPersonsComponent extends GreatOutdoorComponentBase implements 
   deleteSalesPersonForm: FormGroup;
   deleteSalesPersonDisabled: boolean = false;
 
+   //constructor to inject components
   constructor(private salesPersonsService: SalesPersonsService) {
     super();
     this.newSalesPersonForm = new FormGroup({
@@ -46,7 +49,7 @@ export class SalesPersonsComponent extends GreatOutdoorComponentBase implements 
     };
 
 
-
+    //function after edit sales click
     this.editSalesPersonForm = new FormGroup({
       id: new FormControl(null),
       salesPersonID: new FormControl(null),
@@ -88,11 +91,13 @@ export class SalesPersonsComponent extends GreatOutdoorComponentBase implements 
       })
   }
 
+  //function after create sales persom click
   onCreateSalesPersonClick() {
     this.newSalesPersonForm.reset();
     this.newSalesPersonForm["submitted"] = false;
   }
 
+  //function after add sales person click
   onAddSalesPersonClick(event) {
     this.newSalesPersonForm["submitted"] = true;
     if (this.newSalesPersonForm.valid) {
@@ -140,7 +145,7 @@ export class SalesPersonsComponent extends GreatOutdoorComponentBase implements 
   }
 
 
-
+  //function on clicking edit sales person
   onEditSalesPersonClick(index) {
     this.editSalesPersonForm.reset();
     this.editSalesPersonForm["submitted"] = false;
@@ -155,6 +160,7 @@ export class SalesPersonsComponent extends GreatOutdoorComponentBase implements 
     });
   }
 
+  //function on clicking update sales person
   onUpdateSalesPersonClick(event) {
     this.editSalesPersonForm["submitted"] = true;
     if (this.editSalesPersonForm.valid) {
@@ -185,7 +191,7 @@ export class SalesPersonsComponent extends GreatOutdoorComponentBase implements 
   }
 
 
-
+  //function on clicking delete sales person
   onDeleteSalesPersonClick(index) {
     this.deleteSalesPersonForm.reset();
     this.deleteSalesPersonForm["submitted"] = false;
@@ -196,6 +202,7 @@ export class SalesPersonsComponent extends GreatOutdoorComponentBase implements 
     });
   }
 
+  //event on clicking delete sales person
   onDeleteSalesPersonConfirmClick(event) {
     this.deleteSalesPersonForm["submitted"] = true;
     if (this.deleteSalesPersonForm.valid) {
@@ -226,19 +233,20 @@ export class SalesPersonsComponent extends GreatOutdoorComponentBase implements 
   }
 
 
-
+  //function on clicking select all
   onViewSelectAllClick() {
     for (let propertyName of Object.keys(this.viewSalesPersonCheckBoxes)) {
       this.viewSalesPersonCheckBoxes[propertyName] = true;
     }
   }
-
+  //function on clicking deselect all
   onViewDeselectAllClick() {
     for (let propertyName of Object.keys(this.viewSalesPersonCheckBoxes)) {
       this.viewSalesPersonCheckBoxes[propertyName] = false;
     }
   }
 
+  //function on clicking sort
   onBtnSortClick() {
     console.log(this.sortBy);
     this.salesPersons.sort((a, b) => {

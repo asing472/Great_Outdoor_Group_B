@@ -41,13 +41,11 @@ export class OrderComponent extends GreatOutdoorComponentBase implements OnInit 
         new FormArray([
           new FormGroup({
           orderID: new FormControl(null),
-         // productCategory: new FormControl(null, [Validators.required]),
           productName: new FormControl(null),
           productID: new FormControl(null),
           unitPrice: new FormControl(null),
           quantity: new FormControl(1, [Validators.required, Validators.pattern(/^[0-9]*$/)]),
           totalAmount: new FormControl(null),
-          //addressID: new FormControl(null, [Validators.required])
         })
       ])
     });
